@@ -1,2 +1,0 @@
-Voici le contenu d'un fichier qui contient cette première ligne.
-Ainsi que cette seconde ligne.
