@@ -33,9 +33,16 @@ Et d'une deuxièle phrase.
 Et d'une troisième.
 
 ===== Alsace
+[quote, Shakespeare, Hamlet]
+Être ou ne pas être, telle est la question.
+
 ====== Bas-Rhin
 ====== Haut-Rhin
 ===== Bretagne
+[source, python]
+----
+print("Hello world"!)
+----
 ===== Provence Alpes Côtes d'Azur
 ==== Espagne
 ==== Portugal
