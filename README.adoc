@@ -2,3 +2,8 @@
 :author: Romain Le Drogo
 
 Ce document rassemble des bouts de code qui peuvent être utiles à réutiliser pour gagner du temps #flemme #DRY.
+
+Il se compose d'un dossier :
+
+* link:python[python] ;
+* link:asciidoc[asciidoc] pour réécrire facilement des fichiers asciidoc.
