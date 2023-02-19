@@ -39,8 +39,8 @@ Et d'une deuxièle phrase.
 Et d'une troisième.
 
 ===== Alsace
-[quote, Shakespeare, Hamlet]
-Être ou ne pas être, telle est la question.
+[quote, Shakespeare, Hamlet - Acte III - Scène 1]
+tre ou ne pas être, telle est la question.
 
 ====== Bas-Rhin
 
@@ -62,6 +62,7 @@ Je peux facilement inclure une partie d'un fichier de code en-dessous.
 ----
 include::./example1/python.py[tag=le-nom-de-mon-tag]
 ----
+CAUTION: `include` ne fonctionne pas sur Git Hub.
 
 === Europe de l'est
 
