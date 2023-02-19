@@ -53,6 +53,16 @@ print("Hello world"!)
 ===== Provence Alpes Côtes d'Azur
 ==== Espagne
 ==== Portugal
+
+Il y a un dossier intéressant : link:./example1[ici].
+
+Je peux facilement inclure une partie d'un fichier de code en-dessous.
+
+[source, python]
+----
+include::./example1/python.py[tag=le-nom-de-mon-tag]
+----
+
 === Europe de l'est
 
 == Afrique
