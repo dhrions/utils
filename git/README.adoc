@@ -1,0 +1,18 @@
+= README de Git
+:author: Romain Le Drogo
+
+== Bonnes pratiques
+
+=== Rédaction des commits
+When writing a commit message in Git, it is recommended to start the sentence with an imperative verb in the present tense. Some common verbs used in commit messages include:
+
+* Add: for adding new features or files
+* Update: for updating existing features or files
+* Fix: for fixing bugs or errors
+* Refactor: for making code improvements without changing functionality
+* Remove: for removing features or files
+* Improve: for improving existing features or functionality
+* Doc: for updating documentation
+* Test: for adding or updating tests
+
+Starting the sentence with a verb in the imperative mood makes the commit message more clear and actionable. It also helps to keep the commit messages concise and consistent.
