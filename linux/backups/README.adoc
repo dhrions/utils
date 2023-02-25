@@ -47,7 +47,7 @@ Les dossiers de configuration propre à l'utilisateur :
 
 `jellyfin/cache`
 
-=== Liste de commandes dont les résultats sont utiles à sauvegarder
+== Liste de commandes dont les résultats sont utiles à sauvegarder
 
 `dpkg --get-selections`
 
