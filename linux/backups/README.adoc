@@ -1,5 +1,6 @@
 = Recommandations pour les sauvegardes
 :Dhrions:
+:toc:
 
 :usr: user
 
