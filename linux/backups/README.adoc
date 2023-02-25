@@ -46,5 +46,10 @@ Les dossiers de configuration propre à l'utilisateur :
 
 `jellyfin/cache`
 
+=== Liste de commandes dont les résultats sont utiles à sauvegarder
 
+`dpkg --get-selections`
 
+`crontab -l`
+
+`lsblk`
