@@ -1,0 +1,50 @@
+= Recommandations pour les sauvegardes
+:Dhrions:
+
+:usr: user
+
+== Liste de fichiers ou de dossiers utiles à sauvegarder
+
+=== Cas général
+
+Le dossier de root :
+
+`/root/`
+
+Des dossiers de configuration générale :
+
+`/etc/ssh`
+
+`/etc/resolv.conf`
+
+Les dossiers de configuration propre à l'utilisateur :
+
+`/home/user/.*`
+
+=== Cas particuliers
+
+==== Ordinateur avec Docker
+
+`/var/lib/docker/volumes/portainer_data/_data/compose/`
+
+== Liste de fichiers ou de dossiers utiles à exclure
+
+=== Cas général
+
+
+=== Cas particuliers
+
+==== Nextcloud
+
+`nextcloud/data`
+
+==== Jellyfin
+
+`*/metadata`
+
+`*/MediaCover`
+
+`jellyfin/cache`
+
+
+
