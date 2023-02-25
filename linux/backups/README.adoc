@@ -18,6 +18,10 @@ Des dossiers de configuration générale :
 
 `/etc/resolv.conf`
 
+`/etc/fstab`
+
+`/etc/default/grub`
+
 Les dossiers de configuration propre à l'utilisateur :
 
 `/home/user/.*`
