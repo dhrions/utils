@@ -22,6 +22,8 @@ $ sudo command
 
 `Ctrl + A`
 
+//image::moving_cli.png[]
+
 == Aller au bout de la ligne
 
 `Ctrl + E`
@@ -44,11 +46,12 @@ $ sudo command
 
 == Exécuter deux commandes d'affilée si la première a réussi
 
-command1 && command2 `
+`command1 && command2`
 
 == Retaper l'argument précédent
 
 `cat file`
+
 `vim !$`
 
 == Afficher le contenu d'un fichier entre deux lignes
