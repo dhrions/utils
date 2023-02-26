@@ -10,27 +10,46 @@
 
 Le dossier de root :
 
-`/root/`
+[source, bash]
+----
+/root/
+----
 
 Des dossiers de configuration générale :
 
-`/etc/ssh`
+[source, bash]
+----
+/etc/ssh
+----
 
-`/etc/resolv.conf`
+[source, bash]
+----
+/etc/resolv.conf
+----
 
-`/etc/fstab`
+[source, bash]
+----
+/etc/fstab
+----
 
-`/etc/default/grub`
+[source, bash]
+----
+/etc/default/grub
+----
 
 Les dossiers de configuration propre à l'utilisateur :
 
-`/home/user/.*`
+[source, bash]
+----
+/home/user/.*
+----
 
 === Cas particuliers
 
 ==== Serveurs avec Swag
-
-`/config/nginx/nginx.conf
+[source, bash]
+----
+/config/nginx/nginx.conf
 /config/nginx/ldap-server.conf
 /config/nginx/authelia-location.conf
 /config/nginx/authelia-server.conf
@@ -40,11 +59,15 @@ Les dossiers de configuration propre à l'utilisateur :
 /config/nginx/proxy-confs/<name2>.subdomain.conf
 /config/nginx/proxy-confs/<name3>.subdomain.conf
 /config/nginx/proxy-confs/<name4>.subdomain.conf
-/config/nginx/site-confs/default.conf`
+/config/nginx/site-confs/default.conf
+----
 
 ==== Serveurs avec Docker
 
-`/var/lib/docker/volumes/portainer_data/_data/compose/`
+[source, bash]
+----
+/var/lib/docker/volumes/portainer_data/_data/compose/
+----
 
 == Liste de fichiers ou de dossiers utiles à exclure
 
@@ -55,20 +78,25 @@ Les dossiers de configuration propre à l'utilisateur :
 
 ==== Nextcloud
 
-`nextcloud/data`
+[source, bash]
+----
+nextcloud/data
+----
 
 ==== Jellyfin
 
-`*/metadata`
-
-`*/MediaCover`
-
-`jellyfin/cache`
+[source, bash]
+----
+*/metadata
+*/MediaCover
+jellyfin/cache
+----
 
 == Liste de commandes dont les résultats sont utiles à sauvegarder
 
-`dpkg --get-selections`
-
-`crontab -l`
-
-`lsblk`
+[source, bash]
+----
+dpkg --get-selections
+crontab -l
+lsblk
+----
