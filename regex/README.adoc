@@ -41,13 +41,14 @@ Des formes non conformes comme `999.999.999.999` sont aussi récupérées.
 
 [source]
 ----
-/06[ -.]\d{2}[ -.]\d{2}[ -.]\d{2}[ -.]\d{2}/gm
+/06(\s\d{2}){4}|06(\d{2}){4}|06(\.\d{2}){4}|06(\-\d{2}){4}/gm
 ----
 
-Les numéros de la forme « 06 XX XX XX XX », « 06-XX-XX-XX-XX » et « 06.XX.XX.XX.XX » sont récupérés, même perdus dans du texte.
-Les numéros de la forme « 06.XX-XX XX XX », « 06-XX-XX XX-XX » et « 06.XX-XX.XX.XX » sont aussi récupérés.
+Les numéros de la forme «06 XX XX XX XX», «06XXXXXXXX», «06-XX-XX-XX-XX» et «06.XX.XX.XX.XX» sont récupérés, même perdus dans du texte.
 
 == URL
+
+URL de la forme « www.loremipsum.fr ».
 
 [source]
 ----
