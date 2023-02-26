@@ -22,8 +22,6 @@ On peut taper :
 
 `xargs` est donc très utile pour les commandes de la forme `command [options] argument1 argument2 argument3` comme :
 
-* `grep` ;
+* `grep` (exemple : `cat file | xargs grep`) ;
 * `rm` ;
-* `touch`.
-
-On peut utiliser `xargs` de cette façon : `cat file | xargs grep`.
+* `touch` (exemple : `cat file | xargs -I{} touch {}`, l'argument `-I{}` permet de ne pas prendre en compte les espaces au sein de la ligne).
