@@ -20,4 +20,9 @@ On peut taper :
 
 `cat fichier | xargs`
 
-`xargs` est donc très utile pour les commandes de la forme `command [options] argument1 argument2 argument3`.
+`xargs` est donc très utile pour les commandes de la forme `command [options] argument1 argument2 argument3` comme :
+
+* `grep` ;
+* `touch`.
+
+On peut utiliser `xargs` de cette façon : `cat file | xargs grep`.
