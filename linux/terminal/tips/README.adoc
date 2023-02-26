@@ -64,6 +64,12 @@ La commande suivante permet d'affficher la 2e, la 3e et la dernière colonne de 
 
 `date | awk '{print $2, $3, $NF}'`
 
+== Chercher
+
+`find ./ -name "*.page" -type f -print0`
+
+La commande permet de trouver les fichiers (`-type f`) dont le nom termine par `.page` (`-name "*.page"`), dans le dossier courant (`./`) en n'interprétant pas les espaces comme la fin du nom du fichier (`-print0`).
+
 == Afficher le contenu d'un CSV (awk ultime)
 
 Voici le contenu de fichier.txt :
