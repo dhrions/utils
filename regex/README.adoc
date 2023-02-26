@@ -1,6 +1,22 @@
 = Expressions régulières
 
+== Rappels
+
+[headers]
+|===
+|\w  | Matches any alphanumeric character from the basic Latin alphabet, including the underscore. Equivalent to [A-Za-z0-9_]. For example, /\w/ matches "a" in "apple", "5" in "$5.28", and "3" in "3D".
+|\d  | Matches any digit (Arabic numeral). Equivalent to [0-9]. For example, /\d/ or /[0-9]/ matches "2" in "B2 is the suite number".
+|\b  | Matches a word boundary. This is the position where a word character is not followed or preceded by another word-character, such as between a letter and a space. Note that a matched word boundary is not included in the match. In other words, the length of a matched word boundary is zero.
+|===
+
 == Liste d'expressions régulières utiles
+
+=== Toutes les lettres, même les accentuées
+
+[source]
+----
+/[A-Za-zÀ-ÿŒœ@]/gm
+----
 
 === Adresses IP
 
@@ -30,3 +46,10 @@ Des formes non conformes comme `999.999.999.999` sont aussi récupérées.
 
 Les numéros de la forme « 06 XX XX XX XX », « 06-XX-XX-XX-XX » et « 06.XX.XX.XX.XX » sont récupérés, même perdus dans du texte.
 Les numéros de la forme « 06.XX-XX XX XX », « 06-XX-XX XX-XX » et « 06.XX-XX.XX.XX » sont aussi récupérés.
+
+== URL
+
+[source]
+----
+/\bw{3}\.\w*\.fr\b/gm
+----
