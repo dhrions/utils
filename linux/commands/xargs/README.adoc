@@ -19,3 +19,5 @@ On veut les afficher ainsi : `line 1 line 2 line 3`.
 On peut taper :
 
 `cat fichier | xargs`
+
+`xargs` est donc très utile pour les commandes de la forme `command [options] argument1 argument2 argument3`.
