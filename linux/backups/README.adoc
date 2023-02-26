@@ -20,20 +20,8 @@ Des dossiers de configuration générale :
 [source, bash]
 ----
 /etc/ssh
-----
-
-[source, bash]
-----
 /etc/resolv.conf
-----
-
-[source, bash]
-----
 /etc/fstab
-----
-
-[source, bash]
-----
 /etc/default/grub
 ----
 
