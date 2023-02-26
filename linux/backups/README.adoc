@@ -25,7 +25,7 @@ Des dossiers de configuration générale :
 /etc/default/grub
 ----
 
-Les dossiers de configuration propre à l'utilisateur :
+Les dossiers de configuration propres à l'utilisateur :
 
 [source, bash]
 ----
@@ -37,17 +37,17 @@ Les dossiers de configuration propre à l'utilisateur :
 ==== Serveurs avec Swag
 [source, bash]
 ----
-/config/nginx/nginx.conf
-/config/nginx/ldap-server.conf
-/config/nginx/authelia-location.conf
-/config/nginx/authelia-server.conf
-/config/nginx/ssl.conf
-/config/nginx/proxy.conf
-/config/nginx/proxy-confs/<name1>.subdomain.conf
-/config/nginx/proxy-confs/<name2>.subdomain.conf
-/config/nginx/proxy-confs/<name3>.subdomain.conf
-/config/nginx/proxy-confs/<name4>.subdomain.conf
-/config/nginx/site-confs/default.conf
+/swag/config/nginx/nginx.conf
+/swag/config/nginx/ldap-server.conf
+/swag/config/nginx/authelia-location.conf
+/swag/config/nginx/authelia-server.conf
+/swag/config/nginx/ssl.conf
+/swag/config/nginx/proxy.conf
+/swag/config/nginx/proxy-confs/<name1>.subdomain.conf
+/swag/config/nginx/proxy-confs/<name2>.subdomain.conf
+/swag/config/nginx/proxy-confs/<name3>.subdomain.conf
+/swag/config/nginx/proxy-confs/<name4>.subdomain.conf
+/swag/config/nginx/site-confs/default.conf
 ----
 
 ==== Serveurs avec Docker
@@ -55,6 +55,20 @@ Les dossiers de configuration propre à l'utilisateur :
 [source, bash]
 ----
 /var/lib/docker/volumes/portainer_data/_data/compose/
+----
+
+==== Serveurs avec Nextcloud
+
+[source, bash]
+----
+nextcloud/config/www/nextcloud/config/config.php
+----
+
+==== Serveur avec Gitea
+
+[source, bash]
+----
+gitea/data/gitea/conf
 ----
 
 == Liste de fichiers ou de dossiers utiles à exclure
