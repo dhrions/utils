@@ -1,0 +1,21 @@
+= Emploi de xargs
+:author: Dhrions
+:toc:
+:sectnums:
+
+== Exemple basique
+
+On a un fichier ou une sortie de commande comme cela :
+
+[source, bash]
+----
+line 1
+line 2
+line 3
+----
+
+On veut les afficher ainsi : `line 1 line 2 line 3`.
+
+On peut taper :
+
+`cat fichier | xargs`
