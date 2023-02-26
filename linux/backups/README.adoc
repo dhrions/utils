@@ -28,7 +28,7 @@ Les dossiers de configuration propre à l'utilisateur :
 
 === Cas particuliers
 
-=== Pour Swag
+==== Serveurs avec Swag
 
 `/config/nginx/nginx.conf
 /config/nginx/ldap-server.conf
@@ -42,7 +42,7 @@ Les dossiers de configuration propre à l'utilisateur :
 /config/nginx/proxy-confs/<name4>.subdomain.conf
 /config/nginx/site-confs/default.conf`
 
-==== Ordinateur avec Docker
+==== Serveurs avec Docker
 
 `/var/lib/docker/volumes/portainer_data/_data/compose/`
 
