@@ -57,3 +57,32 @@ $ sudo command
 == Afficher le contenu d'un fichier entre deux lignes
 
 `cat file | sed -n '4,45p'`
+
+== Afficher certaines colonnes d'une sortie
+
+La commande suivante permet d'affficher la 2e, la 3e et la dernière colonne de la sortie de la commande `date`.
+
+`date | awk '{print $2, $3, $NF}'`
+
+== Afficher le contenu d'un CSV (awk ultime)
+
+Voici le contenu de fichier.txt :
+
+[source,bash]
+----
+A1;B1;C1;D1;10
+A2;B2;C2;D2;1
+A3;B3;C3;D3;10
+----
+
+
+Pour afficher :
+
+- une en-tête ;
+- la deuxième et la dernière colonne et seulement pour les lignes pour lesquelles la dernière colonne est supérieure à 10 ;
+- un pied ;
+en précisant que le délimiteur d'entrée est `;` et celui de sortie `,`.
+[source,bash]
+----
+awk -F";" 'BEGIN {OFS=","; print "En-tete\n--------"} $NF >= 10 {print $2, $NF} END {print "----------\nPied"}' test.txt
+----
