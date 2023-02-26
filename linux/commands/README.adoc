@@ -10,14 +10,6 @@
 command1 && command2
 ----
 
-== Retaper l'argument précédent
-
-[source, bash]
-----
-cat file
-vim !$
-----
-
 == Afficher le contenu d'un fichier entre deux lignes
 
 [source, bash]
