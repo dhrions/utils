@@ -1,0 +1,56 @@
+= Astuces pour le terminal Linux
+//
+:toc:
+:sectnums:
+
+Les astuces sont classées par ordre d'importance.
+
+== Compléter le texte
+
+Utiliser Tab.
+
+== Retaper la commande précédente précédée de sudo
+
+[source, bash]
+----
+$ command
+Erreur
+$ sudo !!
+$ sudo command
+----
+== Aller au début de la ligne
+
+`Ctrl + A`
+
+== Aller au bout de la ligne
+
+`Ctrl + E`
+
+== Couper tout ce qui est à droite du curseur
+
+`Ctrl + U`
+
+== Couper tout ce qui est à gauche du curseur
+
+`Ctrl + K`
+
+== Quitter (le terminal ou la session)
+
+`Ctrl + D`
+
+== Nettoyer le terminal
+
+`Ctrl + L`
+
+== Exécuter deux commandes d'affilée si la première a réussi
+
+command1 && command2 `
+
+== Retaper l'argument précédent
+
+`cat file`
+`vim !$`
+
+== Afficher le contenu d'un fichier entre deux lignes
+
+`cat file | sed -n '4,45p'`
