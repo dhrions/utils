@@ -54,3 +54,10 @@ URL de la forme « www.loremipsum.fr ».
 ----
 /\bw{3}\.\w*\.fr\b/gm
 ----
+
+== Adresse MAC
+
+[source]
+----
+/([0-9a-f]{2}:){5}[0-9a-f]{2}/gm
+----
