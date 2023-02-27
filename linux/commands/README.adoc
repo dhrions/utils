@@ -26,7 +26,7 @@ La commande suivante permet d'affficher la 2e, la 3e et la dernière colonne de 
 date | awk '{print $2, $3, $NF}'
 ----
 
-CAUTION: Il est important d'utiliser les simples guillements. Avec les doubles guillemets, l'intégralité de la ligne serait affichée.
+CAUTION: Il est important d'utiliser les simples guillemets. Avec les doubles guillemets, l'intégralité de la ligne serait affichée.
 
 == Chercher
 
