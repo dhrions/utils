@@ -39,17 +39,14 @@ Les dossiers de configuration propres à l'utilisateur :
 ==== Serveurs avec Swag
 [source, bash]
 ----
-/swag/config/nginx/nginx.conf
-/swag/config/nginx/ldap-server.conf
-/swag/config/nginx/authelia-location.conf
-/swag/config/nginx/authelia-server.conf
-/swag/config/nginx/ssl.conf
-/swag/config/nginx/proxy.conf
-/swag/config/nginx/proxy-confs/<name1>.subdomain.conf
-/swag/config/nginx/proxy-confs/<name2>.subdomain.conf
-/swag/config/nginx/proxy-confs/<name3>.subdomain.conf
-/swag/config/nginx/proxy-confs/<name4>.subdomain.conf
-/swag/config/nginx/site-confs/default.conf
+swag/config/nginx/nginx.conf
+swag/config/nginx/ldap-server.conf
+swag/config/nginx/authelia-location.conf
+swag/config/nginx/authelia-server.conf
+swag/config/nginx/ssl.conf
+swag/config/nginx/proxy.conf
+swag/config/nginx/proxy-confs/
+swag/config/nginx/site-confs/default.conf
 ----
 
 ==== Serveurs avec Docker
@@ -80,11 +77,11 @@ gitea/data/gitea/conf
 
 === Cas particuliers
 
-==== Nextcloud
+==== Swag
 
 [source, bash]
 ----
-nextcloud/data
+*.sample
 ----
 
 ==== Jellyfin
