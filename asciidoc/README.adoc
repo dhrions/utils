@@ -29,6 +29,9 @@ writing simple sectionless documents consisting only of a preamble.
 {subtitle}
 
 == Europe
+
+Pour aller en <<Amérique>>, c'est par <<Amérique, ici>>.
+
 === Europe de l'ouest ({url-wiki-Europe-Ouest}[cf. Wikipédia])
 
 ==== France ({url-wiki}/France[cf. Wikipédia])
@@ -79,5 +82,6 @@ CAUTION: `include` ne fonctionne pas sur Git Hub.
 ** nested item
 * item
 
+== Amérique
 
 More test
