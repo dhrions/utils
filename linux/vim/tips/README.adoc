@@ -1,0 +1,38 @@
+= Actions le plus utilisées
+
+Du plus fréquemment utilisé au mois fréquemment utilisé :
+
+== Ouvrir un fichier
+
+[source, bash]
+----
+vim fichier
+----
+
+==== Sortir du fichier sans enregistrer
+
+[source]
+----
+`Escape` + `:` + `q!`
+----
+
+==== Sortir du fichier en enregistrant
+
+[source]
+----
+`Escape` + `:` + `wq`
+----
+
+=== Entrer en mode insertion avant le curseur
+
+[source]
+----
+`i`
+----
+
+=== Aller à la dernière ligne
+
+[source]
+----
+`G`
+----
