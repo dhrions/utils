@@ -23,6 +23,8 @@ Des dossiers de configuration générale :
 /etc/resolv.conf
 /etc/fstab
 /etc/default/grub
+/etc/hosts
+/etc/hostname
 ----
 
 Les dossiers de configuration propres à l'utilisateur :
