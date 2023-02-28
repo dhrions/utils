@@ -17,7 +17,7 @@ On peut diviser l'informatique en trois grands domaines :
 * le développement (Dev) ;
 * l'opérationnel (Ops).
 
-image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps, align="center"]
+image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps]
 
 On pourra regarder link:https://www.youtube.com/watch?v=pnkeQ_olSz0[cette vidéo] de l'excellente chaîne Youtube link:https://www.youtube.com/@Cookieconnecte[Cookie Connectée].
 
@@ -52,7 +52,7 @@ Celui qui vous convient.
 
 Git est incontournable pour un développeur mais il peut aussi servir dans le domaine Ops ou Sec. C'est la raison pour laquelle ce chapitre n'est pas rangée dans <<Développement, la partie dédiée au Développement>>.
 
-On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms].
+On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms intitulé « Gérez du code avec Git et Github »].
 
 image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
 
@@ -62,7 +62,7 @@ Asciidoc est un excellent langage de markup qui est notamment utile pour rédige
 
 ===== Fonctionnement du web
 
-link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[Page d'accueil du cours d'OC intitulé « Comprendre le web »]
+On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
 
 === Développement
 
@@ -123,7 +123,7 @@ image::oc-python.png[Page d'accueil du cours d'OC sur Python]
 
 ===== Programmation orientée objet
 
-On pourra suivre link:https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python[ce cours d'Open Classrooms].
+On pourra suivre link:https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python[ce cours d'Open Classrooms intitulé « Apprenez la programmation orientée objet avec Python »].
 
 image::oc-python-poo.png[Page d'accueil du cours d'OC sur la POO avec Python]
 
