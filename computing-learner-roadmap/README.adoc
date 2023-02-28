@@ -32,7 +32,14 @@ Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtrise
 
 == Ma feuille de route idéale pour un DevSecOps complet
 
-<<./dev/README.adoc>>
+. link:https://github.com/dhrions/utils/tree/main/computing-learner-roadmap/dev#1-le-premier-cercle--lalgorithmie[Algoritmie]
+. link:https://github.com/dhrions/utils/tree/main/computing-learner-roadmap/transversal#111-ide[IDE]
+. link:https://github.com/dhrions/utils/tree/main/computing-learner-roadmap/transversal#112-git[Git]
+
+<<dev/README.adoc#algo>>
+
+
+
 
 // * link:transversal[Transverse].
 // * link:dev[Développement].
