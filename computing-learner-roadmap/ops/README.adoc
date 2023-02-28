@@ -1,0 +1,28 @@
+= Feuille de route de l'apprenant en informatique
+:Dhrions:
+:toc:
+:toclevels: 5
+:toc-title: Table des matières
+:sectnums:
+:imagesdir: images
+:sectnumlevels: 5
+
+== Opérationnel
+
+=== Le premier cercle
+
+==== Linux
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7170491-initiez-vous-a-linux[ce cours d'Open Classrooms].
+
+image::oc-linux.png[Page d'accueil du cours d'OC sur Linux]
+
+Puis link:https://openclassrooms.com/fr/courses/7274161-administrez-un-systeme-linux[ce cours].
+
+image::oc-linux-adminsys.png[Page d'accueil du cours d'OC sur Linux]
+
+=== Le second cercle
+
+==== Docker
+
+link:https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker[Page d'accueil du cours d'OC sur Docker]

@@ -1,0 +1,69 @@
+= Développement
+:Dhrions:
+:toc:
+:toclevels: 5
+:toc-title: Table des matières
+:sectnums:
+:imagesdir: ../images
+:sectnumlevels: 5
+
+== Le premier cercle
+
+La base de la base consiste à apprendre les fondamentaux de l'algorithmie.
+
+Pour cela, il nous faut choisir un langage de programmation. Pour les enfants (et pas que), on pourrait commencer sur Scratch https://scratch.mit.edu/projects/editor/?tutorial=getStarted[via ce tutoriel].
+
+Si l'on ne choisit pas Scratch, quel langage choisir ?
+
+De nombreuses vidéos existent sur Internet à ce sujet. Le principal et d'en choisir un de *se jeter dans le bain tout de suite*.
+Il sera toujours temps d'apprendre un autre langage plus tard.
+Lorsque l'on a appris un langage, il est très simple d'en apprendre un autre rapidement.
+S'il fallait vraiment en choisir un, je dirais Python et je continuerai cette feuille de route en considérant Python comme principal langage de programmation.
+Maintenant que vous avez choisi votre langage, vous pouvez vous lancer dans l'algortihmie.
+
+Le meilleur site selon moi pour débuter et commence de manière très progressive (parfois trop progressive) est le http://www.france-ioi.org/[site français des olympiades internationales d'informatiques].
+
+image::france-ioi-1.png[Page d'accueil de www.france-ioi.org]
+
+On suivra les différents cours et problèmes de  http://www.france-ioi.org/algo/chapters.php[la page du même nom] et on fera les exercices dans l'ordre.
+On peut voir qu'il y a différents niveaux, du 1 jusqu'au 6.
+
+image::france-ioi-2.png[Page d'accueil de www.france-ioi.org lorsque l'on est connecté]
+
+On voit ci-dessous le tout premier cours.
+
+image::france-ioi-3.png[Premier cours]
+
+Et ci-dessous le tout premier problème à résoudre.
+
+image::france-ioi-4.png[Premier problème]
+
+Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<IDE>> et de découvrir <<Git>>.
+
+== Le second cercle
+
+
+=== HTML et CSS
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3[ce cours d'Open Classrooms].
+
+image::oc-html-css.png[Page d'accueil du cours d'OC sur HTML et CSS]
+
+
+=== Javascript
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/6175841-apprenez-a-programmer-avec-javascript[ce cours d'Open Classrooms].
+
+image::oc-javascript.png[Page d'accueil du cours d'OC sur Javascript]
+
+=== Python
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7168871-apprenez-les-bases-du-langage-python[ce cours d'Open Classrooms].
+
+image::oc-python.png[Page d'accueil du cours d'OC sur Python]
+
+=== Programmation orientée objet
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python[ce cours d'Open Classrooms intitulé « Apprenez la programmation orientée objet avec Python »].
+
+image::oc-python-poo.png[Page d'accueil du cours d'OC sur la POO avec Python]

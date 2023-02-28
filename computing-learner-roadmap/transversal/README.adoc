@@ -1,0 +1,40 @@
+= Feuille de route de l'apprenant en informatique
+:Dhrions:
+:toc:
+:toclevels: 5
+:toc-title: Table des matières
+:sectnums:
+:imagesdir: ../images
+:sectnumlevels: 5
+
+
+== Transverse
+
+=== Le premier cercle
+
+==== IDE
+
+Un _Integrated Development Environment_ (IDE) ou (environnement de développement intégré) « est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels » (cf. https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement[Wikipédia]).
+
+Même s'il est question d'environnement de *développement* intégré et que cette partie aurait pu être rangée dans la <<Développement, partie « Développement »>>, un IDE peut aussi servir dans le domaine Ops (exemple : connexion en SSH) ou Sec (exemple : utilisation de la libraire Scapy).
+
+Quel IDE Choisir ?
+
+Celui qui vous convient.
+Étant donné que vous n'en connaissez pas, on prendra VSCode (cf. https://code.visualstudio.com/[site de VSCode]).
+
+==== Git
+
+Git est incontournable pour un développeur mais il peut aussi servir dans le domaine Ops ou Sec. C'est la raison pour laquelle ce chapitre n'est pas rangée dans <<Développement, la partie dédiée au Développement>>.
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms intitulé « Gérez du code avec Git et Github »].
+
+image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
+
+=== Asciidoc
+
+Asciidoc est un excellent langage de markup qui est notamment utile pour rédiger toute sa documentation. Ce document est d'ailleurs écrit en asciidoc.
+
+==== Fonctionnement du web
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
