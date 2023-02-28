@@ -17,7 +17,7 @@ On peut diviser l'informatique en trois grands domaines :
 * le développement (Dev) ;
 * l'opérationnel (Ops).
 
-image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps]
+image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps, align="center", margin="2em"]
 
 La sécurité a trait... à la sécurité. Elle demande principalement des savoirs et des avoir-faire Ops bien que des savoirs et des savoir-faire en Dev peuvent apporter une grande plus value.
 
@@ -53,6 +53,10 @@ Git est incontournable pour un développeur mais il peut aussi servir dans le do
 On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms].
 
 image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
+
+==== Asciidoc
+
+Asciidoc est un excellent langage de markup qui est notamment utile pour rédiger toute sa documentation. Ce document est d'ailleurs écrit en asciidoc.
 
 ===== Fonctionnement du web
 
