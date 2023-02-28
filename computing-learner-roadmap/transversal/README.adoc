@@ -31,10 +31,16 @@ On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-cod
 
 image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
 
-=== Asciidoc
+==== Asciidoc
 
 Asciidoc est un excellent langage de markup qui est notamment utile pour rédiger toute sa documentation. Ce document est d'ailleurs écrit en asciidoc.
 
 ==== Fonctionnement du web
 
 On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
+
+==== Youtube
+
+Youtube est une mine d'or. Des vidéos sur à peu près tous les sujets existent.
+
+=== Le second cercle
