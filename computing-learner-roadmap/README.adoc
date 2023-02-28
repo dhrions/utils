@@ -36,7 +36,7 @@ Si l'on ne choisit pas Scratch, quel langage choisir ?
 De nombreuses vidéos existent sur Internet à ce sujet. Le principal et d'en choisir un de *se jeter dans le bain tout de suite*.
 Il sera toujours temps d'apprendre un autre langage plus tard.
 Lorsque l'on a appris un langage, il est très simple d'en apprendre un autre rapidement.
-S'il fallait vraiment en choisir un, je dirais Python.
+S'il fallait vraiment en choisir un, je dirais Python et je continuerai cette feuille de route en considérant Python comme principal langage de programmation.
 Maintenant que vous avez choisi votre langage, vous pouvez vous lancer dans <<Algorithmie, la prochaine partie dédié à l'algorithmie>>.
 
 ===== Algorithmie
@@ -73,23 +73,52 @@ Celui qui vous convient.
 
 Git est incontournable pour un développeur.
 
-On pourra link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[suivre ce cours].
+On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms].
 
 image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
 
 ==== Le second cercle
 
-===== Web
 
-====== HTML
+===== HTML et CSS
 
-====== CSS
+On pourra suivre link:https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3[ce cours d'Open Classrooms].
 
-====== Javascript
+image::oc-html-css.png[Page d'accueil du cours d'OC sur HTML et CSS]
 
-===== Data Science
 
+===== Javascript
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/6175841-apprenez-a-programmer-avec-javascript[ce cours d'Open Classrooms].
+
+image::oc-javascript.png[Page d'accueil du cours d'OC sur Javascript]
+
+===== Python
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7168871-apprenez-les-bases-du-langage-python[ce cours d'Open Classrooms].
+
+image::oc-python.png[Page d'accueil du cours d'OC sur Python]
+
+===== Programmation orientée objet
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python[ce cours d'Open Classrooms].
+
+image::oc-python-poo.png[Page d'accueil du cours d'OC sur la POO avec Python]
 
 === Opérationnel
+
+==== Le premier cercle
+
+===== Linux
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7170491-initiez-vous-a-linux[ce cours d'Open Classrooms].
+
+image::oc-linux.png[Page d'accueil du cours d'OC sur Linux]
+
+Puis link:https://openclassrooms.com/fr/courses/7274161-administrez-un-systeme-linux[ce cours].
+
+image::oc-linux-adminsys.png[Page d'accueil du cours d'OC sur Linux]
+
+==== Le second cercle
 
 === Sécurité
