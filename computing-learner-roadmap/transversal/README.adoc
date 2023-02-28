@@ -37,12 +37,6 @@ image::oc-git.png[Page d'accueil du cours d'OC sur Git et GitHub]
 
 Markdown est sans doute le langage de balisage léger le plus utilisé. Il est notamment par GitHub.
 
-==== Asciidoc
-
-Asciidoc est un excellent langage de balisage léger qui est notamment utile pour rédiger toute sa documentation.
-Il propose des fonctionnalités plus poussées que Markdown et qui peuvent se révéler très utiles.
-Ce document est d'ailleurs écrit en asciidoc pour cette raison ainsi que tout le reste de la document de ce dépôt.
-
 ==== Fonctionnement du web
 
 On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
@@ -52,3 +46,11 @@ On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-l
 Youtube est une mine d'or. Des vidéos sur à peu près tous les sujets existent.
 
 === Le second cercle
+
+==== Asciidoc
+
+Asciidoc est un excellent langage de balisage léger qui est notamment utile pour rédiger toute sa documentation.
+Il propose des fonctionnalités plus poussées que Markdown et qui peuvent se révéler très utiles.
+Ce document est d'ailleurs écrit en asciidoc pour cette raison ainsi que tout le reste de la document de ce dépôt.
+Je préfère largement Asciidoc à Markdown et, pour cette raison, je l'aurais bien mis à la place de markdown.
+Toujours est-il que Markdown est plus simple d'emploi qu'Asciidoc et est plus employé (peut-être pour cette raison) que ce dernier.
