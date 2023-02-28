@@ -21,7 +21,7 @@ image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95b
 
 On pourra regarder link:https://www.youtube.com/watch?v=pnkeQ_olSz0[cette vidéo] de l'excellente chaîne Youtube link:https://www.youtube.com/@Cookieconnecte[Cookie Connectée].
 
-Le développement a trait à la programmation. Il concerne notamment des langages comme C, Python, Rust, HTML, CSS, Javascript... Dans ce domaine, on trouve notamment le métier de développeur, bien évidemment.
+Le développement a trait à la programmation. Il concerne notamment des langages comme C, Python, Rust, HTML, CSS, Javascript... Dans ce domaine, on trouve notamment le métier de développeur, bien évidemment. On pourra trouver plus d'informations sur ce métier sur link:https://openclassrooms.com/fr/courses/6817086-decouvrez-les-metiers-de-developpeur[le cours d'OC dédié à ce sujet].
 
 L'opérationnel a trait au fonctionnement des systèmes et/ou des réseaux.  Dans ce domaine, on trouve des métiers comme administrateur des systèmes, expert en cloud computing...
 
@@ -32,7 +32,7 @@ Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtrise
 
 == Feuille de route
 
-* link:transversal[Transvere].
+* link:transversal[Transverse].
 * link:dev[Développement].
 * link:ops[Opérationnel].
 * link:sec[Sécurité].
