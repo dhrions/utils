@@ -56,3 +56,5 @@ Il propose des fonctionnalités plus poussées que Markdown et qui peuvent se r�
 Ce document est d'ailleurs écrit en asciidoc pour cette raison ainsi que tout le reste de la document de ce dépôt.
 Je préfère largement Asciidoc à Markdown et, pour cette raison, je l'aurais bien mis à la place de markdown.
 Toujours est-il que Markdown est plus simple d'emploi qu'Asciidoc et est plus employé (peut-être pour cette raison) que ce dernier.
+
+==== Méthodes Agiles
