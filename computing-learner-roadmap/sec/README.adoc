@@ -9,7 +9,7 @@
 
 == Le premier cercle
 
-=== Sécurité de ses données personnelles
+=== Sécurité basique de ses données personnelles
 
 https://donottrack-doc.com/fr/[Do not track], une websérie interactive.
 
@@ -21,7 +21,7 @@ link:https://www.root-me.org/[Site de root-me.org]
 
 == Le second cercle
 
-=== Sécurité de ses données personnelles
+=== Sécurité avancée de ses données personnelles
 
 https://www.laquadrature.net/[Site de la quadrature du Net]
 
