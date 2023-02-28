@@ -1,6 +1,8 @@
 = Feuille de route de l'apprenant en informatique
 :Dhrions:
 :toc:
+:toclevels: 5
+:toc-title: Table des matières
 :sectnums:
 :imagesdir: images
 :sectnumlevels: 5
