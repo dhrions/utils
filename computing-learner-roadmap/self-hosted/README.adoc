@@ -3,7 +3,7 @@
 Il peut être utilise de posséder son NAS avec des conteneurs Docker proposant :
 
 * Un service de DNS dynamique comme DuckDNS pour conserver l'accès distant à son serveur (en cas d'adresse IP dynamique).
-* Un service d'hébegergement de fichiers comme Nextcloud (cf. https://fr.wikipedia.org/wiki/Nextcloud[Wikipédia] et www.nextcloud.com[site de Nextloud].
+* Un service d'hébegergement de fichiers comme Nextcloud (cf. https://fr.wikipedia.org/wiki/Nextcloud[Wikipédia] et https://www.nextcloud.com[site de Nextloud].
 Cela permet de remplacer des services comme Dropbox ou Google Drive.
 * Un reverse-proxy comme Swag ou Nginx Proxy Manager pour sécuriser l'accès aux services mentionnés ci-dessous.
 * Un service de double authentification comme Authelia pour sécuriser l'accès aux services mentionnés ci-dessous.
