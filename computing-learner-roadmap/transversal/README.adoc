@@ -1,4 +1,4 @@
-= Feuille de route de l'apprenant en informatique
+= Transverse
 :Dhrions:
 :toc:
 :toclevels: 5
@@ -10,11 +10,11 @@
 
 image::circles.drawio.svg[Static,300]
 
-== Transverse
 
-=== Le premier cercle
 
-====  IDE
+== Le premier cercle
+
+===  IDE
 
 // image::../../images/vscode.png[]
 
@@ -27,7 +27,7 @@ Quel IDE Choisir ?
 Celui qui vous convient.
 Étant donné que vous n'en connaissez pas, on prendra VSCode (cf. https://code.visualstudio.com/[site de VSCode]).
 
-==== Git
+=== Git
 
 Git est incontournable pour un développeur mais il peut aussi servir dans le domaine Ops ou Sec. C'est la raison pour laquelle ce chapitre n'est pas rangée dans <<Développement, la partie dédiée au Développement>>.
 
@@ -35,21 +35,21 @@ On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-cod
 
 image::oc-git.png[Page d'accueil du cours d'OC sur Git et GitHub]
 
-==== Markdown
+=== Markdown
 
 Markdown est sans doute le langage de balisage léger le plus utilisé. Il est notamment par GitHub.
 
-==== Fonctionnement du web
+=== Fonctionnement du web
 
 On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
 
-==== Youtube
+=== Youtube
 
 Youtube est une mine d'or. Des vidéos sur à peu près tous les sujets existent.
 
-=== Le second cercle
+== Le second cercle
 
-==== Asciidoc
+=== Asciidoc
 
 Asciidoc est un excellent langage de balisage léger qui est notamment utile pour rédiger toute sa documentation.
 Il propose des fonctionnalités plus poussées que Markdown et qui peuvent se révéler très utiles.
@@ -57,4 +57,4 @@ Ce document est d'ailleurs écrit en asciidoc pour cette raison ainsi que tout l
 Je préfère largement Asciidoc à Markdown et, pour cette raison, je l'aurais bien mis à la place de markdown.
 Toujours est-il que Markdown est plus simple d'emploi qu'Asciidoc et est plus employé (peut-être pour cette raison) que ce dernier.
 
-==== Méthodes Agiles
+=== Méthodes Agiles
