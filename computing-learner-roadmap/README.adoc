@@ -17,7 +17,11 @@ On peut diviser l'informatique en trois grands domaines :
 * le développement (Dev) ;
 * l'opérationnel (Ops).
 
-image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps, align="center", margin="2em"]
+image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps, float="", align="center", margin="2em"]
+
+On pourra regarder la vidéo ci-dessous de l'excellente chaîne Youtube link:https://www.youtube.com/@Cookieconnecte[Cookie Connectée].
+
+video::https://www.youtube.com/watch?v=pnkeQ_olSz0[youtube, title="DevSecOps : comprendre l'essentiel en 8 minutes"]
 
 La sécurité a trait... à la sécurité. Elle demande principalement des savoirs et des avoir-faire Ops bien que des savoirs et des savoir-faire en Dev peuvent apporter une grande plus value.
 
