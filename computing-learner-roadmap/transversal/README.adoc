@@ -10,8 +10,6 @@
 
 image::circles.drawio.svg[Static,300]
 
-
-
 == Le premier cercle
 
 ===  IDE
@@ -46,6 +44,17 @@ On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-l
 === Youtube
 
 Youtube est une mine d'or. Des vidéos sur à peu près tous les sujets existent.
+
+=== Les cheatsheets
+
+Il suffit de taper _cheatsheet_ et le nom du langage, du framework ou du service que l'on souhaite pour trouver une _cheatsheet_, c'est-à-dire un document qui présente une vue d'ensemble du langage, du framework ou du service considéré.
+
+image:https://s2.qwant.com/thumbr/0x380/f/9/7db2b78042ea3421872f1c7bd954635755bc925a6ed6987c5965c32ff526c6/008825178_1-f39e56009941736933e722fe371a5cd3.png?u=https%3A%2F%2Fs2.studylib.es%2Fstore%2Fdata%2F008825178_1-f39e56009941736933e722fe371a5cd3.png&q=0&b=1&p=0&a=0[Exemple de cheatsheet pour Markdown]
+
+=== Les raccourcis claviers
+
+Les raccourcis claviers peuvent faire gagner *beaucoup* de temps.
+Leur apprentissage doit se faire petit à petit.
 
 == Le second cercle
 
