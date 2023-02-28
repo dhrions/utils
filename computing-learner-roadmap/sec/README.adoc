@@ -9,6 +9,29 @@
 
 == Le premier cercle
 
+== Sécurité de ses données personnelles
+
+https://donottrack-doc.com/fr/[Do not track], une websérie interactive.
+
+https://www.ssi.gouv.fr/entreprise/formations/secnumacademie/[SecNumAcadémie], le MOOC de l'ANSSI.
+
+== Challenges
+
 link:https://www.root-me.org/[Site de root-me.org]
 
 == Le second cercle
+
+== Sécurité de ses données personnelles
+
+https://www.laquadrature.net/[Site de la quadrature du Net]
+
+link:https://www.youtube.com/watch?v=EOWeewlc2CE[Interview par Thinkerview intitulée : « Pass sanitaire, géopolitique de la Data, copie privée ? »]
+video::EOWeewlc2CE[youtube]
+
+link:https://www.youtube.com/watch?v=VBsLSfPs2PE[Interview par Thinkerview intitulée : « Benjamin Bayart, Grand Sorcier de l'Internet option vie privée »]
+video::VBsLSfPs2PE[youtube]
+
+=== Anonymisation
+
+* Tor
+* Tails
