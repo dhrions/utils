@@ -6,7 +6,7 @@
 :sectnums:
 :imagesdir: images
 :sectnumlevels: 5
-
+:logo_dir: ../../images
 
 image::circles.drawio.svg[Static,300]
 
@@ -14,7 +14,9 @@ image::circles.drawio.svg[Static,300]
 
 === Le premier cercle
 
-==== IDE
+====  IDE
+
+// image::../../images/vscode.png[]
 
 Un _Integrated Development Environment_ (IDE) ou (environnement de développement intégré) « est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels » (cf. https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement[Wikipédia]).
 
