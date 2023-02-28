@@ -43,13 +43,17 @@ Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtrise
 * https://openclassrooms.com/fr/ : pour des cours d'informatique variés et de grande qualité.
 * https://alternativeto.net/ : pour trouver des alternatives à un logiciel donné.
 
-== Liste de chaînes Youtube utile
+== Liste de chaînes Youtube utiles
 
 === En français
 
 * https://www.youtube.com/@grafikart
 * https://www.youtube.com/@Cookieconnecte : notamment pour le DevOps.
 * https://www.youtube.com/@paflegeek : notamment pour Linux et l'Open Source.
-* https://www.youtube.com/@GuiPoM : notamment pour l'Open Source, le DIY, la domotique. Vidéo très détaillée.
+* https://www.youtube.com/@GuiPoM : notamment pour l'Open Source, le DIY, la domotique... Vidéos très détaillées.
     ** link:https://www.youtube.com/playlist?list=PLMYMkXlcQmZA2TTeyT13eykkc-aM8kU3t[Playlist d'une qualité remarquable sur la construction d'un NAS de A à Z].
     ** link:https://www.youtube.com/playlist?list=PLMYMkXlcQmZDL97nmyNlDDKr0Q9S6TiN0[Playlist d'une qualité remarquable sur la mise en place d'un reverse proxy Swag de A à Z]. 
+
+=== En anglais
+
+* https://www.youtube.com/@NetworkChuck
