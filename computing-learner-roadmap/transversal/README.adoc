@@ -29,11 +29,17 @@ Git est incontournable pour un développeur mais il peut aussi servir dans le do
 
 On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms intitulé « Gérez du code avec Git et Github »].
 
-image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
+image::oc-git.png[Page d'accueil du cours d'OC sur Git et GitHub]
+
+==== Markdown
+
+Markdown est sans doute le langage de balisage léger le plus utilisé. Il est notamment par GitHub.
 
 ==== Asciidoc
 
-Asciidoc est un excellent langage de markup qui est notamment utile pour rédiger toute sa documentation. Ce document est d'ailleurs écrit en asciidoc.
+Asciidoc est un excellent langage de balisage léger qui est notamment utile pour rédiger toute sa documentation.
+Il propose des fonctionnalités plus poussées que Markdown et qui peuvent se révéler très utiles.
+Ce document est d'ailleurs écrit en asciidoc pour cette raison ainsi que tout le reste de la document de ce dépôt.
 
 ==== Fonctionnement du web
 

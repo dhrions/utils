@@ -34,4 +34,4 @@ Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtrise
 
 . On commence par l'<<dev/README.adoc#algo, algoritmie>>.
 . On apprend à se servir d'un <<transversal/README.adoc#ide, IDE>>.
-. On apprend à se servir de <<transversal/README.adoc#git, Git>>.
+. On apprend à se servir de <<transversal/README.adoc#git, Git et Git Hub>>.
