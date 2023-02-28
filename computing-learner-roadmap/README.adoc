@@ -30,9 +30,11 @@ La sécurité a trait... à la sécurité. Elle demande principalement des savoi
 On peut rester cantonner à un domaine en particulier et ignorer totalement les autres.
 Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtriser ce qui est inclus dans ce que j'ai nommé ci-dessous le premier cercle.
 
-== Feuille de route
+== Ma feuille de route idéale pour un DevSecOps complet
 
-* link:transversal[Transverse].
-* link:dev[Développement].
-* link:ops[Opérationnel].
-* link:sec[Sécurité].
+<<./dev/README.adoc>>
+
+// * link:transversal[Transverse].
+// * link:dev[Développement].
+// * link:ops[Opérationnel].
+// * link:sec[Sécurité].
