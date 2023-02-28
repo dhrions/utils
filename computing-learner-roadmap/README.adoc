@@ -17,6 +17,8 @@ On peut diviser l'informatique en trois grands domaines :
 * le développement (Dev) ;
 * l'opérationnel (Ops).
 
+image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps]
+
 La sécurité a trait... à la sécurité. Elle demande principalement des savoirs et des avoir-faire Ops bien que des savoirs et des savoir-faire en Dev peuvent apporter une grande plus value.
 
 Le développement a trait à la programmation. Il concerne notamment des langages comme C, Python, Rust, HTML, CSS, Javascript... Dans ce domaine, on trouve notamment le métier de développeur, bien évidemment.
@@ -134,6 +136,10 @@ Puis link:https://openclassrooms.com/fr/courses/7274161-administrez-un-systeme-l
 image::oc-linux-adminsys.png[Page d'accueil du cours d'OC sur Linux]
 
 ==== Le second cercle
+
+===== Docker
+
+link:https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker[Page d'accueil du cours d'OC sur Docker]
 
 === Sécurité
 
