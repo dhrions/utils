@@ -80,7 +80,7 @@ Lorsque l'on a appris un langage, il est très simple d'en apprendre un autre ra
 S'il fallait vraiment en choisir un, je dirais Python et je continuerai cette feuille de route en considérant Python comme principal langage de programmation.
 Maintenant que vous avez choisi votre langage, vous pouvez vous lancer dans l'algortihmie.
 
-Le meilleur site selon moi pour débuter et commence de manière très progressive (parfois trop progressive) est le http://www.france-ioi.org/[site français des olympiades informatiques].
+Le meilleur site selon moi pour débuter et commence de manière très progressive (parfois trop progressive) est le http://www.france-ioi.org/[site français des olympiades internationales d'informatiques].
 
 image::france-ioi-1.png[Page d'accueil de www.france-ioi.org]
 
