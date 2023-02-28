@@ -71,6 +71,12 @@ Celui qui vous convient.
 
 ===== Git
 
+Git est incontournable pour un développeur.
+
+On pourra link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[suivre ce cours].
+
+image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
+
 ==== Le second cercle
 
 ===== Web
