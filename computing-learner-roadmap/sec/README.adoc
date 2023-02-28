@@ -9,19 +9,19 @@
 
 == Le premier cercle
 
-== Sécurité de ses données personnelles
+=== Sécurité de ses données personnelles
 
 https://donottrack-doc.com/fr/[Do not track], une websérie interactive.
 
 https://www.ssi.gouv.fr/entreprise/formations/secnumacademie/[SecNumAcadémie], le MOOC de l'ANSSI.
 
-== Challenges
+=== Challenges
 
 link:https://www.root-me.org/[Site de root-me.org]
 
 == Le second cercle
 
-== Sécurité de ses données personnelles
+=== Sécurité de ses données personnelles
 
 https://www.laquadrature.net/[Site de la quadrature du Net]
 
