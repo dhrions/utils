@@ -23,7 +23,38 @@ Le développement a trait à la programmation. Il concerne notamment des langage
 
 L'opérationnel a trait au fonctionnement des systèmes et/ou des réseaux.  Dans ce domaine, on trouve des métiers comme administrateur des systèmes, expert en cloud computing...
 
+On peut rester cantonner à un domaine en particulier et ignorer totalement les autres.
+Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtriser ce qui est inclus dans ce que j'ai nommé ci-dessous le premier cercle.
+
 == Feuille de route
+
+
+=== Transverse
+
+==== Le premier cercle
+
+===== IDE
+
+Un _Integrated Development Environment_ (IDE) ou (environnement de développement intégré) « est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels » (cf. https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement[Wikipédia]).
+
+Même s'il est question d'environnement de *développement* intégré et que cette partie aurait pu être rangée dans la <<Développement, partie « Développement »>>, un IDE peut aussi servir dans le domaine Ops (exemple : connexion en SSH) ou Sec (exemple : utilisation de la libraire Scapy).
+
+Quel IDE Choisir ?
+
+Celui qui vous convient.
+Étant donné que vous n'en connaissez pas, on prendra VSCode (cf. https://code.visualstudio.com/[site de VSCode]).
+
+===== Git
+
+Git est incontournable pour un développeur mais il peut aussi servir dans le domaine Ops ou Sec. C'est la raison pour laquelle ce chapitre n'est pas rangée dans <<Développement, la partie dédiée au Développement>>.
+
+On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms].
+
+image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
+
+===== Fonctionnement du web
+
+link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[Page d'accueil du cours d'OC intitulé « Comprendre le web »]
 
 === Développement
 
@@ -39,9 +70,7 @@ De nombreuses vidéos existent sur Internet à ce sujet. Le principal et d'en ch
 Il sera toujours temps d'apprendre un autre langage plus tard.
 Lorsque l'on a appris un langage, il est très simple d'en apprendre un autre rapidement.
 S'il fallait vraiment en choisir un, je dirais Python et je continuerai cette feuille de route en considérant Python comme principal langage de programmation.
-Maintenant que vous avez choisi votre langage, vous pouvez vous lancer dans <<Algorithmie, la prochaine partie dédié à l'algorithmie>>.
-
-===== Algorithmie
+Maintenant que vous avez choisi votre langage, vous pouvez vous lancer dans l'algortihmie.
 
 Le meilleur site selon moi pour débuter et commence de manière très progressive (parfois trop progressive) est le http://www.france-ioi.org/[site français des olympiades informatiques].
 
@@ -61,23 +90,6 @@ Et ci-dessous le tout premier problème à résoudre.
 image::france-ioi-4.png[Premier problème]
 
 Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<IDE>> et de découvrir <<Git>>.
-
-===== IDE
-
-Un _Integrated Development Environment_ (IDE) ou (environnement de développement intégré) « est un ensemble d'outils qui permet d'augmenter la productivité des programmeurs qui développent des logiciels » (cf. https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement[Wikipédia]).
-
-Quel IDE Choisir ?
-
-Celui qui vous convient.
-Étant donné que vous n'en connaissez pas, on prendra VSCode (cf. https://code.visualstudio.com/[site de VSCode]).
-
-===== Git
-
-Git est incontournable pour un développeur.
-
-On pourra suivre link:https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[ce cours d'Open Classrooms].
-
-image::oc-git.png[Page d'accueil du cours d'OC sur Git et Git Hub]
 
 ==== Le second cercle
 
@@ -124,3 +136,9 @@ image::oc-linux-adminsys.png[Page d'accueil du cours d'OC sur Linux]
 ==== Le second cercle
 
 === Sécurité
+
+==== Le premier cercle
+
+link:https://www.root-me.org/[Site de root-me.org]
+
+==== Le second cercle
