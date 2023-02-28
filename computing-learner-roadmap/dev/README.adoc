@@ -41,6 +41,9 @@ image::france-ioi-4.png[Premier problème]
 
 Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<IDE>> et de découvrir <<Git>>.
 
+== Le principe DRY : _don't repeat yourself_
+
+
 == Le second cercle
 
 
@@ -56,6 +59,10 @@ image::oc-html-css.png[Page d'accueil du cours d'OC sur HTML et CSS]
 On pourra suivre link:https://openclassrooms.com/fr/courses/6175841-apprenez-a-programmer-avec-javascript[ce cours d'Open Classrooms].
 
 image::oc-javascript.png[Page d'accueil du cours d'OC sur Javascript]
+
+== Les API
+
+link:https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest[Débutez avec les API REST]
 
 === Python
 
