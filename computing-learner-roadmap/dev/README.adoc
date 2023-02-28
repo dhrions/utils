@@ -60,7 +60,7 @@ On pourra suivre link:https://openclassrooms.com/fr/courses/6175841-apprenez-a-p
 
 image::oc-javascript.png[Page d'accueil du cours d'OC sur Javascript]
 
-== Les API
+=== Les API
 
 link:https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest[Débutez avec les API REST]
 
