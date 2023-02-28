@@ -13,19 +13,19 @@ La feuille de route à suivre dépend des besoins de l'apprenant.
 
 On peut diviser l'informatique en trois grands domaines :
 
-* le développement (Dev) ;
-* l'opérationnel (Ops) ;
-* la sécurité (Sec).
+* le *développement* (Dev) ;
+* l'*opérationnel* (Ops) ;
+* la *sécurité* (Sec).
 
 image::https://s1.qwant.com/thumbr/0x380/1/7/0eaf456462673f23caf77f0271bc25ca95bef5f3f30d5d34c0d6a07dad4ed0/devsecops-image-2000-6557ba1b00.png?u=https%3A%2F%2Fdt-cdn.net%2Fimages%2Fdevsecops-image-2000-6557ba1b00.png&q=0&b=1&p=0&a=0[Schéma illustrant la DevSecOps]
 
 On pourra regarder link:https://www.youtube.com/watch?v=pnkeQ_olSz0[cette vidéo] de l'excellente chaîne Youtube link:https://www.youtube.com/@Cookieconnecte[Cookie Connectée].
 
-Le développement a trait à la programmation. Il concerne notamment des langages comme C, Python, Rust, HTML, CSS, Javascript... Dans ce domaine, on trouve notamment le métier de développeur, bien évidemment. On pourra trouver plus d'informations sur ce métier sur link:https://openclassrooms.com/fr/courses/6817086-decouvrez-les-metiers-de-developpeur[le cours d'OC dédié à ce sujet].
+Le *développement* a trait à la programmation. Il concerne notamment des langages comme C, Python, Rust, HTML, CSS, Javascript... Dans ce domaine, on trouve notamment le métier de développeur, bien évidemment. On pourra trouver plus d'informations sur ce métier sur link:https://openclassrooms.com/fr/courses/6817086-decouvrez-les-metiers-de-developpeur[le cours d'OC dédié à ce sujet].
 
-L'opérationnel a trait au fonctionnement des systèmes et/ou des réseaux.  Dans ce domaine, on trouve des métiers comme administrateur des systèmes, expert en cloud computing...
+L'*opérationnel* a trait au fonctionnement des systèmes et/ou des réseaux.  Dans ce domaine, on trouve des métiers comme administrateur des systèmes, expert en cloud computing...
 
-La sécurité a trait... à la sécurité. Elle demande principalement des savoirs et des savoir-faire Ops bien que des savoirs et des savoir-faire en Dev peuvent apporter une grande plus value.
+La *sécurité* a trait... à la sécurité. Elle demande principalement des savoirs et des savoir-faire Ops bien que des savoirs et des savoir-faire en Dev peuvent apporter une grande plus value.
 
 On peut rester cantonner à un domaine en particulier et ignorer totalement les autres.
 Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtriser ce qui est inclus dans ce que j'ai nommé ci-dessous le premier cercle.
