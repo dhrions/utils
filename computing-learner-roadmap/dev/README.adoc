@@ -41,9 +41,6 @@ image::france-ioi-4.png[Premier problème]
 
 Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<IDE>> et de découvrir <<Git>>.
 
-=== Le principe DRY : _don't repeat yourself_
-
-
 == Le second cercle
 
 
