@@ -7,8 +7,11 @@
 :imagesdir: ../images
 :sectnumlevels: 5
 
+
+== Le premier cercle
+
 [#algo]
-== Le premier cercle : l'algorithmie
+=== L'algorithmie
 
 La base de la base consiste à apprendre les fondamentaux de l'algorithmie.
 
