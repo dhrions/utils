@@ -42,7 +42,7 @@ Et ci-dessous le tout premier problème à résoudre.
 
 image::france-ioi-4.png[Premier problème]
 
-Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<IDE>> et de découvrir <<Git>>.
+Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<../transversal/README.adoc#ide, IDE>> et de découvrir <<../transversal/README.adoc#GIT, Git>>.
 
 === Le principe DRY
 
