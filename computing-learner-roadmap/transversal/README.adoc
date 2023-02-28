@@ -4,9 +4,11 @@
 :toclevels: 5
 :toc-title: Table des matières
 :sectnums:
-:imagesdir: ../images
+:imagesdir: images
 :sectnumlevels: 5
 
+
+image::circles.drawio.svg[Static,300]
 
 == Transverse
 
