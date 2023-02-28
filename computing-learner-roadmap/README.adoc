@@ -38,6 +38,8 @@ Toutefois, je recommande d'avoir des bases dans les trois domaines, de maîtrise
 
 == Open source
 
+video::EOWeewlc2CE[youtube]
+
 == Liste de sites utiles
 
 * https://openclassrooms.com/fr/ : pour des cours d'informatique variés et de grande qualité.
