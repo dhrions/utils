@@ -27,7 +27,7 @@ Dans les airs, le signal croise évidemment des milliers et des milliers d'autre
 S'agissant des interférences, le chemin importe moins que l'endroit où l'on reçoit le signal.
 Au cours du trajet, le signal s'atténue et devient de moins en puissant.
 +
-image::onde_electromagnetique.png[width=400]
+image::onde_electromagnetique.png[width=200]
 +
 . L'antenne de réception doit avoir une longueur convenable qui doit lui permettre de bien réceptionner le signal en fonction de sa fréquence (voir _supra_).
 Le signal électromagnétique reçu par l'antenne induit un courant électrique dans celle-ci.
