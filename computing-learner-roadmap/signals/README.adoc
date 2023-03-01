@@ -19,7 +19,7 @@ NOTE:: Un signal électrique produit aussi nécessairement un signal électromag
 * Antennes : la longueur des antennes dépend directement de la fréquence. Plus les fréquences sont hautes, plus les antennes peuvent être petites (cas des satellites qui ont besoin d'antennes miniaturisées et utilisent la gamme SHF) ; plus les fréquences sont basses, plus les antennes peuvent être longues (cas des sous-marins qui laissent traîner dans leur sillage de longues antennes et utilisent la gamme VLF).
 * Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonctiondes gammes de fréquences. Ainsi, les ondes de la gamme HF rebondissent sur la ionosphère, ce qui n'est pas le cas des ondes de la gamme VHF. Cela permet ainsi, dans le cas de la HF, de jouer avec les rebonds et de propager des signaux sur des milliers de kilomètres.
 +
-image::rebond.png[height=300, align=center]
+image::rebond.png[scale=50, align=center]
 +
 . L'antenne émet le signal électrique selon une certaine polarisation.
 . Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
@@ -27,7 +27,7 @@ Dans les airs, le signal croise évidemment des milliers et des milliers d'autre
 S'agissant des interférences, le chemin importe moins que l'endroit où l'on reçoit le signal.
 Au cours du trajet, le signal s'atténue et devient de moins en puissant.
 +
-image::onde_electromagnetique.png[]
+image::onde_electromagnetique.png[scale=50]
 +
 . L'antenne de réception doit avoir une longueur convenable qui doit lui permettre de bien réceptionner le signal en fonction de sa fréquence (voir _supra_).
 Le signal électromagnétique reçu par l'antenne induit un courant électrique dans celle-ci.
