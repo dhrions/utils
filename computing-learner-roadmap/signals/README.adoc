@@ -18,6 +18,9 @@ La dimension électromagnétique ne permet pas de transporter de la matière.
 En revanche, elle permet de transporter de l'énergie (exemples : recharge de certains téléphones à distance, four à micro-ondes, lasers...) mais aussi et surtout de l'information (communication par les ondes radio-électriques : radio, Wifi, satellites de télécommunications...).
 
 De même qu'un observateur peut faire, dans les 3 premières dimensions, ce que certains militaires appellent un « tour d'horizon », c'est-à-dire de se mettre sur un point haut, et de lister les points remarquables (et les directions et distances associées) de 0 à 360°, il est également possible de faire un tour d'horizon électromagnétique et de lister tous les signaux qu'ils est possible d'intercepter de 0 à X GHz.
+
+image::fouillouse.webp[Table d'orientation de Fouillouse]
+
 C'est notamment un des rôles dévolus en France à l'https://www.anfr.fr[ANFR] afin de s'assurer que tous les utilisateurs de fréquences (à commencer par vous qui utiliser un téléphone portable) respectent bien les fréquences fixées par l'ANFR.
 Et l'ANFR elle-même se réfère aux conventions de l'Union internationale du télégraphe en 1865, qui a été renommée en https://fr.wikipedia.org/wiki/Union_internationale_des_t%C3%A9l%C3%A9communications[Union internationale des télécommunications].
 Chaque portion du spectre électromagnétique a été découpée par cette organisation afin de s'assurer que le monde entier se coordonne sur la manière d'utiliser ce spectre électromagnétique.
