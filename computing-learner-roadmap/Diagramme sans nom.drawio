@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T15:22:52.512Z" agent="5.0 (X11; Ubuntu)" etag="Ajjx2v4CIO-6ETF0M7ok" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-01T15:23:27.363Z" agent="5.0 (X11; Ubuntu)" etag="TIaiuO1cU76igXeuJhfa" version="20.8.23" type="github">
   <diagram name="Page-1" id="HwEk9woQuFgSwakgW6SG">
-    <mxGraphModel dx="5540" dy="3440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="6187" dy="3819" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -136,7 +136,7 @@
           <mxGeometry x="79" y="-430" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="M7qUMIrwOu6kwSstwI5d-24" value="Signal électro-magnétique" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="88" y="-401" width="72" height="40" as="geometry" />
+          <mxGeometry x="88" y="-401" width="102" height="40" as="geometry" />
         </mxCell>
         <mxCell id="M7qUMIrwOu6kwSstwI5d-25" value="UHF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="178" y="-430" width="80" height="20" as="geometry" />
@@ -178,7 +178,7 @@
           <mxGeometry x="642" y="-430" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="M7qUMIrwOu6kwSstwI5d-41" value="Signal électro-magnétique" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="651" y="-401" width="72" height="40" as="geometry" />
+          <mxGeometry x="651" y="-401" width="99" height="40" as="geometry" />
         </mxCell>
         <mxCell id="M7qUMIrwOu6kwSstwI5d-42" value="UHF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="741" y="-430" width="80" height="20" as="geometry" />
