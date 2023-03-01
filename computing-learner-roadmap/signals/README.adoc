@@ -22,7 +22,7 @@ C'est notamment un des rôles dévolus en France à l'https://www.anfr.fr[ANFR] 
 Et l'ANFR elle-même se réfère aux conventions de l'Union internationale du télégraphe en 1865, qui a été renommée en https://fr.wikipedia.org/wiki/Union_internationale_des_t%C3%A9l%C3%A9communications[Union internationale des télécommunications].
 Chaque portion du spectre électromagnétique a été découpée par cette organisation afin de s'assurer que le monde entier se coordonne sur la manière d'utiliser ce spectre électromagnétique.
 
-image::1920px-EM_Spectrum_Properties_edit_fr.svg.png[Le spectre électromagnétique]
+image::wiki-spectrum.png[Le spectre électromagnétique]
 
 On peut consulter la répartition des fréquences du spectre électromagnétiques en France sur le site de l'ANFR à https://www.anfr.fr/anfr/cest-quoi-le-spectre-des-frequences[cette adresse].
 
