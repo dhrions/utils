@@ -4,6 +4,30 @@
 :toclevels: 4
 :sectnums:
 
+== Le spectre électromagnétique
+
+Nous évoluons dans un monde en 3 dimensions.
+Certains ajoutent que le temps est la 4^e dimension.
+Dans ce cas, la 5^e dimension pourraient être le champ électromagnétique.
+De même que l'on peut parcourir un champ de blé ou champ de vin (en 2 dimensions en l'occurence, avec une surface courbée), on peut parcourir le champ électromagnétique.
+Chaque point, chaque micropoint, chaque nanopoint de l'espace est affecté par un champ électromagnétique.
+C'est-à-dire qu'une chaque point de l'espace, sur Terre et dans l'espace, une force électrique et une force magnétique s'exercent, en chaque point de l'espace, si l'on observe une particule chargée électriquement (par exemple : un électron), on pourrait voir qu'elle est animée par une force qui l'amène à se mouvoir jusqu'à une nouvelle position.
+Et à cette nouvelle position, elle est à nouveau mue par une nouvelle force électrique qui la meut vers une nouvelle position, et ainsi de suite.
+Les trois premières dimensions nous servent à transporter de la matière (transports divers et variés), de l'énergie (transport de matières premières...) et de l'information (transport de documents sous forme de documents écrits, de clés USB...).
+La dimension électromagnétique ne permet pas de transporter de la matière.
+En revanche, elle permet de transporter de l'énergie (exemples : recharge de certains téléphones à distance, four à micro-ondes, lasers...) mais aussi et surtout de l'information (communication par les ondes radio-électriques : radio, Wifi, satellites de télécommunications...).
+
+De même qu'un observateur peut faire, dans les 3 premières dimensions, ce que certains militaires appellent un « tour d'horizon », c'est-à-dire de se mettre sur un point haut, et de lister les points remarquables (et les directions et distances associées) de 0 à 360°, il est également possible de faire un tour d'horizon électromagnétique et de lister tous les signaux qu'ils est possible d'intercepter de 0 à X GHz.
+C'est notamment un des rôles dévolus en France à l'https://www.anfr.fr[ANFR] afin de s'assurer que tous les utilisateurs de fréquences (à commencer par vous qui utiliser un téléphone portable) respectent bien les fréquences fixées par l'ANFR.
+Et l'ANFR elle-même se réfère aux conventions de l'Union internationale du télégraphe en 1865, qui a été renommée en https://fr.wikipedia.org/wiki/Union_internationale_des_t%C3%A9l%C3%A9communications[Union internationale des télécommunications].
+Chaque portion du spectre électromagnétique a été découpée par cette organisation afin de s'assurer que le monde entier se coordonne sur la manière d'utiliser ce spectre électromagnétique.
+
+image::https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_edit_fr.svg?uselang=fr[Le spectre électromagnétique]
+
+On peut consulter la répartition des fréquences du spectre électromagnétiques en France sur le site de l'ANFR à https://www.anfr.fr/anfr/cest-quoi-le-spectre-des-frequences[cette adresse].
+
+image::electromagnetic-spectrum.png[]
+
 == Transmission d'un signal analogique
 
 image::analogic-transmission.png[]
