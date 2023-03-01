@@ -9,7 +9,7 @@
 Nous évoluons dans un monde en 3 dimensions.
 Certains ajoutent que le temps est la 4e dimension.
 Dans ce cas, la 5e dimension pourraient être le champ électromagnétique.
-De même que l'on peut parcourir un champ de blé ou champ de vin (en 2 dimensions en l'occurence, avec une surface courbée), on peut parcourir le champ électromagnétique.
+De même que l'on peut parcourir un champ de blé ou champ de vin (en 2 dimensions en l'occurrence, avec une surface courbée), on peut parcourir le champ électromagnétique.
 
 image::coteau.webp[]
 
