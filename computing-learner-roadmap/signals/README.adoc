@@ -7,12 +7,18 @@
 == Le spectre électromagnétique
 
 Nous évoluons dans un monde en 3 dimensions.
-Certains ajoutent que le temps est la 4^e dimension.
-Dans ce cas, la 5^e dimension pourraient être le champ électromagnétique.
+Certains ajoutent que le temps est la 4e dimension.
+Dans ce cas, la 5e dimension pourraient être le champ électromagnétique.
 De même que l'on peut parcourir un champ de blé ou champ de vin (en 2 dimensions en l'occurence, avec une surface courbée), on peut parcourir le champ électromagnétique.
+
+image::coteau.webp[]
+
 Chaque point, chaque micropoint, chaque nanopoint de l'espace est affecté par un champ électromagnétique.
 C'est-à-dire qu'une chaque point de l'espace, sur Terre et dans l'espace, une force électrique et une force magnétique s'exercent, en chaque point de l'espace, si l'on observe une particule chargée électriquement (par exemple : un électron), on pourrait voir qu'elle est animée par une force qui l'amène à se mouvoir jusqu'à une nouvelle position.
 Et à cette nouvelle position, elle est à nouveau mue par une nouvelle force électrique qui la meut vers une nouvelle position, et ainsi de suite.
+
+image::champ.png[]
+
 Les trois premières dimensions nous servent à transporter de la matière (transports divers et variés), de l'énergie (transport de matières premières...) et de l'information (transport de documents sous forme de documents écrits, de clés USB...).
 La dimension électromagnétique ne permet pas de transporter de la matière.
 En revanche, elle permet de transporter de l'énergie (exemples : recharge de certains téléphones à distance, four à micro-ondes, lasers...) mais aussi et surtout de l'information (communication par les ondes radio-électriques : radio, Wifi, satellites de télécommunications...).
