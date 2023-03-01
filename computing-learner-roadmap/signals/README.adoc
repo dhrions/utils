@@ -32,7 +32,7 @@ Dans les airs, le signal croise évidemment des milliers et des milliers d'autre
 S'agissant des interférences, le chemin importe moins que l'endroit où l'on reçoit le signal.
 Au cours du trajet, le signal s'atténue et devient de moins en puissant.
 +
-image::onde_electromagnetique.png[width=200]
+image::onde_electromagnetique.png[width=400]
 +
 . L'antenne de réception doit avoir une longueur convenable qui doit lui permettre de bien réceptionner le signal en fonction de sa fréquence (voir _supra_).
 Le signal électromagnétique reçu par l'antenne induit un courant électrique dans celle-ci.
@@ -52,7 +52,7 @@ Le processus est globalement le même que précédemment.
 Seulement, cette fois-ci, le récepteur échantillonne le signal.
 C'est-à-dire qu'à un certain intervalle (toutes les 15 millisecondes par exemple), il va mesurer la valeur de la pression.
 
-image::Echantillonnages_sinus.png[]
+image::Echantillonnages_sinus.png[width=300]
 
 On aboutit donc à une liste de mesures de la pression à un certain intervalle (exemple : 30, 50, 50, 80, 56, 95, 42...).
 On peut faire le choix d'être plus ou moins sur la fréquence d'échantillonnage : plus le récepteur va procéder souvent à des échantillonnages, plus il y aura de données, et inversement.
