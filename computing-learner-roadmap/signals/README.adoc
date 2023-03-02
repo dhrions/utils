@@ -120,7 +120,7 @@ Le besoin de segmenter le spectre électromagnétique est intervenu très tôt d
 À ce titre, elle est justement « chargée de la réglementation et de la planification des télécommunications dans le monde. » 
 * Antennes : la longueur des antennes dépend directement de la fréquence (voir <<Taille d'antenne, _supra_>>)).
 * Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonction des gammes de fréquences.
-On peut préférer utiliser certaines ondes plutôt que telles autres en raison de leurs propriétés de propagation spécifiques (voir <<Propagation _supra_>>).
+On peut préférer utiliser certaines ondes plutôt que telles autres en raison de leurs propriétés de propagation spécifiques (voir <<Propagation, _supra_>>).
 +
 . L'antenne émet le signal électrique selon une certaine polarisation.
 . Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
