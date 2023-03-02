@@ -6,16 +6,23 @@
 
 == Le spectre électromagnétique
 
+=== L'environnement électromagnétique ou la 5e dimension
+
 Nous évoluons dans un monde en 3 dimensions.
 Certains ajoutent que le temps est la 4e dimension.
 Dans ce cas, la 5e dimension pourraient être le champ électromagnétique.
-De même que l'on peut parcourir un champ de blé ou champ de vin (en 2 dimensions en l'occurrence, avec une surface courbée), on peut parcourir le champ électromagnétique.
+De même que l'on peut parcourir un champ de blé ou champ de maïs (en 2 dimensions en l'occurrence, avec une surface courbée), on peut parcourir le champ électromagnétique.
 
 image::coteau.webp[]
+
+=== Le champ électromagnétique
 
 Chaque point, chaque micropoint, chaque nanopoint de l'espace est affecté par un champ électromagnétique.
 C'est-à-dire qu'une chaque point de l'espace, sur Terre et dans l'espace, une force électrique et une force magnétique s'exercent, en chaque point de l'espace, si l'on observe une particule chargée électriquement (par exemple : un électron), on pourrait voir qu'elle est animée par une force qui l'amène à se mouvoir jusqu'à une nouvelle position.
 Et à cette nouvelle position, elle est à nouveau mue par une nouvelle force électrique qui la meut vers une nouvelle position, et ainsi de suite.
+
+Si l'on regarde l'image ci-dessous, une particule chargée, située à la base d'une flèche, finirait à la pointe de la flèche.
+Arrivée à la pointe d'une flèche, elle serait à la base d'une autre flèche, qui l'emmenèrait à sa pointe et ainsi de suite...
 
 image::champ.png[]
 
@@ -29,13 +36,44 @@ image::fouillouse.webp[Table d'orientation de Fouillouse]
 
 C'est notamment un des rôles dévolus en France à l'https://www.anfr.fr[ANFR] afin de s'assurer que tous les utilisateurs de fréquences (à commencer par vous qui utilisez un téléphone portable) respectent bien les fréquences fixées par l'ANFR.
 Et l'ANFR elle-même se réfère aux conventions de l'https://fr.wikipedia.org/wiki/Union_internationale_des_t%C3%A9l%C3%A9communications[Union internationale des télécommunications].
-Chaque portion du spectre électromagnétique a été découpée par cette organisation afin de s'assurer que le monde entier se coordonne sur la manière d'utiliser ce spectre électromagnétique.
 
-image::wiki-spectrum.png[Le spectre électromagnétique]
+=== Découpage du spectre électromagnétique
+
+Chaque portion du spectre électromagnétique a été découpée par cette organisation afin de s'assurer que le monde entier se coordonne sur la manière d'utiliser ce spectre électromagnétique.
 
 On peut consulter la répartition des fréquences du spectre électromagnétiques en France sur le site de l'ANFR à https://www.anfr.fr/anfr/cest-quoi-le-spectre-des-frequences[cette adresse].
 
 image::electromagnetic-spectrum.png[]
+
+On peut voir ci-dessous une répresentation du spectre électromagnétique.
+C'est l'occasion de vous rappeler (ou de vous apprendre) que la lumière est une onde électromagnétique tout comme les ondes radios ou les micro-ondes de votre four.
+La principal spécificité de cette onde électromagnétique qu'est la lumière... c'est qu'on la voit.
+
+image::wiki-spectrum.png[Le spectre électromagnétique]
+
+Le spectre électromagnétique peut-être divisé en plusieurs catégories aux fréquences croissantes :
+
+* les ondes radio-électriques ;
+* l'infrarouge (_infra_, sous en latin, sous la fréquence du rouge) ;
+* la lumière visible (par les humains) ;
+* l'ultraviolet (_ultra_, au-delà en latin, au-delà de la fréquence du violet) ;
+* les rayons X, gamma...
+
+Et la catégorie des ondes radios peut elle-même être subdivisée.
+
+=== Gamme de fréquences
+
+On a divisé ensuite les ondes radios en plusieurs « gamme », qui sont, des fréquences les moins élevées au plus élevées les différentes gammes représentées ci-dessous (ELF, VLF, LF...).
+
+image::https://www.researchgate.net/publication/360233150/figure/fig1/AS:1149675222646784@1651115341254/Electromagnetic-spectrum-in-frequency-and-wavelength-ELF-extremely-low-frequency-VLF.ppm[]
+
+Les différentes gammes ont des particularités.
+
+==== Taille d'antenne
+
+==== Débit d'information
+
+==== Propagation
 
 == Transmission d'un signal analogique
 
@@ -44,7 +82,7 @@ image::analogic-transmission.png[]
 Partons de la gauche vers la droite :
 
 . Un individu A parle. Il produit donc du bruit. Ce bruit n'est rien  d'autre qu'une variation de la pression. On pourrait la mesure en hectopascals. Si l'on plaçait un capteur de pression à proximité de cette personne, on obtiendrait le signal représenté au-dessus de la personne. La fréquence de la voie humaine oscille entre 80 et 1500 Hz (cf. https://fr.wikipedia.org/wiki/Voix_humaine#M%C3%A9canismes_vocaux[Wikipédia]).
-. Le microphone n'est qu'un simple capteur de pression qui va capteur cette différence de pression au cours du temps et la convertir en un signanl électrique.
+. Le microphone n'est qu'un simple capteur de pression qui va capter cette différence de pression au cours du temps et la convertir en un signal électrique.
 NOTE:: Un signal électrique produit aussi nécessairement un signal électromagnétique. C'est la grande découverte de https://fr.wikipedia.org/wiki/Michael_Faraday[Michael Faraday]. Par conséquent, il est possible, à distance, d'intercepter le signal magnétique, d'en déduire le signal électrique et dont l'information qui transite, et ce, tout au long du parcours du signal, d'où l'appellation parfois de « signaux parasites compromettants » (voir https://fr.wikipedia.org/wiki/TEMPEST[TEMPEST] sur Wikipédia).
 . Le signal est enregistré par un récepteur.
 . Le signal est ensuite modulé. Pourquoi ?
@@ -61,7 +99,7 @@ image::rebond.png[width=400, align=center]
 +
 . L'antenne émet le signal électrique selon une certaine polarisation.
 . Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
-Dans les airs, le signal croise évidemment des milliers et des milliers d'autres signaux qui n'interfèrent en rien sa progression.
+Dans les airs, le signal croise évidemment des milliers et des milliers d'autres signaux électromagnétiques (comme la lumière) qui ne perturbent en rien sa progression.
 S'agissant des interférences, le chemin importe moins que l'endroit où l'on reçoit le signal.
 Au cours du trajet, le signal s'atténue et devient de moins en puissant.
 +
