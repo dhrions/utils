@@ -123,6 +123,7 @@ Le signal est ensuite enregistré par un récepteur.
 === Modulation
 
 Le signal est ensuite modulé. Pourquoi ?
+
 * Interférences : le signal a actuellement une fréquence comprise en 80 et 1500 Hz (donc un écart, on dit une « bande passante », de 1500 Hz), correspondant à celui de la voix humaine.
 Or, si tout le monde émet ainsi le signal capté, les signaux interféreraient les uns avec les autres.
 Il est donc nécessaire que chaque signal utilise un canal de transmission (large de 1500 Hz pour la voie humaine) différent.
@@ -133,9 +134,16 @@ Le besoin de segmenter le spectre électromagnétique est intervenu très tôt d
 * Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonction des gammes de fréquences.
 On peut préférer utiliser certaines ondes plutôt que telles autres en raison de leurs propriétés de propagation spécifiques (voir <<Propagation, _supra_>>).
 
-=== Emission et propagation
+Notre signal initial avait une fréquence moyenne d'environ 750 MHz (puisque la voix humaine a une fréquence qui oscielle entre 80 et 1500 Hz).
+Après modulation, notre signal a une fréquence moyenne différente (disons 5000 Hz).
+C'est un peu comme si notre signal, notre onde utilisait une autre onde, d'une fréquence différente, pour porter être portée, pour porer le message.
+C'est pour cette raison que l'on dit de notre onde de 5000 Hz qu'elle est une onde « porteuse ».
 
-L'antenne émet le signal électrique selon une certaine polarisation.
+=== Émissions
+
+L'antenne émet le signal électrique selon une certaine polarisation (_à développer_).
+
+=== Propagation
 
 Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
 Dans les airs, le signal croise évidemment des milliers et des milliers d'autres signaux électromagnétiques (comme la lumière) qui ne perturbent en rien sa progression.
