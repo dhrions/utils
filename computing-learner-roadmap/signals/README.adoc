@@ -67,11 +67,11 @@ Mais qui, après avoir passé plus de quinze ans à l'école, en est pleinement 
 
 Si le spectre électromagnétique tout entier a été divisé en différentes portions, la portion des ondes radios elle-même peut être divisée à son tour.
 
-=== Gamme de fréquences
+=== Gammes de fréquences
 
 On a divisé les ondes radios en plusieurs « gammes », qui sont, des fréquences les moins élevées au plus élevées les différentes gammes représentées ci-dessous (ELF, VLF, LF...).
 
-image::https://www.researchgate.net/publication/360233150/figure/fig1/AS:1149675222646784@1651115341254/Electromagnetic-spectrum-in-frequency-and-wavelength-ELF-extremely-low-frequency-VLF.ppm[]
+image::gammes.ppm[]
 
 Les différentes gammes ont des particularités.
 
