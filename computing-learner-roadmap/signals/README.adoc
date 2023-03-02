@@ -103,15 +103,26 @@ image::rebond.png[width=400, align=center]
 
 == Transmission d'un signal analogique
 
+Pour décrire la transmission d'un signal analogique, prenons le cas d'un individu A qui appelle un indivdu B.
+Je vous propose d'afficher en plus grand l'image ci-dessous et de suivre le déroulé avec l'image à côté.
+
 image::analogic-transmission.png[]
 
-Partons de la gauche vers la droite :
+Nous partons de la gauche vers la droite.
 
-. Un individu A parle. Il produit donc du bruit. Ce bruit n'est rien  d'autre qu'une variation de la pression. On pourrait la mesure en hectopascals. Si l'on plaçait un capteur de pression à proximité de cette personne, on obtiendrait le signal représenté au-dessus de la personne. La fréquence de la voie humaine oscille entre 80 et 1500 Hz (cf. https://fr.wikipedia.org/wiki/Voix_humaine#M%C3%A9canismes_vocaux[Wikipédia]).
-. Le microphone n'est qu'un simple capteur de pression qui va capter cette différence de pression au cours du temps et la convertir en un signal électrique.
+=== Captation du bruit
+
+Un individu A parle. Il produit donc du bruit. Ce bruit n'est rien  d'autre qu'une variation de la pression. On pourrait la mesure en hectopascals. Si l'on plaçait un capteur de pression à proximité de cette personne, on obtiendrait le signal représenté au-dessus de la personne. La fréquence de la voie humaine oscille entre 80 et 1500 Hz (cf. https://fr.wikipedia.org/wiki/Voix_humaine#M%C3%A9canismes_vocaux[Wikipédia]).
+
+Le microphone n'est qu'un simple capteur de pression qui va capter cette différence de pression au cours du temps et la convertir en un signal électrique.
+
 NOTE:: Un signal électrique produit aussi nécessairement un signal électromagnétique. C'est la grande découverte de https://fr.wikipedia.org/wiki/Michael_Faraday[Michael Faraday]. Par conséquent, il est possible, à distance, d'intercepter le signal magnétique, d'en déduire le signal électrique et dont l'information qui transite, et ce, tout au long du parcours du signal, d'où l'appellation parfois de « signaux parasites compromettants » (voir https://fr.wikipedia.org/wiki/TEMPEST[TEMPEST] sur Wikipédia).
-. Le signal est enregistré par un récepteur.
-. Le signal est ensuite modulé. Pourquoi ?
+
+Le signal est ensuite enregistré par un récepteur.
+
+=== Modulation
+
+Le signal est ensuite modulé. Pourquoi ?
 * Interférences : le signal a actuellement une fréquence comprise en 80 et 1500 Hz (donc un écart, on dit une « bande passante », de 1500 Hz), correspondant à celui de la voix humaine.
 Or, si tout le monde émet ainsi le signal capté, les signaux interféreraient les uns avec les autres.
 Il est donc nécessaire que chaque signal utilise un canal de transmission (large de 1500 Hz pour la voie humaine) différent.
@@ -121,21 +132,29 @@ Le besoin de segmenter le spectre électromagnétique est intervenu très tôt d
 * Antennes : la longueur des antennes dépend directement de la fréquence (voir <<Taille d'antenne, _supra_>>)).
 * Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonction des gammes de fréquences.
 On peut préférer utiliser certaines ondes plutôt que telles autres en raison de leurs propriétés de propagation spécifiques (voir <<Propagation, _supra_>>).
-+
-. L'antenne émet le signal électrique selon une certaine polarisation.
-. Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
+
+=== Emission et propagation
+
+L'antenne émet le signal électrique selon une certaine polarisation.
+
+Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
 Dans les airs, le signal croise évidemment des milliers et des milliers d'autres signaux électromagnétiques (comme la lumière) qui ne perturbent en rien sa progression.
 S'agissant des interférences, le chemin importe moins que l'endroit où l'on reçoit le signal.
 Au cours du trajet, le signal s'atténue et devient de moins en puissant.
-+
+
 image::onde_electromagnetique.png[width=400]
-+
-. L'antenne de réception doit avoir une longueur convenable qui doit lui permettre de bien réceptionner le signal en fonction de sa fréquence (voir _supra_).
+
+=== Réception
+
+L'antenne de réception doit avoir une longueur convenable qui doit lui permettre de bien réceptionner le signal en fonction de sa fréquence (voir _supra_).
 Le signal électromagnétique reçu par l'antenne induit un courant électrique dans celle-ci.
-. Le signal s'étant atténué, il doit être amplifier.
+
+Le signal s'étant atténué, il doit être amplifier.
 On augmente ainsi ce que l'on appelle le « gain » du signal.
-. À rebours de ce qui a été fait à l'envoi, le signal doit maintenant être démodulé pour revenir à sa fréquence d'origine.
-. Le signal électrique peut maintenant à nouveau être converti en un signal mécanique, à savoir du bruit.
+
+À rebours de ce qui a été fait à l'envoi, le signal doit maintenant être démodulé pour revenir à sa fréquence d'origine.
+
+Le signal électrique peut maintenant à nouveau être converti en un signal mécanique, à savoir du bruit.
 
 == Transmission numérique
 
