@@ -139,7 +139,7 @@ Après modulation, notre signal a une fréquence moyenne différente (disons 500
 C'est un peu comme si notre signal, notre onde utilisait une autre onde, d'une fréquence différente, pour porter être portée, pour porer le message.
 C'est pour cette raison que l'on dit de notre onde de 5000 Hz qu'elle est une onde « porteuse ».
 
-=== Émissions
+=== Émission
 
 L'antenne émet le signal électrique selon une certaine polarisation (_à développer_).
 
