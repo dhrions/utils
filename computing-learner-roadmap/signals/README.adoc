@@ -54,16 +54,22 @@ image::wiki-spectrum.png[Le spectre électromagnétique]
 Le spectre électromagnétique peut-être divisé en plusieurs catégories aux fréquences croissantes :
 
 * les ondes radio-électriques ;
+* les micro-ondes ,
 * l'infrarouge (_infra_, sous en latin, sous la fréquence du rouge) ;
 * la lumière visible (par les humains) ;
 * l'ultraviolet (_ultra_, au-delà en latin, au-delà de la fréquence du violet) ;
-* les rayons X, gamma...
+* les rayons X ;
+* les rayons gamma.
 
-Et la catégorie des ondes radios peut elle-même être subdivisée.
+Alors même que toutes ces ondes ont des usages très différents dans notre quotidien (communiquer, voir, chauffer des aliments, faire des radios...), elles ne sont en réalité que les émanations d'un seul et même phénomène : l'onde électromagnétique.
+Qui aurais-pu l'affirmer il y a plus de deux cents ans ?
+Mais qui, après avoir passé plus de quinze ans à l'école, en est pleinement conscient aujourd'hui ?
+
+Si le spectre électromagnétique tout entier a été divisé en différentes portions, la portion des ondes radios elle-même peut être divisée à son tour.
 
 === Gamme de fréquences
 
-On a divisé ensuite les ondes radios en plusieurs « gamme », qui sont, des fréquences les moins élevées au plus élevées les différentes gammes représentées ci-dessous (ELF, VLF, LF...).
+On a divisé les ondes radios en plusieurs « gammes », qui sont, des fréquences les moins élevées au plus élevées les différentes gammes représentées ci-dessous (ELF, VLF, LF...).
 
 image::https://www.researchgate.net/publication/360233150/figure/fig1/AS:1149675222646784@1651115341254/Electromagnetic-spectrum-in-frequency-and-wavelength-ELF-extremely-low-frequency-VLF.ppm[]
 
@@ -71,9 +77,29 @@ Les différentes gammes ont des particularités.
 
 ==== Taille d'antenne
 
+La longueur des antennes dépend directement de la fréquence.
+Plus les fréquences sont hautes, plus les antennes peuvent être petites (cas des satellites qui ont besoin d'antennes miniaturisées et utilisent la gamme SHF) ; plus les fréquences sont basses, plus les antennes peuvent être longues (cas des sous-marins qui laissent traîner dans leur sillage de longues antennes et utilisent la gamme VLF).
+
 ==== Débit d'information
 
+Plus une fréquence est basse, moins on peut communiquer d'information rapidement, plus une fréquence est haute, plus on peut communiquer d'information rapidement.
+Pour le coup, la signification scientifique de « fréquence » est proche de son acception quotidienne.
+Si je demande à Alice et à Bob de me lire _Les Misérables_, qu'Alice n'a droit qu'a un mot par seconde (soit une fréquence d'un hertz) et que Bob en a droit à deux mots par secondes (soit une fréquence de deux hertz), qui m'aura lu le plus long passage en l'espace d'une minutes ?
+Par conséquent, plus la fréquence d'un signal est élevé, plus le débit *théorique* qu'il peut transmettre est important.
+
+Je dis bien théorique car les ondes ont des propriétés de propagation différentes qui peuvent faire qu'une fréquence élevée ne vous sert à rien si elle n'arrive pas à destination alors qu'une autre fréquence, moins élevée, arrive, elle, à bon port.
+
 ==== Propagation
+
+Les ondes radios n'ont pas toutes les mêmes propriétés en fonction de leur fréquence.
+Ainsi, les ondes de la gamme HF rebondissent sur la ionosphère, ce qui n'est pas le cas des ondes de la gamme VHF.
+Cela permet ainsi, dans le cas de la HF, de jouer avec les rebonds et de propager des signaux sur des milliers de kilomètres.
+Encore faut-il savoir sur quelle couche de la ionosphère ces ondes vont rebondir.
+Il existe pour cela des logiciels qui calculent en fonction de la position géographique de l'émetteur, de la date et de l'heure, où les ondes HF rebondiront.
+C'est ce qui permet notamment aux radio-amateurs de communiquer à travers le monde.
+Les rebonds sont tels qu'il est possible de communiquer aux antipodes.
+
+image::rebond.png[width=400, align=center]
 
 == Transmission d'un signal analogique
 
@@ -92,10 +118,9 @@ Il est donc nécessaire que chaque signal utilise un canal de transmission (larg
 Ainsi, si l'on a un émetteur A et un émetteur B communiquant dans la même zone, le premier modulera ces fréquences de +1000 Hz (entre 1080 et 2500 Hz) et le second de +2000 Hz (etre 2080 et 3500 Hz), par exemple.
 Le besoin de segmenter le spectre électromagnétique est intervenu très tôt dans l'histoire des télécommunications puisque la plus ancienne organisation intergouvernementale technique de coordination n'est autre que l'Union internationale du télégraphe en 1865, qui a été renommée en https://fr.wikipedia.org/wiki/Union_internationale_des_t%C3%A9l%C3%A9communications[Union internationale des télécommunications] en 1932.
 À ce titre, elle est justement « chargée de la réglementation et de la planification des télécommunications dans le monde. » 
-* Antennes : la longueur des antennes dépend directement de la fréquence. Plus les fréquences sont hautes, plus les antennes peuvent être petites (cas des satellites qui ont besoin d'antennes miniaturisées et utilisent la gamme SHF) ; plus les fréquences sont basses, plus les antennes peuvent être longues (cas des sous-marins qui laissent traîner dans leur sillage de longues antennes et utilisent la gamme VLF).
-* Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonction des gammes de fréquences. Ainsi, les ondes de la gamme HF rebondissent sur la ionosphère, ce qui n'est pas le cas des ondes de la gamme VHF. Cela permet ainsi, dans le cas de la HF, de jouer avec les rebonds et de propager des signaux sur des milliers de kilomètres.
-+
-image::rebond.png[width=400, align=center]
+* Antennes : la longueur des antennes dépend directement de la fréquence (voir <<Taille d'antenne, _supra_>>)).
+* Propagation : les ondes électromagnétiques n'ont pas les mêmes propriétés physiquemes en fonction des gammes de fréquences.
+On peut préférer utiliser certaines ondes plutôt que telles autres en raison de leurs propriétés de propagation spécifiques (voir <<Propagation _supra_>>).
 +
 . L'antenne émet le signal électrique selon une certaine polarisation.
 . Le signal est ensuite transmis dans les airs. Le signal n'a pas besoin de support physique pour voyage (sans quoi les communications avec la station spatiale internationale ne seraient pas possibles).
