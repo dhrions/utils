@@ -10,3 +10,17 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub <username>@<ipaddress>
 ----
 
 Plus d'information sur https://doc.ubuntu-fr.org/ssh#mise_en_place_des_cles[doc.ubuntu-fr.org].
+
+== Connaître l'empreinte de sa propre machine
+
+[source, bash]
+----
+ssh-keyscan -t ed25519 -p numero-port-ssh hostname
+----
+
+Exemple :
+
+[source, bash]
+----
+ssh-keyscan -t ed25519 -p 22 mymachine
+----
