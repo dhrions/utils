@@ -1,0 +1,9 @@
+= README de Docker
+:author: Romain Le Drogo
+
+Copier le contenu d'un volume docker dans un dossier local
+
+[source, bash]
+----
+docker cp nomduconteneur:/chemin/du/dossier /chemin/local
+----
