@@ -24,3 +24,10 @@ Exemple :
 ----
 ssh-keyscan -t ed25519 -p 22 mymachine
 ----
+
+== Copier en local un dossier distant
+
+[source, bash]
+----
+scp -r <username>@<ipaddress>:<path-of-distant-folder> <path-of-local-folder> -P ssh-port-number
+----
