@@ -44,7 +44,9 @@ $ sudo command
 
 `Ctrl + L`
 
-== Retaper l'argument précédent
+== Retaper le ou les arguments précédents
+
+Pour retaper un argument :
 
 [source, bash]
 ----
@@ -52,6 +54,16 @@ cat file
 vim !$
 ----
 
+Pour retaper tous les arguments précédents :
+
+[source, bash]
+----
+touch fichier1 fichier2 fichier3 fichier
+chmod 777 !*
+chmod 777 fichier1 fichier2 fichier3 fichier4
+----
+
 == Voir aussi
 
+https://www.malekal.com/astuces-bash-a-connaitre-linux/
 https://blog.desdelinux.net/fr/10-astuces-terminales/
