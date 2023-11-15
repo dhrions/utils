@@ -50,17 +50,38 @@ Pour retaper un argument :
 
 [source, bash]
 ----
-cat file
-vim !$
+$ cat file
+$ vim !$
+vim file
 ----
 
 Pour retaper tous les arguments précédents :
 
 [source, bash]
 ----
-touch fichier1 fichier2 fichier3 fichier
-chmod 777 !*
+$ touch fichier1 fichier2 fichier3 fichier
+$ chmod 777 !*
 chmod 777 fichier1 fichier2 fichier3 fichier4
+----
+
+== Réutiliser une commande en remplaçant un mot
+
+[source, bash]
+----
+$ sudo apt install pv
+$ ^install^search
+sudo apt search pv
+----
+
+CAUTION: Cela ne remplace que la première instance du mot. Si l'on veut remplacer toutes les instances, il faut taper `!!:gs\^ancien_mot^nouveau_mot`.
+
+== Répéter la dernière commande avec un autre argument
+
+[source, bash]
+----
+$ less file1
+$ !!:0 file2
+less file2
 ----
 
 == Voir aussi
