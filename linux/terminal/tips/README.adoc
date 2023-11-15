@@ -51,3 +51,7 @@ $ sudo command
 cat file
 vim !$
 ----
+
+== Voir aussi
+
+https://blog.desdelinux.net/fr/10-astuces-terminales/
