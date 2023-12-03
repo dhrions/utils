@@ -1,0 +1,110 @@
+= Intelligence artificielle : quelques services utiles                
+Dhrions
+Version 1.0.0, 03/12/2023
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+Les services sont regroupés par domaine et listés par usage.
+
+== Texte
+
+* Pour répondre à des questions : https://chat.openai.com/[ChatGPT].
+
+== Images
+
+* Pour générer des images à partir d'un prompt : https://starryai.com[Starry AI].
+* Pour améliorer la qualité d'une photo : https://clipdrop.co[Clipdrop].
+* Pour enlever l'arrière-plan d'une photo : https://clipdrop.co[Clipdrop].
+* Pour supprimer un élément d'une photo : https://clipdrop.co[Clipdrop].
+
+
+== Musique
+
+* Pour séparer une chanson au format mp3 en différentes pistes : https://moises.ai[Moises AI].
+
+== Web
+
+* Pour le Web Scrapping : https://browse.ai[Browse AI].
+
+== Connaissance
+
+* Pour reconnaître une plante, détecter d'éventuelles maladies et solutions : https://www.picturethisai.com[Picture This AI].
+
+// == Asie
+// .Liste des pays :
+// . Premier
+// . Deuxième
+
+// {subtitle}
+
+// == Europe
+
+// Pour aller en <<Amérique>>, c'est par <<Amérique, ici>>.
+
+// === Europe de l'ouest ({url-wiki-Europe-Ouest}[cf. Wikipédia])
+
+// ==== France ({url-wiki}/France[cf. Wikipédia])
+
+// .Voici le titre d'un bloc
+// Et là, cela est un bloc, constitué d'une phrase.
+// Et d'une deuxièle phrase.
+// Et d'une troisième.
+
+// ===== Alsace
+// [quote, Shakespeare, Hamlet - Acte III - Scène 1]
+// Être ou ne pas être, telle est la question.
+
+// ====== Bas-Rhin
+
+// ====== Haut-Rhin
+// ===== Bretagne
+// [source, python]
+// ----
+// print("Hello world"!)
+// ----
+// ===== Provence Alpes Côtes d'Azur
+// ==== Espagne
+// ==== Portugal
+
+// Il y a un dossier intéressant : link:./example1[ici].
+
+// Je peux facilement inclure une partie d'un fichier de code en-dessous.
+
+// [source, python]
+// ----
+// include::./example1/python.py[tag=le-nom-de-mon-tag]
+// ----
+// CAUTION: `include` ne fonctionne pas sur Git Hub.
+
+// === Europe de l'est
+
+// == Afrique
+
+// * item
+// ** nested item
+// * item
+// * item
+// * item
+// ** nested item
+// ** nested item
+// *** subnested item
+// ** nested item
+// * item
+
+// == Amérique
+
+// More test
