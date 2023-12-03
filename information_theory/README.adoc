@@ -44,6 +44,25 @@ Donc 8 caractères binaires représentent 32 octets (= 256/8 = 2^8^/2^3^ = 2^8-3
 * Un message de 7 caractères binaires mesure 128 (2^7^) bits, soit 16 octets (= 2^4^).
 * Un message de 8 caractères hexadécimaux mesure 65536 (4^8^ = 2^16^) bits, soit 1024 octets (= 4^5^ = 2^10^).
 
+NOTE: Il suffit de multiplier par 2 le nombre d'octets d'un message pour obtenir le nombre de caractères hexadécimaux nécessaires pour le coder.
+
+NOTE: Il suffit de diviser par 2 le nombre de caractères hexadécimaux d'un message pour obtenir sa taille en octets.
+
+NOTE: Il suffit de diviser par 4 le nombre de bits d'un message pour obtenir le nombre de caractères hexadécimaux nécessaires pour le coder.
+
+NOTE: Il suffit de multiplier par 4 le nombre de caractères hexadécimaux d'un message pour obtenir le nombre de caractères binaires nécessaires pour le coder.
+
+Une adresse MAC est de la forme 01:23:45:67:89:ab.
+Elle contient donc 12 caractères hexadécimaux, donc 6 octets (12/2), donc 48 bits (12 x 4).
+Une adresse MAC pourrait donc être codée sur 48 bits.
+Il y a donc 2^48^ adresses MAC possibles.
+
+Une adresse IPv4 est de la forme 192.168.0.1 où chaque nombre est compris entre 0 et 255.
+Chaque nombre peut donc être codé sur 8 bits, soit 1 octet.
+Une adresse IPv4 est donc codée sur 4 octets, soit 32 bits.
+Elle pourrait donc être codée sur 16 caractères hexadécimaux.
+Il y a donc 2^32^ adresses IPv4 possibles.
+
 == Entropie
 
 On peut se référer à https://fr.wikipedia.org/wiki/Entropie_de_Shannon[la page de Wikipédia dédiée à l'entropie].
@@ -156,3 +175,8 @@ Une fonction de hachage est une fonction qui associe des valeurs de taille fixe 
 Les valeurs renvoyées par une fonction de hachage sont appelées valeurs de hachage, codes de hachage, résumés, signatures ou simplement hachages.
 
 image::hachage.png[]
+
+==== MD5
+
+MD5 est une fonction de hachage cryptographique.
+Les codes de hachage MD5 sont de 128 bits, soit 16 octets (128/8), soit 32 caractères hexadécimaux (128/4).
