@@ -50,6 +50,12 @@ On peut se référer à https://fr.wikipedia.org/wiki/Entropie_de_Shannon[la pag
 
 L'entropie peut être considérée comme la quantité d'information contenue ou délivrée par une source d'information.
 
+Exemple : à écrire.
+
+L'entropie moyenne, exprimée en bits par octet, est le nombre de bits d'information contenus dans un octet.
+Un octet mesurant 8 bits, l'entropie moyenne, exprimée en bits par octet, est au maximum de 8 bits.
+Elle est, au minimum, de 0 bit par octet.
+
 Quelques exemples :
 
 [source]
@@ -140,6 +146,9 @@ Entropy = 7.931512 bits per byte.
 ent 12.Angry.Men.1957.1080p.BluRay.x264-\[YTS.AM\].mp4 
 Entropy = 7.999699 bits per byte.
 ----
+
+On peut déduire des deux précédents calculs que l'entropie moyenne d'une chanson ou d'un film peut être similaire.
+Toutefois, l'entropie du film est bien supérieure à l'entropie de la chanson car la taille du film est bien plus importante (quelques Go) que celles de la chanson (quelques Mo).
 
 === Hachage
 
