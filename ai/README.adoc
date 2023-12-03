@@ -22,15 +22,20 @@ Les services sont regroupés par domaine et listés par usage.
 
 == Texte
 
-* Pour répondre à des questions : https://chat.openai.com/[ChatGPT].
 
 == Images
 
 * Pour générer des images à partir d'un prompt : https://starryai.com[Starry AI].
 * Pour améliorer la qualité d'une photo : https://clipdrop.co[Clipdrop].
-* Pour enlever l'arrière-plan d'une photo : https://clipdrop.co[Clipdrop].
+* Pour enlever l'arrière-plan d'une photo :
+** https://clipdrop.co[Clipdrop].
+** https://www.erase.bg[Erase bg].
 * Pour supprimer un élément d'une photo : https://clipdrop.co[Clipdrop].
 
+== Vidéos
+
+* Pour générer des vidéos à partir d'un prompt : https://kaiber.ai/[Kaiber AI].
+* Pour supprimer un élément dans une vidéo : https://kaiber.ai/[Kaiber AI].
 
 == Musique
 
@@ -42,7 +47,28 @@ Les services sont regroupés par domaine et listés par usage.
 
 == Connaissance
 
+* Pour répondre à des questions : https://chat.openai.com/[ChatGPT].
+* Pour répondre à des questions de type encyclopédique : https://www.perplexity.ai/[Perplexity AI].
+* Pour répondre à des questions à partir d'études scientifiques : https://chat.openai.com/[ChatGPT].
+* Pour discuter avec un bot qui a lu un PDF : https://www.chatpdf.com/[Chat PDF].
+Cela peut notamment être utile pour « discuter » avec une notice d'utilisation.
+* Pour créer des flashcards à partir de sources variées : Wisdolia (extension Google Chrome).
+* Pour créer un quiz à partir d'un texte : https://www.fillout.com/ai-quiz-maker[AI Quiz Maker].
 * Pour reconnaître une plante, détecter d'éventuelles maladies et solutions : https://www.picturethisai.com[Picture This AI].
+* Pour générer une carte mentale à partir d'un prompt : https://chatmind.tech/[ChatMind].
+
+== Informatique
+
+* Faire des tutoriels détaillés avec des captures d'écrans : https://scribehow.com/[ScribeHow].
+* Pour créer une présentation Powerpoint à partir d'un prompt : https://tome.app/[Tome].
+
+== Travail
+
+* Pour rédiger des comptes-rendus de réunion en visio : https://fireflies.ai/[Fireflies AI].
+
+== Divers
+
+* Pour générer des memes à partir d'un prompt : https://www.supermeme.ai/[Super Meme AI].
 
 // == Asie
 // .Liste des pays :
