@@ -1,4 +1,4 @@
-= Voici le titre de mon document: This is the subtitle                       
+= Voici le titre de mon document: This is the subtitle
 Romain Le Drogo, Jean Martin
 Version 1.0.0, 18/11/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
 // Document attributes
