@@ -1,6 +1,6 @@
 = Voici le titre de mon document: This is the subtitle
-Romain Le Drogo, Jean Martin
-Version 1.0.0, 18/11/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
+Dhrions, Trucmuche, Machinchose
+Version 1.0.0, 10/12/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -21,6 +21,8 @@ Version 1.0.0, 18/11/2023 // Ligne optionnelle dédiée à la revision, la date 
 
 This is the optional preamble (an untitled section body).
 Useful for writing simple sectionless documents consisting only of a preamble.
+
+NOTE:: Le mieux est d'écrire une phrase par ligne.
 
 == Asie
 .Liste des pays :
