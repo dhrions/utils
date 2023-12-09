@@ -6,6 +6,7 @@ Version 1.0.0, 18/11/2023 // Ligne optionnelle dédiée à la revision, la date 
 :toc:                                                   
 :toclevels: 5  
 :toc-title: Ma super table des matières
+:icons: font
 
 :description: Example AsciiDoc document                             
 :keywords: AsciiDoc                                                 
@@ -18,8 +19,8 @@ Version 1.0.0, 18/11/2023 // Ligne optionnelle dédiée à la revision, la date 
 :url-wiki: https://fr.wikipedia.org/wiki
 :url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
 
-This is the optional preamble (an untitled section body). Useful for
-writing simple sectionless documents consisting only of a preamble.
+This is the optional preamble (an untitled section body).
+Useful for writing simple sectionless documents consisting only of a preamble.
 
 == Asie
 .Liste des pays :
