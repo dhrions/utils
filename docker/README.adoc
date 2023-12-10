@@ -1,9 +1,136 @@
-= README de Docker
-:author: Romain Le Drogo
+= Docker
+Dhrions
+Version 1.0.0, 10/12/2023
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+:icons: font
 
-Copier le contenu d'un volume docker dans un dossier local
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+// This is the optional preamble (an untitled section body).
+// Useful for writing simple sectionless documents consisting only of a preamble.
+
+image::https://www.docker.com/wp-content/uploads/2023/08/logo-guide-logos-2.svg[Docker logo, 200]
+
+== Docker
+
+=== Commandes de base
+
+[source, bash]
+----
+# Lancer un conteneur
+docker run nomdelimage
+
+# Lancer un conteneur en arrière-plan
+docker run -d nomdelimage
+
+# Lancer un conteneur en arrière-plan avec un nom
+docker run -d --name nomduconteneur nomdelimage
+
+# Lancer un conteneur en arrière-plan avec un nom et un port
+docker run -d --name nomduconteneur -p portlocal:portdudocker nomdelimage
+
+# Lancer un conteneur en arrière-plan avec un nom, un port et un volume
+docker run -d --name nomduconteneur -p portlocal:portdudocker -v /chemin/local:/chemin/dudocker nomdelimage
+
+# Lister les images locales
+docker image ls
+----
+
+=== Copier le contenu d'un volume docker dans un dossier local
 
 [source, bash]
 ----
 docker cp nomduconteneur:/chemin/du/dossier /chemin/local
 ----
+
+== Dockerfile
+
+== Docker Compose
+
+=== Commandes de base
+
+[source, bash]
+----
+# Lancer les services
+docker-compose up
+
+# Lancer les services en arrière-plan
+docker-compose up -d
+
+# Lancer un service en particulier
+docker-compose up nomduservice
+
+# Lancer un service en particulier en arrière-plan
+docker-compose up -d nomduservice
+----
+
+=== Le fichier `docker-compose.yml` complet
+
+Il y a 6 _top-level elements_ (cf. https://docs.docker.com/compose/compose-file/[documentation officielle de Docker Compose]) :
+
+- `version` : la version de la syntaxe du fichier (cf. https://docs.docker.com/compose/compose-file/04-version-and-name/[documentation officielle de Docker Compose]) ;
+- `services` : les services à lancer (cf. https://docs.docker.com/compose/compose-file/05-services/[documentation officielle de Docker Compose]);
+- `networks` : les réseaux à créer (cf. https://docs.docker.com/compose/compose-file/06-networks/[documentation officielle de Docker Compose]);
+- `volumes` : les volumes à créer ;
+- `configs` : les fichiers de configuration à créer ;
+- `secrets` : les secrets à créer.
+
+Un seul _top-level element_ est obligatoire : `services` (cf. https://docs.docker.com/compose/compose-file/03-compose-file/[documentation officielle de Docker Compose]).
+
+==== Version
+
+==== Services
+
+D'après https://docs.docker.com/compose/compose-file/05-services/[la documentation officielle de Docker Compose], il existe 83 attributs pour les services.
+Parmi ceux-là, les deux plus importants sont :
+
+. `image` : l'image à utiliser (cf. https://docs.docker.com/compose/compose-file/05-services/#image[documentation officielle de Docker Compose]) ;
+. `build` : les options de build (cf. https://docs.docker.com/compose/compose-file/05-services/#build[documentation officielle de Docker Compose]).
+
+NOTE:: En effet, pour construire un service, il faut utiliser une image.
+Soit on utilise une image déjà existante (`image`), soit on construit une image (`build`).
+
+Les autres attributs importants sont :
+
+. `container_name` : le nom du conteneur (cf. https://docs.docker.com/compose/compose-file/05-services/#container_name[documentation officielle de Docker Compose]) ;
+. `command` : la commande à lancer (cf. https://docs.docker.com/compose/compose-file/05-services/#command[documentation officielle de Docker Compose]) ;
+. `environment` : les variables d'environnement (cf. https://docs.docker.com/compose/compose-file/05-services/#environment[documentation officielle de Docker Compose]) ;
+. `ports` : les ports à exposer (cf. https://docs.docker.com/compose/compose-file/05-services/#ports[documentation officielle de Docker Compose]) ;
+. `volumes` : les volumes à monter (cf. https://docs.docker.com/compose/compose-file/05-services/#volumes[documentation officielle de Docker Compose]) ;
+. `networks` : les réseaux à utiliser (cf. https://docs.docker.com/compose/compose-file/05-services/#networks[documentation officielle de Docker Compose]) ;
+. `depends_on` : les dépendances (cf. https://docs.docker.com/compose/compose-file/05-services/#depends_on[documentation officielle de Docker Compose]) ;
+. `restart` : la politique de redémarrage (cf. https://docs.docker.com/compose/compose-file/05-services/#restart[documentation officielle de Docker Compose]) ;
+. `labels` : les labels (cf. https://docs.docker.com/compose/compose-file/05-services/#labels[documentation officielle de Docker Compose]).
+
+==== Networks
+
+D'après https://docs.docker.com/compose/compose-file/06-networks/#attachable[la documentation officielle de Docker Compose], il existe 9 attributs :
+
+. `driver` : le driver du réseau (cf. https://docs.docker.com/compose/compose-file/06-networks/#driver[documentation officielle de Docker Compose]) ;
+. `driver_opts` : les options du driver (cf. https://docs.docker.com/compose/compose-file/06-networks/#driver_opts[documentation officielle de Docker Compose]) ;
+. `attachable` : si le réseau est attachable (cf. https://docs.docker.com/compose/compose-file/06-networks/#attachable[documentation officielle de Docker Compose]) ;
+. `enable_ipv6` : si le réseau supporte l'IPv6 (cf. https://docs.docker.com/compose/compose-file/06-networks/#enable_ipv6[documentation officielle de Docker Compose]) ;
+. `external` : si le réseau est externe (cf. https://docs.docker.com/compose/compose-file/06-networks/#external[documentation officielle de Docker Compose]) ;
+. `ipam` : les options du driver IPAM (cf. https://docs.docker.com/compose/compose-file/06-networks/#ipam[documentation officielle de Docker Compose]) ;
+. `internal` : si le réseau est interne (cf. https://docs.docker.com/compose/compose-file/06-networks/#internal[documentation officielle de Docker Compose]) ;
+. `labels` : les labels du réseau (cf. https://docs.docker.com/compose/compose-file/06-networks/#labels[documentation officielle de Docker Compose]) ;
+. `name` : le nom du réseau (cf. https://docs.docker.com/compose/compose-file/06-networks/#name[documentation officielle de Docker Compose]).
+
+==== Volumes
+
+==== Configs
+
+==== Secrets
