@@ -13,11 +13,13 @@
 
 ==== Linux
 
-On pourra suivre link:https://openclassrooms.com/fr/courses/7170491-initiez-vous-a-linux[ce cours d'Open Classrooms].
+Le mieux est sans doute de suivre d'abord https://tryhackme.com/module/linux-fundamentals[ce module de TryHackMe].
+
+On pourra aussi suivre link:https://openclassrooms.com/fr/courses/7170491-initiez-vous-a-linux[ce cours d'Open Classrooms].
 
 image::oc-linux.png[Page d'accueil du cours d'OC sur Linux]
 
-Puis link:https://openclassrooms.com/fr/courses/7274161-administrez-un-systeme-linux[ce cours].
+Après avoir étudié le cours précédent, on pourra suivre link:https://openclassrooms.com/fr/courses/7274161-administrez-un-systeme-linux[ce cours].
 
 image::oc-linux-adminsys.png[Page d'accueil du cours d'OC sur Linux]
 

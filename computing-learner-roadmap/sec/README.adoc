@@ -15,10 +15,6 @@ https://donottrack-doc.com/fr/[Do not track], une websérie interactive.
 
 https://www.ssi.gouv.fr/entreprise/formations/secnumacademie/[SecNumAcadémie], le MOOC de l'ANSSI.
 
-=== Challenges
-
-link:https://www.root-me.org/[Site de root-me.org]
-
 == Le second cercle
 
 === Sécurité avancée de ses données personnelles
@@ -31,7 +27,19 @@ video::EOWeewlc2CE[youtube]
 link:https://www.youtube.com/watch?v=VBsLSfPs2PE[Interview par Thinkerview intitulée : « Benjamin Bayart, Grand Sorcier de l'Internet option vie privée »]
 video::VBsLSfPs2PE[youtube]
 
+=== Pentesting
+
+Suivre les chemins d'apprentissage (listés sur https://tryhackme.com/paths[la page dédiée de TryHackMe])suivants, dans l'ordre :
+
+* Introduction to Cyber Security/
+* Pre Security.
+* Complete Beginner.
+
 === Anonymisation
 
 * Tor
 * Tails
+
+=== Challenges
+
+link:https://www.root-me.org/[Site de root-me.org]

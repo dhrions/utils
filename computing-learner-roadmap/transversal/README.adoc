@@ -39,11 +39,12 @@ Markdown est sans doute le langage de balisage léger le plus utilisé. Il est n
 
 === Fonctionnement du web
 
-On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »]
+On pourra suivre link:https://openclassrooms.com/fr/courses/1946386-comprendre-le-web[ce cours d'OC intitulé « Comprendre le web »] ainsi que https://tryhackme.com/module/how-the-web-works[ce module de TryHackMe].
 
 === Youtube
 
-Youtube est une mine d'or. Des vidéos sur à peu près tous les sujets existent.
+Youtube est une mine d'or.
+Des vidéos sur à peu près tous les sujets existent.
 
 === Les cheatsheets
 
