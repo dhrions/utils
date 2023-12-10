@@ -24,9 +24,13 @@ Version 1.0.0, 10/12/2023
 
 image::https://www.docker.com/wp-content/uploads/2023/08/logo-guide-logos-2.svg[Docker logo, 200]
 
+On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker[ce cours d'OpenClassrooms] pour plus d'informations.
+
 == Docker
 
 === Commandes de base
+
+On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211458-lancez-votre-premier-conteneur-en-local[ce chapitre d'OpenClassrooms] pour plus d'informations.
 
 [source, bash]
 ----
@@ -57,6 +61,29 @@ docker cp nomduconteneur:/chemin/du/dossier /chemin/local
 ----
 
 == Dockerfile
+
+On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211517-creez-votre-premier-dockerfile[ce chapitre d'OpenClassrooms] pour plus d'informations.
+
+Il y a 18 différentes références d'un Dockerfile (cf. https://docs.docker.com/engine/reference/builder/[documentation officielle de Docker]) :
+
+. *`FROM`* : l'image de base ;
+. *`RUN`* : les commandes à exécuter ;
+. *`CMD`* : les arguments de la commande à lancer.
+. *`LABEL`* : les labels ;
+. `MAINTAINER` (_deprecated_): le mainteneur ;
+. *`EXPOSE`* : les ports à exposer ;
+. *`ENV`* : les variables d'environnement ;
+. *`ADD`* : les fichiers à ajouter ;
+. *`COPY`* : les fichiers à copier ;
+. `ENTRYPOINT` : la commande à lancer ;
+. *`VOLUME`* : les volumes ;
+. `USER` : l'utilisateur ;
+. *`WORKDIR`* : le répertoire de travail ;
+. `ARG` : les arguments ;
+. `ONBUILD` : les commandes à exécuter lors de la construction d'une image enfant.
+. `STOPSIGNAL` : le signal d'arrêt ;
+. `HEALTHCHECK` : la commande de santé ;
+. `SHELL` : le shell.
 
 == Docker Compose
 
@@ -114,6 +141,9 @@ Les autres attributs importants sont :
 . `depends_on` : les dépendances (cf. https://docs.docker.com/compose/compose-file/05-services/#depends_on[documentation officielle de Docker Compose]) ;
 . `restart` : la politique de redémarrage (cf. https://docs.docker.com/compose/compose-file/05-services/#restart[documentation officielle de Docker Compose]) ;
 . `labels` : les labels (cf. https://docs.docker.com/compose/compose-file/05-services/#labels[documentation officielle de Docker Compose]).
+
+===== Secrets
+
 
 ==== Networks
 
