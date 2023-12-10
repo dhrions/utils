@@ -1,0 +1,79 @@
+version: '3.9'
+
+services:
+  webapp:
+    container_name: my_webapp_container
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+      - backend
+    environment:
+      - ENV_VARIABLE=value
+    labels:
+      - "com.example.description=My web application"
+      - "com.example.department=IT"
+    restart: unless-stopped  # Politique de redémarrage du conteneur
+
+  database:
+    container_name: my_database_container
+    image: postgres:latest
+    networks:
+      - backend
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+    labels:
+      - "com.example.description=Database server"
+      - "com.example.department=DB"
+    restart: always  # Politique de redémarrage du conteneur
+
+# tag::networks[]
+networks:
+  frontend:
+    name: my_frontend_network
+    driver: bridge
+    # driver_opts:
+    attachable: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+          ip_range: 172.28.5.0/24
+          gateway: 172.28.5.254
+          aux_addresses:
+            host1: 172.28.1.5
+            host2: 172.28.1.6
+            host3: 172.28.1.7
+      options:
+        foo: bar
+        baz: "0"
+    
+  backend:
+    name: my_backend_network
+    driver: bridge
+    # driver_opts:
+    attachable: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.239.0/24
+          gateway: 172.16.239.1
+    labels:
+      - "com.example.description=Backend network"
+      - "com.example.department=IT"
+
+  other-network:
+    external: true
+
+  internal-network:
+    internal: true
+# end::networks[]
+
+volumes:
+  db_data:
+    driver: local
