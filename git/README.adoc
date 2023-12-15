@@ -1,5 +1,119 @@
 = README de Git
-:author: Romain Le Drogo
+:author: Dhrions
+
+== Commandes
+
+=== Créer un nouveau dépôt
+
+[source,shell]
+----
+$ git init
+----
+
+=== Cloner un dépôt existant
+
+[source,shell]
+----
+$ git clone <url>
+----
+
+=== Vérifier l'état des fichiers
+
+[source,shell]
+----
+$ git status
+----
+
+=== Ajouter des fichiers à l'index
+----
+$ git add <file>
+----
+
+=== Valider les modifications
+----
+$ git commit -m "Message de validation"
+----
+
+=== Envoyer les modifications vers un dépôt distant
+----
+$ git push origin <branch>
+----
+
+=== Mettre à jour le dépôt local avec les modifications du dépôt distant
+----
+$ git pull origin <branch>
+----
+
+=== Créer une nouvelle branche
+
+[source,shell]
+----
+$ git checkout -b <branch>
+----
+
+=== Changer de branche
+
+[source,shell]
+----
+$ git checkout <branch>
+----
+
+=== Fusionner une branche dans la branche courante
+
+[source,shell]
+----
+$ git merge <branch>
+----
+
+=== Supprimer une branche
+
+[source,shell]
+----
+$ git branch -d <branch>
+----
+
+=== Afficher l'historique des commits
+
+[source,shell]
+----
+$ git log
+----
+
+=== Afficher l'historique des commits avec les différences
+
+[source,shell]
+----
+$ git log -p
+----
+
+=== Annuler le dernier commit (en conservant les modifications)
+
+[source,shell]
+----
+$ git reset --soft HEAD~1
+----
+
+=== Annuler le dernier commit (en supprimant les modifications)
+
+[source,shell]
+----
+$ git reset --hard HEAD~1
+----
+
+=== Annuler le dernier commit (en conservant les modifications dans l'index)
+
+[source,shell]
+----
+$ git reset --mixed HEAD~1
+----
+
+=== Afficher le nom et l'adresse e-mail de l'utilisateur
+
+[source,shell]
+----
+$ git config --global user.name
+$ git config --global user.email
+----
 
 == Bonnes pratiques
 
@@ -9,7 +123,8 @@
 ______________________________
 To write commit with Git, what are the different recommend verbs to start your sentence with ?::
 
-When writing a commit message in Git, it is recommended to start the sentence with an imperative verb in the present tense. Some common verbs used in commit messages include:
+When writing a commit message in Git, it is recommended to start the sentence with an imperative verb in the present tense.
+Some common verbs used in commit messages include:
 
 * Add: for adding new features or files
 * Update: for updating existing features or files
@@ -21,7 +136,6 @@ When writing a commit message in Git, it is recommended to start the sentence wi
 * Test: for adding or updating tests
 ______________________________
 
-
 [qanda]
 ______________________________
 Do you have other good advices to better write commits ?::
@@ -32,11 +146,14 @@ Yes, here are some additional tips to help you write better commits:
 
 Keep your commits small and focused: Each commit should represent a single logical change, so it's easier to review and understand the code changes.
 
-Use imperative mood: Start each commit message with a verb in the imperative mood, such as "Add", "Fix", "Update", "Refactor", "Remove", etc. This helps to clearly state what the commit does.
+Use imperative mood: Start each commit message with a verb in the imperative mood, such as "Add", "Fix", "Update", "Refactor", "Remove", etc.
+This helps to clearly state what the commit does.
 
-Write a clear and concise summary: The first line of the commit message should be a short (50 characters or less) summary of the change. It should be descriptive enough to convey the purpose of the commit at a glance.
+Write a clear and concise summary: The first line of the commit message should be a short (50 characters or less) summary of the change.
+It should be descriptive enough to convey the purpose of the commit at a glance.
 
-Provide more details in the body: Use the body of the commit message to provide more details about the change, such as why it was necessary and how it was implemented. This helps to provide context and make the change more understandable.
+Provide more details in the body: Use the body of the commit message to provide more details about the change, such as why it was necessary and how it was implemented.
+This helps to provide context and make the change more understandable.
 
 Use bullet points for complex changes: If the change is complex, consider breaking it down into bullet points to make it easier to read and understand.
 
@@ -46,7 +163,8 @@ Be consistent: Use the same style and formatting for all your commit messages to
 
 Avoid unnecessary details: Don't include unnecessary details in your commit messages, such as personal notes or temporary changes that will be reverted later.
 
-Keep your commit messages meaningful: Avoid writing vague or unhelpful commit messages such as "Update" or "Fix bugs". Instead, be specific and descriptive about what the change does.
+Keep your commit messages meaningful: Avoid writing vague or unhelpful commit messages such as "Update" or "Fix bugs".
+Instead, be specific and descriptive about what the change does.
 
 By following these tips, you can create commit messages that are clear, concise, and informative, making it easier for others to understand and review your changes.
 ______________________________
