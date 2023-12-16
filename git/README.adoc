@@ -24,6 +24,16 @@ Version 1.1.0, 16/12/2023
 
 // NOTE:: Le mieux est d'écrire une phrase par ligne.
 
+== Introduction
+
+On peut utilement consulter https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[le cours sur Git et GitHub d'OpenClassrooms].
+
+.Page d'accueil du cours d'OpenClassrooms dédié à Git et GitHub
+image::git-oc.png[Page d'accueil du cours d'OpenClassrooms dédié à Git et GitHub, 500, link=https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github]
+
+.Quelques concepts-clés de Git
+image::16334576106761_image27.png[Quelques concepts-clés de Git, 500, link=https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github/7165726-travaillez-depuis-votre-depot-local-git]
+
 == Commandes
 
 === Créer un nouveau dépôt
@@ -117,12 +127,26 @@ $ git log
 $ git log -p
 ----
 
+=== Vider l'index (ou _stage_)
+
+[source,shell]
+----
+$ git reset
+----
+
 === Annuler le dernier commit (en conservant les modifications)
 
 [source,shell]
 ----
 $ git reset --soft HEAD~1
 ----
+
+NOTE:: Dans ce cas, le dernier commit est annulé, mais les modifications sont conservées dans l'index.
+En outre, si avant l'exécution de cette commande, il y avait des modifications dans l'index, elles sont conservées.
+On retrouve donc dans l'index :
+
+* les modifications qui étaient dans l'index avant l'exécution de la commande ;
+* les modifications qui étaient dans le dernier commit.
 
 === Annuler le dernier commit (en supprimant les modifications)
 
