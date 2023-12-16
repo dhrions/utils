@@ -197,3 +197,7 @@ Instead, be specific and descriptive about what the change does.
 
 By following these tips, you can create commit messages that are clear, concise, and informative, making it easier for others to understand and review your changes.
 ______________________________
+
+Il est aussi possible de faire usage des gitmojis :
+
+image::gitmoji.png[Gitmoji, 500, align="center", link=https://gitmoji.dev/]
