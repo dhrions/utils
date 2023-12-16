@@ -25,21 +25,29 @@ $ git status
 ----
 
 === Ajouter des fichiers à l'index
+
+[source,shell]
 ----
 $ git add <file>
 ----
 
 === Valider les modifications
+
+[source,shell]
 ----
 $ git commit -m "Message de validation"
 ----
 
 === Envoyer les modifications vers un dépôt distant
+
+[source,shell]
 ----
 $ git push origin <branch>
 ----
 
 === Mettre à jour le dépôt local avec les modifications du dépôt distant
+
+[source,shell]
 ----
 $ git pull origin <branch>
 ----
