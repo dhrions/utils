@@ -148,30 +148,28 @@ ______________________________
 ______________________________
 Do you have other good advices to better write commits ?::
 
-Starting the sentence with a verb in the imperative mood makes the commit message more clear and actionable. It also helps to keep the commit messages concise and consistent.
+. Starting the sentence with a verb in the imperative mood makes the commit message more clear and actionable. It also helps to keep the commit messages concise and consistent.
 
-Yes, here are some additional tips to help you write better commits:
+. Keep your commits small and focused: Each commit should represent a single logical change, so it's easier to review and understand the code changes.
 
-Keep your commits small and focused: Each commit should represent a single logical change, so it's easier to review and understand the code changes.
-
-Use imperative mood: Start each commit message with a verb in the imperative mood, such as "Add", "Fix", "Update", "Refactor", "Remove", etc.
+. Use imperative mood: Start each commit message with a verb in the imperative mood, such as "Add", "Fix", "Update", "Refactor", "Remove", etc.
 This helps to clearly state what the commit does.
 
-Write a clear and concise summary: The first line of the commit message should be a short (50 characters or less) summary of the change.
+. Write a clear and concise summary: The first line of the commit message should be a short (50 characters or less) summary of the change.
 It should be descriptive enough to convey the purpose of the commit at a glance.
 
-Provide more details in the body: Use the body of the commit message to provide more details about the change, such as why it was necessary and how it was implemented.
+. Provide more details in the body: Use the body of the commit message to provide more details about the change, such as why it was necessary and how it was implemented.
 This helps to provide context and make the change more understandable.
 
-Use bullet points for complex changes: If the change is complex, consider breaking it down into bullet points to make it easier to read and understand.
+. Use bullet points for complex changes: If the change is complex, consider breaking it down into bullet points to make it easier to read and understand.
 
-Use the present tense: Write commit messages in the present tense, as if you were describing the code as it is now, rather than how it was in the past.
+. Use the present tense: Write commit messages in the present tense, as if you were describing the code as it is now, rather than how it was in the past.
 
-Be consistent: Use the same style and formatting for all your commit messages to ensure consistency across the project.
+. Be consistent: Use the same style and formatting for all your commit messages to ensure consistency across the project.
 
-Avoid unnecessary details: Don't include unnecessary details in your commit messages, such as personal notes or temporary changes that will be reverted later.
+. Avoid unnecessary details: Don't include unnecessary details in your commit messages, such as personal notes or temporary changes that will be reverted later.
 
-Keep your commit messages meaningful: Avoid writing vague or unhelpful commit messages such as "Update" or "Fix bugs".
+. Keep your commit messages meaningful: Avoid writing vague or unhelpful commit messages such as "Update" or "Fix bugs".
 Instead, be specific and descriptive about what the change does.
 
 By following these tips, you can create commit messages that are clear, concise, and informative, making it easier for others to understand and review your changes.
