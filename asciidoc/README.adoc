@@ -1,6 +1,6 @@
 = Voici le titre de mon document: This is the subtitle
 Dhrions, Trucmuche, Machinchose
-Version 1.0.0, 10/12/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
+Version 1.0.0, 24/12/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -24,55 +24,15 @@ Useful for writing simple sectionless documents consisting only of a preamble.
 
 NOTE:: Le mieux est d'écrire une phrase par ligne.
 
-== Asie
+== Les listes
+
+=== Listes ordonnées
+
 .Liste des pays :
 . Premier
 . Deuxième
 
-{subtitle}
-
-== Europe
-
-Pour aller en <<Amérique>>, c'est par <<Amérique, ici>>.
-
-=== Europe de l'ouest ({url-wiki-Europe-Ouest}[cf. Wikipédia])
-
-==== France ({url-wiki}/France[cf. Wikipédia])
-
-.Voici le titre d'un bloc
-Et là, cela est un bloc, constitué d'une phrase.
-Et d'une deuxièle phrase.
-Et d'une troisième.
-
-===== Alsace
-[quote, Shakespeare, Hamlet - Acte III - Scène 1]
-Être ou ne pas être, telle est la question.
-
-====== Bas-Rhin
-
-====== Haut-Rhin
-===== Bretagne
-[source, python]
-----
-print("Hello world"!)
-----
-===== Provence Alpes Côtes d'Azur
-==== Espagne
-==== Portugal
-
-Il y a un dossier intéressant : link:./example1[ici].
-
-Je peux facilement inclure une partie d'un fichier de code en-dessous.
-
-[source, python]
-----
-include::./example1/python.py[tag=le-nom-de-mon-tag]
-----
-CAUTION: `include` ne fonctionne pas sur Git Hub.
-
-=== Europe de l'est
-
-== Afrique
+=== Liste non ordonnées
 
 * item
 ** nested item
@@ -85,6 +45,63 @@ CAUTION: `include` ne fonctionne pas sur Git Hub.
 ** nested item
 * item
 
-== Amérique
+== Les citations
 
-More test
+// À propos des citations : https://docs.asciidoctor.org/asciidoc/latest/blocks/blockquotes/
+
+=== Basic quote syntax
+
+[quote,attribution,citation title and information]
+Quote or excerpt text
+
+.After landing the cloaked Klingon bird of prey in Golden Gate park:
+[quote,Captain James T. Kirk,Star Trek IV: The Voyage Home]
+Everybody remember where we parked.
+
+=== Quoted blocks
+
+[quote,Monty Python and the Holy Grail]
+____
+Dennis: Come and see the violence inherent in the system. Help! Help! I'm being repressed!
+
+King Arthur: Bloody peasant!
+
+Dennis: Oh, what a giveaway! Did you hear that? Did you hear that, eh? That's what I'm on about! Did you see him repressing me? You saw him, Didn't you?
+____
+
+=== Quoted paragraphs
+
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+== Les liens
+
+Pour aller à la section intitulée « <<Les listes>> », c'est par <<Les listes, ici>>.
+
+Il y a un dossier intéressant : link:./example1[ici].
+
+== Les variables ({url-wiki-Europe-Ouest}[cf. Wikipédia])
+
+== Les blocs
+
+.Voici le titre d'un bloc
+Et là, cela est un bloc, constitué d'une phrase.
+Et d'une deuxième phrase.
+Et d'une troisième.
+
+== Le code
+
+[source, python]
+----
+print("Hello world"!)
+----
+
+Je peux facilement inclure une partie d'un fichier de code en-dessous.
+
+[source, python]
+----
+include::./example1/python.py[tag=le-nom-de-mon-tag]
+----
+
+CAUTION: `include` ne fonctionne pas sur Git Hub.
