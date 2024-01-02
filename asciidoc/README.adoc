@@ -1,6 +1,6 @@
 = Voici le titre de mon document: This is the subtitle
 Dhrions, Trucmuche, Machinchose
-Version 1.0.0, 24/12/2023 // Ligne optionnelle dédiée à la revision, la date et une remarque
+Version 1.0.1, 02/01/2024, remarque
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
