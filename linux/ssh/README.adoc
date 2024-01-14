@@ -31,3 +31,42 @@ ssh-keyscan -t ed25519 -p 22 mymachine
 ----
 scp -r <username>@<ipaddress>:<path-of-distant-folder> <path-of-local-folder> -P ssh-port-number
 ----
+
+== Faire aboucher un des ports de sa machine locale avec un port de sa machine distante
+
+=== ssh -L
+
+[source, bash]
+----
+ssh <username>@<ipaddress> -p <ssh-port-number> -L <local-port>:<ipaddress-seen-from-locale-machine>:<remote-port>
+----
+
+Cette commande se connecte en ssh (`ssh`), en tant qu'utilisateur <username> (`<username>`), à l'adresse IP  <ipaddress> (`<ipaddress>`) via le port <ssh-port-number> (`-p <ssh-port-number>`).
+Elle fait aussi aboucher le port `<local-port>` de la machine locale avec le port `<remote-port>` de la machine ayant pour adresse <ipaddress-seen-from-locale-machine> *du point de vue de la machine locale* (`-L <local-port>:<ipaddress-seen-from-locale-machine>:<remote-port>`).
+
+NOTE:: Il faut que le <local-port> soit un port libre de la machine locale.
+
+Exemple :
+
+[source, bash]
+----
+ssh jean@1.2.3.4 -p 33 -L 5000:localhost:6000 
+----
+
+Cette commande se connecte via le port 33 (`-p 33`) en tant qu'utilisateur jean (`jean`) à l'adresse IP (`1.2.3.4`).
+Elle fait aussi aboucher le port 5000 de la machine locale avec le port 6000 de la machine ayant pour adresse IP `localhost` *du point de vue de la machine locale* (`-L <local-port>:<ipaddress1>:<remote-port>`), c'est-à-dire la machine distante elle-même.
+
+=== ssh -R
+
+[source, bash]
+----
+ssh -R <remote-port>:<ipaddress-seen-from-remote-machine>:<local-port> <username>@<ipaddress> -p ssh-port-number
+----
+
+Cette commande se connecte en ssh (`ssh`), en tant qu'utilisateur <username> (`<username>`), à l'adresse IP  <ipaddress> (`<ipaddress>`) via le port <ssh-port-number> (`-p <ssh-port-number>`).
+Elle fait aussi aboucher le port `<remote-port>` de la machine distante avec le port `<local-port>` de la machine ayant pour adresse <ipaddress-seen-from-locale-machine> *du point de vue de la machine distante* (`-R <remote-port>:<ipaddress-seen-from-remote-machine>:<local-port>`).
+
+NOTE:: Il faut que le <remote-port> soit un port libre de la machine locale.
+
+Quid si l'on remplace localhost par adresse IP ?
+L'adresse IP sera-t-elle l'adresse IP vue par la machine hôte ou par la machine distante ?
