@@ -79,6 +79,12 @@ Je crée une base de données :
 CREATE DATABASE mydb;
 ----
 
+== Accéder à l'historique des commandes
+
+Les commandes tapées dans le terminal psql peuvent être enregistrées dans ce fichier : `/var/lib/postgresql/.psql_history`.
+
+NOTE:: Ce fichier est sensible car il peut contenir le mot de passe en clair d'un utilisateur PostgreSQL.
+
 // Il faut exécuter un script de postgresql-common pour ajouter un dépôt et mettre à jour la liste des paquets en conséquence avant d'installer pgAdmin4 :
 
 // [source, bash]
