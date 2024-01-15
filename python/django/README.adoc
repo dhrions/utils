@@ -101,6 +101,47 @@ Pour charger la base de données, il faut exécuter la commande suivante :
 ----
 python manage.py loaddata db.json
 ----
+
+== Extensions utiles
+
+Les extensions suivantes sont utiles :
+
+* pillow
+* django_extensions
+* import_export
+* polymorphic
+* guardian
+* rest_framework : pour créer une API
+* rest_framework_gis : pour créer une API avec des données géographiques
+* drf_spectacular : pour créer une documentation de l'API
+* simple_history
+* rangefilter
+* taggit
+
+== Ajouter une extension
+
+Pour ajouter une extension, le mieux est de consulter la documentation officielle.
+
+Généralement, il faut l'installer :
+
+[source, bash]
+----
+pip install my_extension
+----
+
+NOTE:: Si l'on utilise un environnement virtuel, il faut veiller à ce que cet environnement virtuel soit bien activé avant d'installer l'extension.
+
+Généralement, il faut ensuite l'ajouter au fichier `settings.py` (`my_project/my_project/settings.py`) :
+
+[source, python]
+----
+INSTALLED_APPS = [
+    ...
+    'my_extension',
+    ...
+]
+----
+
 // == Les listes
 
 // === Listes ordonnées
