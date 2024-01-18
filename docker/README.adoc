@@ -35,19 +35,19 @@ On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-
 [source, bash]
 ----
 # Lancer un conteneur
-docker run nomdelimage
+docker run <image-name>
 
 # Lancer un conteneur en arrière-plan
-docker run -d nomdelimage
+docker run -d <image-name>
 
 # Lancer un conteneur en arrière-plan avec un nom
-docker run -d --name nomduconteneur nomdelimage
+docker run -d --name <container-name> <image-name>
 
 # Lancer un conteneur en arrière-plan avec un nom et un port
-docker run -d --name nomduconteneur -p portlocal:portdudocker nomdelimage
+docker run -d --name <container-name> -p <host-port>:<container-port> <image-name>
 
 # Lancer un conteneur en arrière-plan avec un nom, un port et un volume
-docker run -d --name nomduconteneur -p portlocal:portdudocker -v /chemin/local:/chemin/dudocker nomdelimage
+docker run -d --name <container-name> -p <host-port>:<container-port> -v /chemin/machine/hote:/chemin/container/docker <image-name>
 
 # Lister les images locales
 docker image ls
