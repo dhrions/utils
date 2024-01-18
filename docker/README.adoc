@@ -142,6 +142,47 @@ Les autres attributs importants sont :
 . `restart` : la politique de redémarrage (cf. https://docs.docker.com/compose/compose-file/05-services/#restart[documentation officielle de Docker Compose]) ;
 . `labels` : les labels (cf. https://docs.docker.com/compose/compose-file/05-services/#labels[documentation officielle de Docker Compose]).
 
+===== Networks
+
+La rubrique `networks` du _top-level element_ `services` indique les paramètres réseaux du service considéré (cf. https://docs.docker.com/compose/compose-file/05-services/#networks[documentation officielle de Docker Compose]).
+
+Un des attributs intéressants est `aliases` (cf. https://docs.docker.com/compose/compose-file/05-services/#aliases[documenation officielle]).
+Il permet de donner un ou plusieurs noms d'hôte supplémentaires au conteneur considéré.
+
+Ainsi, si l'on considère l'extrait de code suivant :
+
+[source, yml]
+----
+services:
+  some-service:
+    container_name: mycontainer
+    networks:
+      some-network:
+        aliases:
+          - alias1
+          - alias3
+      other-network:
+        aliases:
+          - alias2
+----
+
+Si nous avons un autre conteneur sur le réseau `some-network`, il pourra pinguer le container `mycontainer` en tapant l'une des commandes suivantes :
+
+[source, bash]
+----
+ping mycontainer
+ping alias1
+ping alias3
+----
+
+Si nous avons un autre conteneur sur le réseau `some-network`, il pourra pinguer le container `mycontainer` en tapant l'une des commandes suivantes :
+
+[source, bash]
+----
+ping mycontainer
+ping alias2
+----
+
 ===== Secrets
 
 
