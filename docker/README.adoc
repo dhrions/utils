@@ -117,6 +117,24 @@ Il y a 6 _top-level elements_ (cf. https://docs.docker.com/compose/compose-file/
 
 Un seul _top-level element_ est obligatoire : `services` (cf. https://docs.docker.com/compose/compose-file/03-compose-file/[documentation officielle de Docker Compose]).
 
+
+Les deux extraits de code suivants sont équivalents :
+
+----
+top-level-element:
+    element1:
+        sub-element1: "abcdefgh"
+----
+
+----
+top-level-element:
+    element1:
+        sub-element1=abcdefgh
+----
+
+CAUTION:: Dans ce dernier cas, il faut veiller à ne pas mettre de guillemets autour de la valeur (il faut bien écrire `sub-element1=abcdefgh` et non `sub-element1="abcdefgh"`).
+Cela peut être source de problèmes.
+
 ==== Version
 
 ==== Services
