@@ -150,6 +150,8 @@ Ensuite, on crée l'image `my-ubuntu` (on choisit le nom que l'on veut) à parti
 docker build -t my-ubuntu .
 ----
 
+La commande `build` indique la construction de l'image tandis que l'option `-t` permet de donner un _tag_, c'est-à-dire un nom, à l'image.
+
 On peut ensuite créer un conteneur à partir de cette image en exécutant la commande suivante :
 
 [source, bash]
