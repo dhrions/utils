@@ -164,7 +164,7 @@ docker-compose up nomduservice
 docker-compose up -d nomduservice
 ----
 
-=== Le fichier `docker-compose.yml` complet
+=== Le fichier docker-compose.yml complet
 
 Il y a 6 _top-level elements_ (cf. https://docs.docker.com/compose/compose-file/[documentation officielle de Docker Compose]) :
 
