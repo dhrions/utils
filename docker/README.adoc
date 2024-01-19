@@ -28,6 +28,18 @@ On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-
 
 == Docker
 
+== Pourquoi utiliser Docker ?
+
+Docker est très intéressant car il permet de rendre des applications portables.
+
+Ainsi, imaginons Alice qui a créé un programme informatique en Python.
+Lorsqu'elle lance son programme sur sa machine, tout fonctionne bien.
+Pour fonctionner correctement, son programme a besoin d'utiliser une version de Python en particulier et de multiples dépendances avec des versions spécifiques.
+Si elle l'envoie à Bob, il est possible que cela ne fonctionne pas car Bob ne dispose pas de la même version de Python ou des mêmes dépendances.
+Ainsi, Bob doit installer la bonne version de Python et les bonnes dépendances pour que le programme d'Alice fonctionne correctement.
+Avec un conteneur Docker, Alice peut créer un conteneur qui contient son programme, la bonne version de Python et les bonnes dépendances.
+Bob n'a plus qu'à lancer le conteneur pour que le programme d'Alice fonctionne correctement sans se soucier de la version de Python ou des dépendances.
+
 === Commandes de base
 
 On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211458-lancez-votre-premier-conteneur-en-local[ce chapitre d'OpenClassrooms] pour plus d'informations.
