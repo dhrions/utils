@@ -124,6 +124,41 @@ docker system prune -a
 
 On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211517-creez-votre-premier-dockerfile[ce chapitre d'OpenClassrooms] pour plus d'informations.
 
+=== Pourquoi utiliser un Dockerfile en complément de Docker ?
+
+Imaginons que l'on utilise un conteneur basé sur l'image `ubuntu` qui ne dispose pas de la commande `ping`.
+On peut installer cette commande en exécutant la commande `apt-get install iputils-ping` dans le conteneur.
+Toutefois, si l'on relance ce conteneur (ce qui peut arriver pour de multiples raisons), la commande `ping` ne sera plus disponible.
+Or, si l'on veut qu'elle soit systématiquement disponible, il faut la réinstaller à chaque fois que l'on relance le conteneur.
+Le Dockerfile permet de résoudre ce problème.
+Il permet de créer une image personnalisée qui contient la commande `ping` et qui peut être utilisée pour créer un conteneur.
+
+=== Usage
+
+D'abord, on crée un fichier qui doit avoir pour nom `Dockerfile` (sans extension) dont le contenu peut-être le suivant :
+
+[source, docker]
+----
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y iputils-ping
+----
+
+Ensuite, on crée l'image `my-ubuntu` (on choisit le nom que l'on veut) à partir de ce Dockerfile en exécutant la commande suivante :
+
+[source, bash]
+----
+docker build -t my-ubuntu .
+----
+
+On peut ensuite créer un conteneur à partir de cette image en exécutant la commande suivante :
+
+[source, bash]
+----
+docker run -it my-ubuntu
+----
+
+=== Références
+
 Il y a 18 différentes références d'un Dockerfile (cf. https://docs.docker.com/engine/reference/builder/[documentation officielle de Docker]) :
 
 . *`FROM`* : l'image de base ;
@@ -144,6 +179,47 @@ Il y a 18 différentes références d'un Dockerfile (cf. https://docs.docker.com
 . `STOPSIGNAL` : le signal d'arrêt ;
 . `HEALTHCHECK` : la commande de santé ;
 . `SHELL` : le shell.
+
+=== Principe sous-jacent
+
+Chaque ligne d'un Dockerfile (sauf celle avec FROM) va créer une nouvelle couche.
+Le système va ensuite créer une image à partir de ces couches.
+
+Les couches peuvent resservir à la création d'autres images.
+
+Ainsi, on considère le Dockerfile suivant :
+
+[source, docker]
+----
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y iputils-ping
+----
+
+Une couche est créée pour l'instruction `RUN`.
+
+On crée ensuite le Dockerfile suivant :
+
+[source, docker]
+----
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y iputils-ping
+RUN apt-get install -y curl
+----
+
+La couche pour la première instruction `RUN` existe déjà et n'a donc besoin d'être recréée (ce qui économise du temps de construction de l'image).
+La couche pour la deuxième instruction `RUN` en revanche n'existe pas et doit donc être créée.
+
+L'image créee à partir de ce Dockerfile est fabriquée à partir de deux couches.
+
+En revanche, si l'on crée le Dockerfile suivant :
+
+[source, docker]
+----
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y curl
+----
+
+Une seule couche est créée pour l'instruction `RUN`.
 
 == Docker Compose
 
