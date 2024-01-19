@@ -113,6 +113,13 @@ docker exec -it nextcloud sh
 docker cp nomduconteneur:/chemin/du/dossier /chemin/local
 ----
 
+=== Supprimer tous les conteneurs, images, volumes et réseaux non utilisés
+
+[source, bash]
+----
+docker system prune -a
+----
+
 == Dockerfile
 
 On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211517-creez-votre-premier-dockerfile[ce chapitre d'OpenClassrooms] pour plus d'informations.
