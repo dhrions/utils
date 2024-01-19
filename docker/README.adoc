@@ -106,14 +106,14 @@ docker exec -it <container-name> <command>
 docker exec -it nextcloud sh
 ----
 
-=== Copier le contenu d'un volume docker dans un dossier local
+==== Copier le contenu d'un volume docker dans un dossier local
 
 [source, bash]
 ----
 docker cp nomduconteneur:/chemin/du/dossier /chemin/local
 ----
 
-=== Supprimer tous les conteneurs, images, volumes et réseaux non utilisés
+==== Supprimer tous les conteneurs, images, volumes et réseaux non utilisés
 
 [source, bash]
 ----
