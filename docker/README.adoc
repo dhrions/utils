@@ -1,6 +1,6 @@
 = Docker
 Dhrions
-Version 1.0.0, 10/12/2023
+Version 1.0.1, 19/01/2024
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -32,25 +32,78 @@ On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-
 
 On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211458-lancez-votre-premier-conteneur-en-local[ce chapitre d'OpenClassrooms] pour plus d'informations.
 
+==== Lancer un conteneur
+
 [source, bash]
 ----
-# Lancer un conteneur
 docker run <image-name>
+----
 
-# Lancer un conteneur en arrière-plan
+[source, bash]
+----
+docker run hello-world
+----
+
+==== Lancer un conteneur en arrière-plan
+
+[source, bash]
+----
 docker run -d <image-name>
+----
 
-# Lancer un conteneur en arrière-plan avec un nom
+[source, bash]
+----
+docker run -d hello-world
+----
+
+==== Lancer un conteneur en arrière-plan avec un nom
+
+[source, bash]
+----
 docker run -d --name <container-name> <image-name>
+----
 
-# Lancer un conteneur en arrière-plan avec un nom et un port
+[source, bash]
+----
+docker run -d --name my-container nginx
+----
+
+==== Lancer un conteneur en arrière-plan avec un nom et un port
+
+[source, bash]
+----
 docker run -d --name <container-name> -p <host-port>:<container-port> <image-name>
+----
 
-# Lancer un conteneur en arrière-plan avec un nom, un port et un volume
+[source, bash]
+----
+docker run -d --name nginx -p 9999:80 nginx
+----
+
+==== Lancer un conteneur en arrière-plan avec un nom, un port et un volume
+
+[source, bash]
+----
 docker run -d --name <container-name> -p <host-port>:<container-port> -v /chemin/machine/hote:/chemin/container/docker <image-name>
+----
 
-# Lister les images locales
+==== Lister les images locales
+
+[source, bash]
+----
 docker image ls
+----
+
+==== Exécuter une commande dans un conteneur
+
+[source, bash]
+----
+docker exec -it <container-name> <command>
+----
+
+[source, bash]
+----
+docker exec -it nextcloud sh
 ----
 
 === Copier le contenu d'un volume docker dans un dossier local
@@ -116,7 +169,6 @@ Il y a 6 _top-level elements_ (cf. https://docs.docker.com/compose/compose-file/
 - `secrets` : les secrets à créer.
 
 Un seul _top-level element_ est obligatoire : `services` (cf. https://docs.docker.com/compose/compose-file/03-compose-file/[documentation officielle de Docker Compose]).
-
 
 Les deux extraits de code suivants sont équivalents :
 
