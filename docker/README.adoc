@@ -196,6 +196,8 @@ Il y a 18 différentes références d'un Dockerfile (cf. https://docs.docker.com
 
 === Principe sous-jacent
 
+On peut voir utilement https://www.youtube.com/watch?v=RP-z4dqRTZA[cette vidéo] pour mieux comprendre le principe des coucheS.
+
 Chaque ligne d'un Dockerfile (sauf celle avec FROM) va créer une nouvelle couche.
 Le système va ensuite créer une image à partir de ces couches.
 
