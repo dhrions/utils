@@ -75,7 +75,24 @@ git commit -m "Message de validation"
 
 [source,shell]
 ----
-git push origin <branch>
+git push <repository> <branch>
+----
+
+<repository> représente le nom que l'on a donné localement à un dépôt distant et <branch> représente le nom de la branche dans laquelle on veut envoyer les modifications.
+
+On n'est pas obligé de préciser le nom local du dépôt (`repository`) ou la branche (`branch`) si un dépôt et une branche par défaut ont déjà été configurés (ce qui est le cas si on a cloné un dépôt).
+On peut donc taper tout simplement :
+
+[source,shell]
+----
+git push
+----
+
+Si l'on veut forcer le _push_, on peut taper :
+
+[source,shell]
+----
+git push --force
 ----
 
 === Mettre à jour le dépôt local avec les modifications du dépôt distant
@@ -168,6 +185,13 @@ git reset --mixed HEAD~1
 ----
 git config --global user.name
 git config --global user.email
+----
+
+=== Modifier le texte du dernier commit
+
+[source,shell]
+----
+git commit --amend -m "nouveau-nom"
 ----
 
 == Bonnes pratiques
