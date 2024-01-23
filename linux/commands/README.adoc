@@ -19,6 +19,11 @@ Version 1.1.0, 01/01/2024
 :url-wiki: https://fr.wikipedia.org/wiki
 :url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
 
+On pourra consulter certaines pages dédiées à certaines commandes :
+
+* link:./xargs/README.adoc[xargs] ;
+* link:./date/README.adoc[date].
+
 == Exécuter deux commandes d'affilée si la première a réussi
 
 [source, bash]
