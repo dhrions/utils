@@ -119,16 +119,16 @@ Pour ajouter le script au PATH, on doit le copier dans un des répertoires du PA
 
 On note que 10 répertoires appartiennent au PATH :
 
-* /usr/local/sbin
-* /usr/local/bin
-* /usr/sbin
-* /usr/bin
-* /sbin
-* /bin
-* /usr/games
-* /usr/local/games
-* /snap/bin
-* /snap/bin
+* `/usr/local/sbin`
+* `/usr/local/bin`
+* `/usr/sbin`
+* `/usr/bin`
+* `/sbin`
+* `/bin`
+* `/usr/games`
+* `/usr/local/games`
+* `/snap/bin`
+* `/snap/bin`
 
 On va copier notre script dans un répertoire approprié.
 Étant donné que notre script ne relève pas de Snap, on va exlure les répertoires commençant par `/snap`.
