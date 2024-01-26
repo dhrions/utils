@@ -92,11 +92,11 @@ Pour rendre un script exécutable pour tous les utilisateurs, il faut utiliser l
 chmod +x ./mon_script.sh
 ----
 
-=== Ajouter le script au PATH
+=== Connaître le PATH
 
-Pour ajouter le script au PATH, il faut le copier dans un des répertoires du PATH.
+Pour ajouter le script au PATH, il faut déjà connaître le PATH.
 
-Pour connaître le PATH, il faut utiliser la commande `echo` :
+Pour cela, on peut utiliser la commande `echo` :
 
 [source, bash]
 ----
