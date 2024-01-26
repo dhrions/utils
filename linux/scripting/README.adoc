@@ -1,6 +1,6 @@
 = Scripting: De l'art d'écrire des scripts
 Dhrions
-Version 1.0.0, 12/01/2023
+Version 1.0.1, 26/01/2023
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -111,7 +111,9 @@ $ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 ----
 
-=== Ajouter le script au PATH (directement ou indirectement)
+=== Ajouter le script au PATH
+
+==== Méthode n° 1 : copier le script dans un répertoire du PATH
 
 Pour ajouter le script au PATH, on doit le copier dans un des répertoires du PATH.
 
@@ -141,13 +143,17 @@ On peut ainsi l'ajouter à `/usr/local/bin` :
 sudo cp ./mon_script.sh /usr/local/bin/mon_script
 ----
 
+==== Méthode n° 2
+
+On peut ajouter l'emplacement du script au PATH.
+
 === Conclusion
 
 On peut donc utiliser le script comme une commande en tapant :
 
 [source, bash]
 ----
-mon_script.sh
+mon_script
 ----
 
 == Variables spéciales
