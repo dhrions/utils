@@ -1,6 +1,6 @@
 = Scripting: De l'art d'écrire des scripts
 Dhrions
-Version 1.0.1, 26/01/2023
+Version 1.1.1, 24/03/2024
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -228,6 +228,31 @@ Ainsi, on a :
 $ ./mon_script.sh
 Tu t appelles John et tu as 32 ans
 ----
+
+== Calculer la durée d'exécution d'un script
+
+[source, bash]
+----
+#!/bin/bash
+
+# Début du chronomètre
+start_time=$(date +%s)
+
+# Votre script ici
+# Exemple : exécuter une commande
+# Commande à exécuter
+sleep 2
+
+# Fin du chronomètre
+end_time=$(date +%s)
+
+# Calcul du temps écoulé en secondes
+elapsed_time=$((end_time - start_time))
+
+# Affichage du temps écoulé
+echo "Temps d'exécution : $elapsed_time secondes"
+----
+
 // === Listes ordonnées
 
 // .Liste des pays :
