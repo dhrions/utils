@@ -106,3 +106,27 @@ ss -tuln
 ----
 curl ifconfig.me
 ----
+
+== Exécuter une action pour chaque ligne d'un fichier
+
+[source, bash]
+----
+cat fichier.txt | while read line; do echo $line; done
+----
+
+Ou :
+
+[source, bash]
+----
+while read line; do echo $line; done < fichier.txt
+----
+
+Ou :
+
+[source, bash]
+----
+cat fichier.txt | while read line
+do
+echo $line
+done
+----
