@@ -130,3 +130,10 @@ do
 echo $line
 done
 ----
+
+== Exécuter une commande pour chaque fichier contenu dans un dossier
+
+[source, bash]
+----
+for file in $(ls); do echo $file; done
+----
