@@ -1,5 +1,7 @@
 = SSH
 
+:imagesdir: ./medias
+
 == Ajouter une clé publique d'une machine A à une machine B
 
 Le but est de se connecter de la machine A à la machine B sans avoir à saisir de mot de passe, grâce à la clé SSH.
@@ -34,15 +36,30 @@ scp -r <username>@<ipaddress>:<path-of-distant-folder> <path-of-local-folder> -P
 
 == Faire aboucher un des ports de sa machine locale avec un port de sa machine distante
 
+On considère 3 machines :
+
+* la machine locale (_device1_) ;
+* la machine distante intermédiaire (_device2_) ;
+* la machine distante finale (_device3_).
+
+Ces deux dernières peuvent être la même machine.
+
 === ssh -L
 
 [source, bash]
 ----
-ssh <username>@<ipaddress> -p <ssh-port-number> -L <local-port>:<ipaddress-seen-from-locale-machine>:<remote-port>
+ssh <device2-username>@<device2-ip-address> -p <device2-ssh-port-number> -NL <local-port>:<device3-ip-address>:<device3-remote-port>
 ----
 
 Cette commande se connecte en ssh (`ssh`), en tant qu'utilisateur <username> (`<username>`), à l'adresse IP  <ipaddress> (`<ipaddress>`) via le port <ssh-port-number> (`-p <ssh-port-number>`).
 Elle fait aussi aboucher le port `<local-port>` de la machine locale avec le port `<remote-port>` de la machine ayant pour adresse <ipaddress-seen-from-locale-machine> *du point de vue de la machine locale* (`-L <local-port>:<ipaddress-seen-from-locale-machine>:<remote-port>`).
+
+Dans ce cas, l'usage de l'option `-N` est utile.
+En effet, si l'on ne l'utilise pas, on a accès au terminal de la machine distante intermédiaire (_device2_).
+Or, cela est rarement utile dans ce cas-là.
+On cherche juste à ce que cette commande crée un « tuyau » entre la machine locale (_device1_) et la machine distante finale (_device3_).
+
+image::ssh-tunnel.drawio.svg[2000]
 
 NOTE:: Il faut que le <local-port> soit un port libre de la machine locale.
 
@@ -50,11 +67,10 @@ Exemple :
 
 [source, bash]
 ----
-ssh jean@1.2.3.4 -p 33 -L 5000:localhost:6000 
+ssh jean@1.2.3.4 -p 33 -NL 5000:5.6.7.8:6000 
 ----
 
-Cette commande se connecte via le port 33 (`-p 33`) en tant qu'utilisateur jean (`jean`) à l'adresse IP (`1.2.3.4`).
-Elle fait aussi aboucher le port 5000 de la machine locale avec le port 6000 de la machine ayant pour adresse IP `localhost` *du point de vue de la machine locale* (`-L <local-port>:<ipaddress1>:<remote-port>`), c'est-à-dire la machine distante elle-même.
+Cette commande fait aboucher le port 5000 de la machine locale avec le port 6000 de la machine ayant pour adresse IP 5.6.7.8  *du point de vue de la machine locale* (`-L <local-port>:<device3-ip-address>:<device3-remote-port>`) en passant par la machine ayant pour adresse IP `1.2.3.4` via l'utilisateur jean (`jean`) et le port 33 (`-p 33`).
 
 === ssh -R
 
