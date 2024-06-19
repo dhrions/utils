@@ -3,3 +3,4 @@ text-files
 __pycache__
 json_alphabetical_sorted.json
 output.json
+api-env
