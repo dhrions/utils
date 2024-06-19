@@ -179,12 +179,20 @@ git reset --hard HEAD~1
 git reset --mixed HEAD~1
 ----
 
-=== Afficher le nom et l'adresse e-mail de l'utilisateur
+=== Afficher le nom et l'adresse électronique de l'utilisateur
 
 [source,shell]
 ----
 git config --global user.name
 git config --global user.email
+----
+
+=== Configurer le nom et l'adresse électronique de l'utilisateur
+
+[source,shell]
+----
+git config --global user.name "John Doe"
+git config --global user.email "johndore@example.com"
 ----
 
 === Modifier le texte du dernier commit
