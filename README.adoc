@@ -7,3 +7,5 @@ Il se compose d'un dossier :
 
 * link:python[python] ;
 * link:asciidoc[asciidoc] pour réécrire facilement des fichiers asciidoc.
+
+Pour choisir les composants d'un ordinateur que l'on souhaite construire, on peut utiliser le site https://fr.pc-builder.io/[PC Builder].
