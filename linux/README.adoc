@@ -48,3 +48,10 @@ Les applications graphiques ont souvent des extensions comme .bin, .run, ou sont
 * Scripts interprétables : bien que ne soient pas des fichiers binaires purs, les scripts écrits dans des langages interprétables tels que Bash, Python, Perl, etc., peuvent également être considérés comme des fichiers binaires lorsqu'ils sont exécutés.
 
 La diversité des fichiers binaires sur Linux est une caractéristique de la flexibilité et de la puissance du système d'exploitation, permettant aux utilisateurs d'exécuter un large éventail de tâches et d'applications.
+
+== Coupure rapide de vidéos
+
+Si l'on veut couper la vidéo intitulée « my_video.mp4 » de 00:10:21 à 01:25:32, sans réencoder le flux (`-c copy`) et que soit exporté dans le fichier « output.mp4 », on peut taper :
+
+[source, bash]
+ffmpeg -ss 00:00:01 -to 01:25:32 -i "my_video.mp4" -c copy output.mp4
