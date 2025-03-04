@@ -137,3 +137,13 @@ done
 ----
 for file in $(ls); do echo $file; done
 ----
+
+== Lister les fichiers et dossiers d'un répertoire de premier niveau
+
+[source, bash]
+tree -L 1
+
+== Lister les fichiers et dossiers d'un répertoire à l'exception de certains dossiers
+
+[source, bash]
+tree -I env -I __pycache__
