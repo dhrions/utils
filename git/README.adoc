@@ -202,6 +202,38 @@ git config --global user.email "johndore@example.com"
 git commit --amend -m "nouveau-nom"
 ----
 
+=== Supprimer un fichier du dépôt 
+
+[source,shell]
+----
+git rm <file>
+----
+
+Et pour le supprimer de tous les commits passés, par exemples s'il s'agit d'un fichier contenant des informations sensibles :
+
+==== Avec git-filter-repo
+
+[source,shell]
+sudo apt install git-filter-repo
+
+[source,shell]
+----
+git filter-repo --path .secrets --invert-paths
+Aborting: Refusing to destructively overwrite repo history since
+this does not look like a fresh clone.
+  (expected freshly packed repo)
+Please operate on a fresh clone instead.  If you want to proceed
+anyway, use --force.
+----
+
+J'ai eu ce message d'erreur car je n'ai pas cloné le dépôt dans un répertoire vide.
+Il faut donc cloner le dépôt dans un répertoire vide.
+
+[source,shell]
+rm -rf siri-lite/
+git clone ssh://git@gitea.dhrions.duckdns.org:222/dhrions/siri-lite.git
+
+
 == Bonnes pratiques
 
 === Rédaction des commits
