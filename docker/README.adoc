@@ -161,6 +161,29 @@ docker cp nomduconteneur:/chemin/du/dossier /chemin/local
 docker system prune -a
 ----
 
+==== Explorer le contenu d'un conteneur
+
+Si le conteneur ne se ferme pas après avoir exécuté la commande :
+
+[source, bash]
+----
+docker exec -it <container-name> sh
+----
+
+Sinon, on peut utiliser la commande suivante :
+
+[source, bash]
+docker create --name nom_du_conteneur nom_de_l_image
+docker cp nom_du_conteneur:/chemin/du/dossier /chemin/local
+docker rm nom_du_conteneur
+
+Ou :
+
+[source, bash]
+docker create --name nom_du_conteneur nom_de_l_image
+docker export nom_du_conteneur -o contenu_conteneur.tar
+docker rm nom_du_conteneur
+
 == Dockerfile
 
 On peut consulter https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211517-creez-votre-premier-dockerfile[ce chapitre d'OpenClassrooms] pour plus d'informations.
