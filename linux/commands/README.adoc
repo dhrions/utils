@@ -147,3 +147,8 @@ tree -L 1
 
 [source, bash]
 tree -I env -I __pycache__
+
+Ou :
+
+[source, bash]
+tree -I 'env|__pycache__'
