@@ -1,6 +1,6 @@
 = Voici le titre de mon document: This is the subtitle
 Dhrions, Trucmuche, Machinchose
-Version 1.0.1, 02/01/2024, remarque
+Version 1.0.2, 17/08/2025, remarque
 // Document attributes
 :sectnums:                                                          
 :toc:                                                   
@@ -105,3 +105,18 @@ include::./example1/python.py[tag=le-nom-de-mon-tag]
 ----
 
 CAUTION: `include` ne fonctionne pas sur Git Hub.
+
+== Tableaux
+
+[cols="1,2,3"]
+|===
+|En-tête | Colonne 2 | Colonne 3
+
+|Cellule 1 | Cellule 2 | Cellule 3
+a| * Item 1
+* Item 2
+| Item 3
+a|
+* Item 4
+* Item 5 
+|===
