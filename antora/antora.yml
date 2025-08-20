@@ -1,0 +1,8 @@
+name: ma-documentation
+title: Ma documentation
+version: true
+start_page: ROOT:index.adoc
+nav:
+  - modules/nav.adoc
+attributes:
+  wikipedia: 'https://fr.wikipedia.org[Wikipedia]'
