@@ -9,9 +9,9 @@ content:
   # edit_url: '{web_url}/blob/{refname}/{path}'
   sources:
   # - url: https://git-service.com/org/repo-z.git
-    - url: ..
+    - url: .. # needs to be the root of a git repository
       start_path: antora
-  # - url: https://git-service.com/org/repo-y.git
+  # - url: https://git-service.com/org/repo-y.git # needs to be the root of a git repository
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
