@@ -6,4 +6,4 @@ nav:
   - modules/nav.adoc
 asciidoc:
   attributes:
-    wikipedia: "https://fr.wikipedia.org[Wikipedia]"
+    wikipedia: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&autoplay=1[Wikipedia][Wikipedia]" # rickroll ;)
