@@ -68,7 +68,7 @@ def extract_links_from_file(file_path: str) -> set:
 def process_file(session: requests.Session, file_path: str, delay: float, timeout: int) -> list:
     broken_links = []
     links = extract_links_from_file(file_path)
-    logger.info(f"📂 Processing {file_path} ({len(links)} URLs to check)...")
+    logger.info(f"📂 Processing {file_path} ({len(links)} URL to check)...")
     for url in links:
         time.sleep(delay)
         if not check_url(session, url, timeout):
@@ -83,7 +83,7 @@ def run_check(root_dir: str, max_workers: int, delay: float, timeout: int, outpu
         for file in files:
             if file.endswith('.adoc'):
                 adoc_files.append(os.path.join(root, file))
-    logger.info(f"🔍 Found {len(adoc_files)} .adoc files. Checking URLs...")
+    logger.info(f"🔍 Found {len(adoc_files)} .adoc files. Checking URL...")
     session = requests.Session()
     retries = Retry(**RETRY_CONFIG)
     session.mount('https://', HTTPAdapter(max_retries=retries))
@@ -100,9 +100,9 @@ def run_check(root_dir: str, max_workers: int, delay: float, timeout: int, outpu
             except Exception as e:
                 logger.error(f"Error processing {file}: {e}")
     if not broken_links:
-        logger.info("✅ No broken URLs found!")
+        logger.info("✅ No broken URL found!")
     else:
-        logger.info("❌ Broken URLs found:")
+        logger.info("❌ Broken URL found:")
         for file, links in broken_links.items():
             logger.info(f"\n📄 {file}")
             for url, reason in links:
