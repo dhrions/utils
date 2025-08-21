@@ -10,7 +10,7 @@ BLACKLIST = []                        # Liste des domaines à ignorer (ex: ["spa
 
 # Patterns pour l'extraction des liens
 LINK_PATTERNS = [
-    r'link:(?:http[s]?:\/\/.)?(?:www\.)?[-a-zA-Z0-9@%._\+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)',  # URLs classiques
+    r'link:https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)',  # URLs classiques
     r'video::([A-Za-z0-9_\-]{11})',    # Identifiants YouTube
 ]
 
