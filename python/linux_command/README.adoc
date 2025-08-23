@@ -1,0 +1,217 @@
+= Créer une commande Linux à partir d'un module Python
+:toc: macro
+:toc-title: Sommaire
+
+Ce guide explique comment transformer un module Python en une commande exécutable sur Linux, en utilisant soit un script principal, soit un fichier dédié `cli.py`, tout en respectant les bonnes pratiques de sécurité et de maintenabilité.
+
+toc::[]
+
+== Prérequis
+- Un système Linux (Ubuntu, Debian, Fedora, etc.)
+- Python 3.8+ installé
+- Un module Python organisé en dossier, avec un environnement virtuel
+- Droits d'administration (`sudo`) pour une installation globale (optionnel)
+
+== Structure recommandée d'un module Python
+[cols="1,3"]
+|===
+| Dossier/Fichier       | Description
+
+| `mon_module/`
+| Dossier racine du module
+
+| `mon_module/__init__.py`
+| Fichier d'initialisation du module (peut être vide)
+
+| `mon_module/cli.py`
+| Point d'entrée dédié pour la ligne de commande (recommandé)
+
+| `mon_module/script.py`
+| Script principal (alternative si `cli.py` n'est pas utilisé)
+
+| `venv/`
+| Environnement virtuel Python
+
+| `setup.py`
+| Fichier de configuration pour une installation via `setuptools` (optionnel)
+
+| `requirements.txt`
+| Liste des dépendances Python
+|===
+
+== Préparer le module Python
+
+=== Choisir un point d'entrée
+- **Option 1** : Utiliser un fichier dédié `cli.py` (recommandé pour la clarté).
+  Ce fichier contiendra la logique de parsing des arguments et l'appel aux fonctions principales.
+- **Option 2** : Utiliser un script existant (ex: `script.py`) comme point d'entrée.
+
+=== Ajouter un shebang
+En tête de `cli.py` ou de `script.py`, ajoutez :
+[source,python]
+----
+#!/usr/bin/env python3
+----
+
+=== Rendre le script exécutable
+[source,bash]
+----
+chmod +x mon_module/cli.py  # ou script.py
+----
+
+=== Exemple de fichier `cli.py`
+[source,python]
+----
+#!/usr/bin/env python3
+import click
+@click.command()
+@click.option("--option", help="Une option utile.")
+def main(option):
+    click.echo(f"Option activée : {option}")
+if __name__ == "__main__":
+    main()
+----
+
+== Méthode 1 : Installation via un lien symbolique et un wrapper
+
+=== Créer un lien symbolique
+[source,bash]
+----
+sudo ln -s $(pwd)/mon_module/cli.py /usr/local/bin/ma_commande
+----
+
+=== Créer un wrapper pour gérer l'environnement virtuel
+Créez `/usr/local/bin/ma_commande` avec le contenu suivant :
+[source,bash]
+----
+#!/bin/bash
+# Chemin absolu vers l'environnement virtuel
+VENV_PATH="/chemin/vers/le/dossier/parent/venv"
+SCRIPT_PATH="/chemin/vers/le/dossier/parent/mon_module/cli.py"
+
+# Vérification de l'existence de l'environnement virtuel
+if [ ! -d "$VENV_PATH" ]; then
+    echo "Erreur : environnement virtuel introuvable à $VENV_PATH" >&2
+    exit 1
+fi
+
+# Activation et exécution
+source "$VENV_PATH/bin/activate" || { echo "Échec de l'activation de l'environnement virtuel." >&2; exit 1; }
+python3 "$SCRIPT_PATH" "$@"
+----
+
+=== Rendre le wrapper exécutable et sécurisé
+[source,bash]
+----
+sudo chmod 755 /usr/local/bin/ma_commande
+sudo chown root:root /usr/local/bin/ma_commande
+----
+
+== Méthode 2 : Installation via `setuptools` (recommandé pour la distribution)
+
+=== Créer un fichier `setup.py`
+[source,python]
+----
+from setuptools import setup, find_packages
+
+setup(
+    name="ma_commande",
+    version="0.1",
+    packages=find_packages(),
+    install_requires=[
+        # Liste des dépendances, ex: "requests>=2.25.0"
+    ],
+    entry_points={
+        'console_scripts': [
+            'ma_commande=mon_module.cli:main',
+        ],
+    },
+)
+----
+
+=== Installer le package
+- En mode développement (pour le développement local) :
+  [source,bash]
+  ----
+  pip install -e .
+  ----
+- En mode utilisateur (sans droits admin) :
+  [source,bash]
+  ----
+  pip install --user .
+  ----
+- Globalement (nécessite `sudo`) :
+  [source,bash]
+  ----
+  sudo pip install .
+  ----
+
+== Bonnes pratiques de sécurité
+- **Permissions** : Limitez les permissions des fichiers (`chmod 755` pour les scripts, `644` pour les autres).
+- **Chemins** : Évitez les chemins absolus dans le code Python. Utilisez `__file__` ou des variables d'environnement.
+- **Dépendances** : Documentez-les dans `requirements.txt` et installez-les dans l'environnement virtuel :
+  [source,bash]
+  ----
+  pip install -r requirements.txt
+  ----
+- **Validation des entrées** : Toujours valider les arguments utilisateur (ex: avec `argparse` ou `click`).
+- **Logs** : Utilisez le module `logging` pour tracer l'exécution.
+
+== Tester la commande
+- Vérifiez que la commande est disponible :
+  [source,bash]
+  ----
+  which ma_commande
+  ----
+- Testez avec l'option `--help` :
+  [source,bash]
+  ----
+  ma_commande --help
+  ----
+- Vérifiez l'environnement virtuel activé (dans `cli.py`) :
+  [source,python]
+  ----
+  import sys
+  print(f"Environnement Python : {sys.prefix}")
+  ----
+
+== Désinstallation
+- Pour un lien symbolique :
+  [source,bash]
+  ----
+  sudo rm /usr/local/bin/ma_commande
+  ----
+- Pour un package installé via `pip` :
+  [source,bash]
+  ----
+  pip uninstall ma_commande
+  ----
+
+== Résolution des problèmes
+[cols="1,2"]
+|===
+| Problème                     | Solution
+
+| Commande introuvable
+| Vérifiez que `/usr/local/bin/` ou `~/.local/bin/` est dans votre `PATH`.
+
+| Erreurs de permissions
+| Vérifiez les permissions des fichiers (`ls -l /usr/local/bin/ma_commande`).
+
+| Environnement virtuel non activé
+| Vérifiez le chemin dans le wrapper ou utilisez `source venv/bin/activate`.
+
+| Erreurs de dépendances
+| Réinstallez les dépendances : `pip install -r requirements.txt`.
+|===
+
+== Distribution avancée
+Pour distribuer votre commande :
+- Créez un package source : `python setup.py sdist`.
+- Publiez sur PyPI ou créez un paquet `.deb`/`.rpm` pour une intégration système.
+
+== Exemple complet avec `cli.py` et `setuptools`
+- [Lien vers un dépôt GitHub exemple](#) (à adapter avec votre propre lien).
+
+== Conclusion
+Vous pouvez maintenant transformer votre module Python en une commande Linux exécutable, sécurisée et maintenable, que ce soit pour un usage personnel ou une distribution plus large. La méthode `setuptools` est recommandée pour les projets destinés à être partagés ou installés sur plusieurs machines.
