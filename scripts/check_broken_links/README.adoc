@@ -9,7 +9,7 @@
 
 image::https://img.shields.io/badge/Python-3.8+-brightgreen.svg[Python Version]
 
-Un outil en ligne de commande pour vérifier les liens brisés dans les fichiers AsciiDoc (`.adoc`), incluant la prise en charge des liens YouTube et des URLs classiques.
+Un outil en ligne de commande pour vérifier les liens brisés dans les fichiers AsciiDoc (`.adoc`), incluant la prise en charge des URL classiques et des liens YouTube.
 
 == 📦 Fonctionnalités
 
