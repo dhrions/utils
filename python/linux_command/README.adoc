@@ -131,63 +131,78 @@ setup(
 
 === Installer le package
 - En mode développement (pour le développement local) :
-  [source,bash]
-  ----
-  pip install -e .
-  ----
+
+[source,bash]
+----
+pip install -e .
+----
+
 - En mode utilisateur (sans droits admin) :
-  [source,bash]
-  ----
-  pip install --user .
-  ----
+
+[source,bash]
+----
+pip install --user .
+----
+
 - Globalement (nécessite `sudo`) :
-  [source,bash]
-  ----
-  sudo pip install .
-  ----
+
+[source,bash]
+----
+sudo pip install .
+----
 
 == Bonnes pratiques de sécurité
+
 - **Permissions** : Limitez les permissions des fichiers (`chmod 755` pour les scripts, `644` pour les autres).
 - **Chemins** : Évitez les chemins absolus dans le code Python. Utilisez `__file__` ou des variables d'environnement.
 - **Dépendances** : Documentez-les dans `requirements.txt` et installez-les dans l'environnement virtuel :
-  [source,bash]
-  ----
-  pip install -r requirements.txt
-  ----
+
+[source,bash]
+----
+pip install -r requirements.txt
+----
+
 - **Validation des entrées** : Toujours valider les arguments utilisateur (ex: avec `argparse` ou `click`).
 - **Logs** : Utilisez le module `logging` pour tracer l'exécution.
 
 == Tester la commande
 - Vérifiez que la commande est disponible :
-  [source,bash]
-  ----
-  which ma_commande
-  ----
+
+[source,bash]
+----
+which ma_commande
+----
+
 - Testez avec l'option `--help` :
-  [source,bash]
-  ----
-  ma_commande --help
-  ----
+
+[source,bash]
+----
+ma_commande --help
+----
+
 - Vérifiez l'environnement virtuel activé (dans `cli.py`) :
-  [source,python]
-  ----
-  import sys
-  print(f"Environnement Python : {sys.prefix}")
-  ----
+[source,python]
+----
+import sys
+print(f"Environnement Python : {sys.prefix}")
+----
 
 == Désinstallation
 - Pour un lien symbolique :
-  [source,bash]
-  ----
-  sudo rm /usr/local/bin/ma_commande
-  ----
+
+[source,bash]
+----
+sudo rm /usr/local/bin/ma_commande
+----
 - Pour un package installé via `pip` :
-  [source,bash]
-  ----
-  pip uninstall ma_commande
-  ----
+
+[source,bash]
+----
+pip uninstall ma_commande
+----
 
 == Résolution des problèmes
+
 [cols="1,2"]
 |===
 | Problème                     | Solution
@@ -211,6 +226,7 @@ Pour distribuer votre commande :
 - Publiez sur PyPI ou créez un paquet `.deb`/`.rpm` pour une intégration système.
 
 == Exemple complet avec `cli.py` et `setuptools`
+
 - [Lien vers un dépôt GitHub exemple](#) (à adapter avec votre propre lien).
 
 == Conclusion
