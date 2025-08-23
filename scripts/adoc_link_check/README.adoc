@@ -13,7 +13,7 @@ Un outil en ligne de commande pour vérifier les liens brisés dans les fichiers
 
 == 📦 Fonctionnalités
 
-- Vérification des liens `link:https://exemple.com[...]` dans les fichiers `.adoc`.
+- Vérification des liens `link:https://example.com[...]` dans les fichiers `.adoc`.
 - Prise en charge des identifiants YouTube (`video::youtube_id`).
 - Traitement parallèle pour une vérification rapide.
 - Configuration flexible via fichier ou ligne de commande.
