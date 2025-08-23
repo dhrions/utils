@@ -68,12 +68,13 @@ def extract_links_from_file(file_path: str) -> set:
 def process_file(session: requests.Session, file_path: str, delay: float, timeout: int) -> list:
     broken_links = []
     links = extract_links_from_file(file_path)
-    logger.info(f"📂 Processing {file_path} ({len(links)} URL to check)...")
+    # logger.info(f"📂 Processing {file_path} ({len(links)} URL to check)...")
     for url in links:
         time.sleep(delay)
         if not check_url(session, url, timeout):
             logger.warning(f"❌ URL broken: {url}")
             broken_links.append((url, "URL not accessible"))
+        logger.info(f"✅ {file_path} ({len(links)} URL checked with success)!")
     return broken_links
 
 def run_check(root_dir: str, max_workers: int, delay: float, timeout: int, output_file: str, blacklist: list) -> None:
