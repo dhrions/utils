@@ -46,7 +46,7 @@ Lorsque l'on a terminé le niveau 1, je conseille de découvrir un <<../transver
 
 === Le principe DRY
 
-Ne vous répétez pas (_don’t repeat yourself_ en anglais, aussi désigné par l’acronyme DRY) est une philosophie en programmation informatique consistant à éviter la redondance de code au sein d’une application afin de faciliter la maintenance, le test, le débogage et les évolutions de cette dernière (source : https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas[Wikipédia]). 
+Ne vous répétez pas (_don’t repeat yourself_ en anglais, aussi désigné par l’acronyme DRY) est une philosophie en programmation informatique consistant à éviter la redondance de code au sein d’une application afin de faciliter la maintenance, le test, le débogage et les évolutions de cette dernière (source : https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas[Wikipédia]).
 
 == Le second cercle
 
@@ -136,5 +136,9 @@ https://openclassrooms.com/fr/courses/7415611-ecrivez-du-php-maintenable-avec-le
 ==== Les tests d'intégration
 
 ==== Les tests fonctionnels
+
+=== Le versionnage sémantique
+
+link:https://semver.org/[LE site sur le versionnage sémantique]
 
 === Le DevOps
