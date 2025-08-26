@@ -4,7 +4,7 @@ import stat
 import subprocess
 import logging
 from pathlib import Path
-from config import (
+from make_linux_command.config import (
     REQUIRED_FILES,
     DEFAULT_INSTALL_DIR,
     ERROR_STRUCTURE,
@@ -46,14 +46,18 @@ def create_venv(command_name: str, venv_base_dir: Path) -> Path:
 
 def install_requirements(venv_path: Path, module_path: Path):
     """Installe les dépendances et le module en mode editable."""
-    requirements_file = module_path / "requirements.txt"
     pip_path = venv_path / "bin" / "pip"
-
     if not pip_path.exists():
         logging.error(ERROR_PIP_MISSING)
         sys.exit(1)
-
     try:
+        # Installer click explicitement
+        subprocess.run(
+            [str(pip_path), "install", "click"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
         # Installer le module en mode editable
         subprocess.run(
             [str(pip_path), "install", "-e", str(module_path.parent)],
@@ -62,8 +66,8 @@ def install_requirements(venv_path: Path, module_path: Path):
             text=True,
         )
         logging.info(f"Module {module_path.parent.name} installé en mode editable.")
-
         # Installer les dépendances si requirements.txt existe
+        requirements_file = module_path / "requirements.txt"
         if requirements_file.exists():
             subprocess.run(
                 [str(pip_path), "install", "-r", str(requirements_file)],
@@ -77,6 +81,7 @@ def install_requirements(venv_path: Path, module_path: Path):
     except subprocess.CalledProcessError as e:
         logging.error(f"Erreur lors de l'installation : {e.stderr}")
         sys.exit(1)
+
 
 
 def create_symlink(module_path: Path, command_name: str, local: bool = False, force: bool = False) -> bool:
@@ -99,17 +104,9 @@ def create_symlink(module_path: Path, command_name: str, local: bool = False, fo
 def create_wrapper(module_path: Path, command_name: str, venv_path: Path, local: bool = False, force: bool = False) -> bool:
     install_dir = Path.home() / ".local/bin" if local else DEFAULT_INSTALL_DIR
     wrapper_path = install_dir / command_name
-
-    # Supprimer le wrapper existant s'il existe
     wrapper_path.unlink(missing_ok=True)
 
     script_path = (module_path / "cli.py").resolve()
-    venv_activate_path = venv_path / "bin" / "activate"
-
-    if not venv_activate_path.exists():
-        logging.error(f"Erreur : le fichier {venv_activate_path} n'existe pas.")
-        return False
-
     wrapper_content = f"""#!/usr/bin/env bash
 VENV_PATH="{venv_path}"
 SCRIPT_PATH="{script_path}"
@@ -127,7 +124,6 @@ fi
 source "$VENV_PATH/bin/activate" || {{ echo "Échec de l'activation de l'environnement virtuel." >&2; exit 1; }}
 exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
 """
-
     try:
         with open(wrapper_path, "w") as f:
             f.write(wrapper_content)
@@ -140,6 +136,7 @@ exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
 
 
 
+
 def setup_command(
     module_path: Path,
     command_name: str,
@@ -148,31 +145,22 @@ def setup_command(
     force: bool = False,
     venv_base_dir: Path = Path("/opt"),
 ):
-    """Point d'entrée principal."""
     if not check_structure(module_path):
         sys.exit(1)
-
-    # Si --local, utiliser un dossier local pour l'environnement virtuel
     if local:
         venv_base_dir = Path.home() / ".local" / "venv"
         logging.info(f"Installation locale : l'environnement virtuel sera créé dans {venv_base_dir}")
-
     if not local and os.geteuid() != 0:
         logging.error(ERROR_PERMISSION)
         sys.exit(1)
-
-    # Créer l'environnement virtuel
     venv_path = create_venv(command_name, venv_base_dir)
-
-    # Installer les dépendances
     if not skip_deps:
         install_requirements(venv_path, module_path)
-
-    # Créer le lien symbolique et le wrapper
-    if not create_symlink(module_path, command_name, local, force):
-        sys.exit(1)
+    # Supprimez cette ligne :
+    # if not create_symlink(module_path, command_name, local, force):
+    #     sys.exit(1)
     if not create_wrapper(module_path, command_name, venv_path, local, force):
         sys.exit(1)
-
     logging.info(SUCCESS_MESSAGE.format(command_name, command_name))
+
 

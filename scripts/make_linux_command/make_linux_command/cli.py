@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import click
 from pathlib import Path
-from main import setup_command
+from make_linux_command.main import setup_command
 
 @click.command()
 @click.argument("module_path", type=click.Path(exists=True, file_okay=False, resolve_path=True))
