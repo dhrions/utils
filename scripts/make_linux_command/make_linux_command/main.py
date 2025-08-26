@@ -82,24 +82,23 @@ def install_requirements(venv_path: Path, module_path: Path):
 
 def create_wrapper(module_path: Path, command_name: str, venv_path: Path, local: bool = False, force: bool = False) -> bool:
     install_dir = Path.home() / ".local/bin" if local else DEFAULT_INSTALL_DIR
+    install_dir.mkdir(parents=True, exist_ok=True)
     wrapper_path = install_dir / command_name
-    wrapper_path.unlink(missing_ok=True)
-
+    if wrapper_path.exists() and not force:
+        logging.error(f"Le wrapper {wrapper_path} existe déjà. Utilisez --force pour le remplacer.")
+        return False
     script_path = (module_path / "cli.py").resolve()
     wrapper_content = f"""#!/usr/bin/env bash
 VENV_PATH="{venv_path}"
 SCRIPT_PATH="{script_path}"
-
 if [ ! -d "$VENV_PATH" ]; then
     echo "Erreur : environnement virtuel introuvable à $VENV_PATH" >&2
     exit 1
 fi
-
 if [ ! -f "$VENV_PATH/bin/activate" ]; then
     echo "Erreur : impossible de trouver $VENV_PATH/bin/activate" >&2
     exit 1
 fi
-
 source "$VENV_PATH/bin/activate" || {{ echo "Échec de l'activation de l'environnement virtuel." >&2; exit 1; }}
 exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
 """
@@ -112,6 +111,7 @@ exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
     except Exception as e:
         logging.error(f"Erreur lors de la création du wrapper : {e}")
         return False
+
 
 
 def setup_command(
@@ -134,9 +134,6 @@ def setup_command(
     venv_path = create_venv(command_name, venv_base_dir)
     if not skip_deps:
         install_requirements(venv_path, module_path)
-    # Supprimez cette ligne :
-    # if not create_symlink(module_path, command_name, local, force):
-    #     sys.exit(1)
     if not create_wrapper(module_path, command_name, venv_path, local, force):
         sys.exit(1)
     logging.info(SUCCESS_MESSAGE.format(command_name, command_name))
