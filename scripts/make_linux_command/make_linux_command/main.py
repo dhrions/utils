@@ -20,6 +20,7 @@ from make_linux_command.config import (
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
+
 def check_structure(module_path: Path) -> bool:
     """Vérifie que la structure du module est valide."""
     for f in REQUIRED_FILES:
@@ -28,21 +29,25 @@ def check_structure(module_path: Path) -> bool:
             return False
     return True
 
+
 def create_venv(command_name: str, venv_base_dir: Path) -> Path:
     """Crée un environnement virtuel dans venv_base_dir/<command_name>/env."""
     venv_parent = venv_base_dir / command_name
     venv_path = venv_parent / "env"
     try:
         venv_parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run([sys.executable, "-m", "venv", str(venv_path)], check=True)
+        subprocess.run([sys.executable, "-m", "venv",
+                       str(venv_path)], check=True)
         logging.info(f"Environnement virtuel créé : {venv_path}")
         return venv_path
     except subprocess.CalledProcessError as e:
         logging.error(ERROR_VENV_CREATION.format(e))
         sys.exit(1)
     except PermissionError:
-        logging.error(f"Permissions insuffisantes pour écrire dans {venv_parent}. Utilisez sudo ou un autre dossier.")
+        logging.error(
+            f"Permissions insuffisantes pour écrire dans {venv_parent}. Utilisez sudo ou un autre dossier.")
         sys.exit(1)
+
 
 def install_requirements(venv_path: Path, module_path: Path):
     pip_path = venv_path / "bin" / "pip"
@@ -68,7 +73,8 @@ def install_requirements(venv_path: Path, module_path: Path):
             )
             logging.info("Dépendances installées.")
         else:
-            logging.warning("Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
+            logging.warning(
+                "Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
     except subprocess.CalledProcessError as e:
         logging.error(f"Erreur lors de l'installation : {e.stderr}")
         sys.exit(1)
@@ -108,8 +114,6 @@ exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
         return False
 
 
-
-
 def setup_command(
     module_path: Path,
     command_name: str,
@@ -122,7 +126,8 @@ def setup_command(
         sys.exit(1)
     if local:
         venv_base_dir = Path.home() / ".local" / "venv"
-        logging.info(f"Installation locale : l'environnement virtuel sera créé dans {venv_base_dir}")
+        logging.info(
+            f"Installation locale : l'environnement virtuel sera créé dans {venv_base_dir}")
     if not local and os.geteuid() != 0:
         logging.error(ERROR_PERMISSION)
         sys.exit(1)
@@ -135,5 +140,3 @@ def setup_command(
     if not create_wrapper(module_path, command_name, venv_path, local, force):
         sys.exit(1)
     logging.info(SUCCESS_MESSAGE.format(command_name, command_name))
-
-
