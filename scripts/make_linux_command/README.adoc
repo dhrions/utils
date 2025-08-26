@@ -1,0 +1,110 @@
+= make_linux_command
+:toc: macro
+:toc-title: Table des matières
+:toclevels: 3
+:source-highlighter: pygments
+
+toc::[]
+
+== Description
+`make_linux_command` est un outil en ligne de commande qui permet de transformer un module Python en une commande Linux exécutable. Il crée un environnement virtuel, installe les dépendances nécessaires et génère un wrapper Bash pour rendre votre module accessible directement depuis le terminal.
+
+== Fonctionnalités
+- Création d'un environnement virtuel dédié à votre commande.
+- Installation du module en mode éditable (`pip install -e`).
+- Installation des dépendances depuis un fichier `requirements.txt`.
+- Création d'un lien symbolique ou d'un wrapper Bash pour exécuter votre commande.
+- Support de l'installation locale (sans droits root) ou globale.
+
+== Prérequis
+- Python ..ou supérieur.
+- Accès à `pip` et `venv`.
+- Droits d'administration (`sudo`) pour une installation globale.
+
+== Installation
+=== Installation globale (nécessite sudo)
+[source,bash]
+----
+git clone <url-du-depot>
+cd make_linux_command
+pip install .
+----
+
+=== Installation locale (sans sudo)
+
+[source,bash]
+----
+git clone <url-du-depot>
+cd make_linux_command
+pip install --user .
+----
+
+== Utilisation
+
+=== Commande de base
+
+[source,bash]
+----
+make-linux-command <chemin_vers_module> <nom_commande>
+----
+
+=== Options disponibles
+
+|===
+| Option | Description
+
+| `--local`
+| Installe la commande et l'environnement virtuel localement (`~/.local/venv`).
+
+| `--skip-deps`
+| Ne pas installer les dépendances depuis `requirements.txt`.
+
+| `--force`
+| Remplace les fichiers existants (lien symbolique et wrapper).
+
+| `--venv-dir`
+| Spécifie le dossier pour l'environnement virtuel (par défaut : `/opt`).
+|===
+
+=== Exemple
+[source,bash]
+----
+make-linux-command ~/mon_projet mycommand --local
+----
+
+== Structure du projet
+Le module à transformer en commande doit contenir au minimum un fichier `cli.py` à sa racine. Exemple de structure :
+----
+mon_projet/
+├── cli.py
+├── requirements.txt
+└── ...
+----
+
+== Exemple de fichier `cli.py`
+[source,python]
+----
+#!/usr/bin/env python3
+import click
+
+@click.command()
+def main():
+    """Exemple de commande."""
+    click.echo("Bonjour depuis ma commande personnalisée !")
+
+if __name__ == "__main__":
+    main()
+----
+
+== Fonctionnement interne
+. **Vérification de la structure** : Le script vérifie que le module contient bien un fichier `cli.py`.
+. **Création de l'environnement virtuel** : Un environnement virtuel est créé dans `/opt/<nom_commande>/env` (ou `~/.local/venv/<nom_commande>/env` en mode local).
+. **Installation des dépendances** : Les dépendances listées dans `requirements.txt` sont installées dans l'environnement virtuel.
+. **Création du lien symbolique** : Un lien symbolique vers `cli.py` est créé dans `/usr/local/bin` (ou `~/.local/bin` en mode local).
+. **Création du wrapper** : Un script Bash est généré pour activer l'environnement virtuel et exécuter `cli.py`.
+
+== Messages d'erreur courants
+
+- `Erreur : structure du module invalide` : Le fichier `cli.py` est manquant.
+- `Erreur : permissions insuffisantes` : Utilisez `sudo` ou l'option `--local`.
+- `Erreur lors de la création de l'environnement virtuel` : Vérifiez les permissions ou l'espace disque.
