@@ -45,19 +45,11 @@ def create_venv(command_name: str, venv_base_dir: Path) -> Path:
         sys.exit(1)
 
 def install_requirements(venv_path: Path, module_path: Path):
-    """Installe les dépendances et le module en mode editable."""
     pip_path = venv_path / "bin" / "pip"
     if not pip_path.exists():
         logging.error(ERROR_PIP_MISSING)
         sys.exit(1)
     try:
-        # Installer click explicitement
-        subprocess.run(
-            [str(pip_path), "install", "click"],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
         # Installer le module en mode editable
         subprocess.run(
             [str(pip_path), "install", "-e", str(module_path.parent)],
@@ -65,7 +57,6 @@ def install_requirements(venv_path: Path, module_path: Path):
             capture_output=True,
             text=True,
         )
-        logging.info(f"Module {module_path.parent.name} installé en mode editable.")
         # Installer les dépendances si requirements.txt existe
         requirements_file = module_path / "requirements.txt"
         if requirements_file.exists():
@@ -77,7 +68,7 @@ def install_requirements(venv_path: Path, module_path: Path):
             )
             logging.info("Dépendances installées.")
         else:
-            logging.info("Aucun fichier requirements.txt trouvé. Ignoré.")
+            logging.warning("Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
     except subprocess.CalledProcessError as e:
         logging.error(f"Erreur lors de l'installation : {e.stderr}")
         sys.exit(1)
