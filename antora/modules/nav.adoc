@@ -1,0 +1,5 @@
+xref:root:index.adoc[]
+
+Comprehensive module
+
+* xref:comprehensive-module:README.adoc[Comprensive module]
