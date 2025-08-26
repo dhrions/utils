@@ -29,14 +29,12 @@ def install(module_path: str, command_name: str, local: bool, skip_deps: bool, f
 @cli.command()
 @click.argument("command_name", type=str)
 @click.option("--local", is_flag=True, help="Désinstalle une commande installée localement.")
-@click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier de l'environnement virtuel (défaut : /opt).")
-def uninstall(command_name: str, local: bool, venv_dir: str):
-    """Désinstalle une commande Linux précédemment installée."""
-    uninstall_command(
-        command_name=command_name,
-        local=local,
-        venv_base_dir=Path(venv_dir),
-    )
+def uninstall(command_name: str, local: bool):
+    """Désinstalle une commande Linux et son environnement virtuel."""
+    if not click.confirm(f"Voulez-vous vraiment désinstaller '{command_name}' ?"):
+        return
+    uninstall_command(command_name=command_name, local=local)
+
 
 if __name__ == "__main__":
     cli()
