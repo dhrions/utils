@@ -31,22 +31,28 @@ def check_structure(module_path: Path) -> bool:
 
 
 def create_venv(command_name: str, venv_base_dir: Path) -> Path:
-    """Crée un environnement virtuel dans venv_base_dir/<command_name>/env."""
     venv_parent = venv_base_dir / command_name
     venv_path = venv_parent / "env"
     try:
         venv_parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run([sys.executable, "-m", "venv",
-                       str(venv_path)], check=True)
+        subprocess.run(
+            [sys.executable, "-m", "venv", str(venv_path)],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        # Mise à jour de pip dans l'environnement virtuel
+        pip_path = venv_path / "bin" / "pip"
+        subprocess.run([str(pip_path), "install", "--upgrade", "pip"], check=True)
         logging.info(f"Environnement virtuel créé : {venv_path}")
         return venv_path
     except subprocess.CalledProcessError as e:
-        logging.error(ERROR_VENV_CREATION.format(e))
+        logging.error(f"Erreur lors de la création de l'environnement virtuel : {e.stderr}")
         sys.exit(1)
     except PermissionError:
-        logging.error(
-            f"Permissions insuffisantes pour écrire dans {venv_parent}. Utilisez sudo ou un autre dossier.")
+        logging.error(f"Permissions insuffisantes pour écrire dans {venv_parent}.")
         sys.exit(1)
+
 
 
 def install_requirements(venv_path: Path, module_path: Path):
