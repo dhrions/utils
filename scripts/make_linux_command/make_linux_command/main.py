@@ -74,24 +74,6 @@ def install_requirements(venv_path: Path, module_path: Path):
         sys.exit(1)
 
 
-
-def create_symlink(module_path: Path, command_name: str, local: bool = False, force: bool = False) -> bool:
-    target = module_path / "cli.py"
-    install_dir = Path.home() / ".local/bin" if local else DEFAULT_INSTALL_DIR
-    link_path = install_dir / command_name
-
-    # Supprimer le lien existant s'il existe
-    link_path.unlink(missing_ok=True)
-
-    try:
-        link_path.symlink_to(target.resolve())
-        logging.info(f"Lien symbolique créé : {link_path} → {target}")
-        return True
-    except Exception as e:
-        logging.error(f"Erreur lors de la création du lien symbolique : {e}")
-        return False
-
-
 def create_wrapper(module_path: Path, command_name: str, venv_path: Path, local: bool = False, force: bool = False) -> bool:
     install_dir = Path.home() / ".local/bin" if local else DEFAULT_INSTALL_DIR
     wrapper_path = install_dir / command_name
