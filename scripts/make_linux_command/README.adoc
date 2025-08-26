@@ -13,7 +13,7 @@ toc::[]
 - Création d'un environnement virtuel dédié à votre commande.
 - Installation du module en mode éditable (`pip install -e`).
 - Installation des dépendances depuis un fichier `requirements.txt`.
-- Création d'un lien symbolique ou d'un wrapper Bash pour exécuter votre commande.
+- Création d'un wrapper Bash pour exécuter votre commande.
 - Support de l'installation locale (sans droits root) ou globale.
 
 == Prérequis
@@ -59,9 +59,6 @@ make-linux-command <chemin_vers_module> <nom_commande>
 | `--skip-deps`
 | Ne pas installer les dépendances depuis `requirements.txt`.
 
-| `--force`
-| Remplace les fichiers existants (lien symbolique et wrapper).
-
 | `--venv-dir`
 | Spécifie le dossier pour l'environnement virtuel (par défaut : `/opt`).
 |===
@@ -100,7 +97,6 @@ if __name__ == "__main__":
 . **Vérification de la structure** : Le script vérifie que le module contient bien un fichier `cli.py`.
 . **Création de l'environnement virtuel** : Un environnement virtuel est créé dans `/opt/<nom_commande>/env` (ou `~/.local/venv/<nom_commande>/env` en mode local).
 . **Installation des dépendances** : Les dépendances listées dans `requirements.txt` sont installées dans l'environnement virtuel.
-. **Création du lien symbolique** : Un lien symbolique vers `cli.py` est créé dans `/usr/local/bin` (ou `~/.local/bin` en mode local).
 . **Création du wrapper** : Un script Bash est généré pour activer l'environnement virtuel et exécuter `cli.py`.
 
 == Messages d'erreur courants
