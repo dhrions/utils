@@ -7,4 +7,4 @@ name = "make_linux_command"
 version = "0.1"
 
 [project.scripts]
-make-linux-command = "make_linux_command.cli:main"
+make-linux-command = "make_linux_command.cli:cli"

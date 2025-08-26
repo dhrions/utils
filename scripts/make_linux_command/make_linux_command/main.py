@@ -137,3 +137,48 @@ def setup_command(
     if not create_wrapper(module_path, command_name, venv_path, local, force):
         sys.exit(1)
     logging.info(SUCCESS_MESSAGE.format(command_name, command_name))
+
+def uninstall_command(command_name: str, local: bool = False, venv_base_dir: Path = Path("/opt")):
+    """Désinstalle une commande Linux et son environnement virtuel."""
+    logging.info(f"Désinstallation de la commande '{command_name}'...")
+
+    # Détermine les chemins en fonction du mode (local ou global)
+    if local:
+        venv_base_dir = Path.home() / ".local" / "venv"
+        install_dir = Path.home() / ".local/bin"
+    else:
+        install_dir = DEFAULT_INSTALL_DIR
+
+    # Chemin du wrapper
+    wrapper_path = install_dir / command_name
+    if wrapper_path.exists():
+        try:
+            wrapper_path.unlink()
+            logging.info(f"Wrapper supprimé : {wrapper_path}")
+        except Exception as e:
+            logging.error(f"Erreur lors de la suppression du wrapper : {e}")
+            sys.exit(1)
+
+    # Chemin de l'environnement virtuel
+    venv_path = venv_base_dir / command_name / "env"
+    if venv_path.exists():
+        try:
+            # Supprime l'environnement virtuel
+            for item in venv_path.parent.iterdir():
+                item.unlink() if item.is_file() else _remove_dir(item)
+            venv_path.parent.rmdir()
+            logging.info(f"Environnement virtuel supprimé : {venv_path.parent}")
+        except Exception as e:
+            logging.error(f"Erreur lors de la suppression de l'environnement virtuel : {e}")
+            sys.exit(1)
+
+    logging.info(f"La commande '{command_name}' a été désinstallée avec succès.")
+
+def _remove_dir(directory: Path):
+    """Supprime récursivement un dossier."""
+    for item in directory.iterdir():
+        if item.is_dir():
+            _remove_dir(item)
+        else:
+            item.unlink()
+    directory.rmdir()
