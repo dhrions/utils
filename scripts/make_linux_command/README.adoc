@@ -3,11 +3,21 @@
 :toc-title: Table des matières
 :toclevels: 3
 :source-highlighter: pygments
-
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
 toc::[]
 
-== Description
-`make_linux_command` est un outil en ligne de commande qui permet de transformer un module Python en une commande Linux exécutable. Il crée un environnement virtuel, installe les dépendances nécessaires et génère un wrapper Bash pour rendre votre module accessible directement depuis le terminal.
+image:https://img.shields.io/badge/Python-...-blue[Python .., link="https://www.python.org/"]
+image:https://img.shields.io/badge/license-MIT-green[MIT License, link="https://opensource.org/licenses/MIT"]
+image:https://img.shields.io/badge/status-stable-brightgreen[Stable]
+
+`make_linux_command` est un outil en ligne de commande qui transforme un module Python en une commande Linux exécutable.
+Il crée un environnement virtuel dédié, installe les dépendances nécessaires et génère un wrapper Bash pour rendre votre module accessible directement depuis le terminal.
 
 == Fonctionnalités
 - Création d'un environnement virtuel dédié à votre commande.
@@ -15,6 +25,7 @@ toc::[]
 - Installation des dépendances depuis un fichier `requirements.txt`.
 - Création d'un wrapper Bash pour exécuter votre commande.
 - Support de l'installation locale (sans droits root) ou globale.
+- Gestion des erreurs et messages clairs.
 
 == Prérequis
 - Python ..ou supérieur.
@@ -22,19 +33,19 @@ toc::[]
 - Droits d'administration (`sudo`) pour une installation globale.
 
 == Installation
+
 === Installation globale (nécessite sudo)
 [source,bash]
 ----
-git clone <url-du-depot>
+git clone https://github.com/votre-utilisateur/make_linux_command.git
 cd make_linux_command
 pip install .
 ----
 
 === Installation locale (sans sudo)
-
 [source,bash]
 ----
-git clone <url-du-depot>
+git clone https://github.com/votre-utilisateur/make_linux_command.git
 cd make_linux_command
 pip install --user .
 ----
@@ -42,14 +53,12 @@ pip install --user .
 == Utilisation
 
 === Commande de base
-
 [source,bash]
 ----
 make-linux-command <chemin_vers_module> <nom_commande>
 ----
 
 === Options disponibles
-
 |===
 | Option | Description
 
@@ -60,7 +69,10 @@ make-linux-command <chemin_vers_module> <nom_commande>
 | Ne pas installer les dépendances depuis `requirements.txt`.
 
 | `--venv-dir`
-| Spécifie le dossier pour l'environnement virtuel (par défaut : `/opt`).
+| Spécifie le dossier pour l'environnement virtuel (par défaut : `/opt` pour une installation globale, `~/.local/venv` pour une installation locale).
+
+| `--force`
+| Remplace les fichiers existants (lien symbolique et wrapper).
 |===
 
 === Exemple
@@ -70,15 +82,18 @@ make-linux-command ~/mon_projet mycommand --local
 ----
 
 == Structure du projet
-Le module à transformer en commande doit contenir au minimum un fichier `cli.py` à sa racine. Exemple de structure :
+Le module à transformer en commande doit contenir au minimum un fichier `cli.py` à sa racine.
+
+Exemple de structure :
 ----
 mon_projet/
-├── cli.py
+├── cli.py          <.
 ├── requirements.txt
 └── ...
 ----
+<. Le fichier `cli.py` doit contenir un point d'entrée pour votre commande (par exemple, une fonction décorée avec `@click.command()`).
 
-== Exemple de fichier `cli.py`
+=== Exemple de fichier `cli.py`
 [source,python]
 ----
 #!/usr/bin/env python3
@@ -96,11 +111,4 @@ if __name__ == "__main__":
 == Fonctionnement interne
 . **Vérification de la structure** : Le script vérifie que le module contient bien un fichier `cli.py`.
 . **Création de l'environnement virtuel** : Un environnement virtuel est créé dans `/opt/<nom_commande>/env` (ou `~/.local/venv/<nom_commande>/env` en mode local).
-. **Installation des dépendances** : Les dépendances listées dans `requirements.txt` sont installées dans l'environnement virtuel.
-. **Création du wrapper** : Un script Bash est généré pour activer l'environnement virtuel et exécuter `cli.py`.
-
-== Messages d'erreur courants
-
-- `Erreur : structure du module invalide` : Le fichier `cli.py` est manquant.
-- `Erreur : permissions insuffisantes` : Utilisez `sudo` ou l'option `--local`.
-- `Erreur lors de la création de l'environnement virtuel` : Vérifiez les permissions ou l'espace disque.
+. **Installation des dépendances** : Les dépendances listées dan
