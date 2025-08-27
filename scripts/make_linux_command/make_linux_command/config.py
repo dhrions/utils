@@ -17,3 +17,9 @@ ERROR_WRAPPER = "Erreur lors de la création du wrapper : {}"
 ERROR_PIP_MISSING = "Erreur : pip n'est pas disponible dans l'environnement virtuel."
 ERROR_PIP_INSTALL = "Erreur lors de l'installation des dépendances : {}"
 SUCCESS_MESSAGE = "Succès ! La commande '{}' est maintenant disponible. Utilisez-la avec `{}`."
+
+FORBIDDEN_COMMANDS = {
+    "ls", "rm", "cat", "echo", "python", "pip", "bash", "sh", "zsh", "fish",
+    "if", "then", "else", "fi", "case", "esac", "for", "while", "do", "done",
+    "sudo", "root", "admin", "test", "[", "]", "(", ")", "$", "|", ";", "&"
+}
