@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import click
 from pathlib import Path
-from make_linux_command.main import setup_command, uninstall_command
+from make_linux_command.installer import setup_command, uninstall_command
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -13,8 +13,6 @@ def cli(ctx):
             click.echo(ctx.get_help(), err=True)
             ctx.exit(1)
         ctx.invoke(install_command, **ctx.params)
-
-
 
 @cli.command()
 @click.argument("module_path", type=click.Path(exists=True, file_okay=False, resolve_path=True))
@@ -37,7 +35,7 @@ def install_command(ctx, module_path, command_name, local, skip_deps, force, ven
 
 @cli.command()
 @click.argument("command_name", type=str)
-@click.option("--local", is_flag=True, help="Désinstalle une commande installée localement.")
+@click.option("--local", is_flag=True, default=True, help="Désinstalle une commande installée localement.")
 @click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier de l'environnement virtuel (défaut : /opt).")
 def uninstall(command_name, local, venv_dir):
     """Désinstalle une commande Linux précédemment installée."""
