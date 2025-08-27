@@ -61,6 +61,10 @@ def install_requirements(venv_path: Path, module_path: Path):
         logging.error(ERROR_PIP_MISSING)
         sys.exit(1)
     try:
+        # Debug : afficher le chemin recherché
+        requirements_file = module_path.parent / "requirements.txt"
+        logging.info(f"DEBUG: Cherche requirements.txt à : {requirements_file}")
+
         # Installer le module en mode editable
         subprocess.run(
             [str(pip_path), "install", "-e", str(module_path.parent)],
@@ -69,8 +73,8 @@ def install_requirements(venv_path: Path, module_path: Path):
             text=True,
         )
         # Installer les dépendances si requirements.txt existe
-        requirements_file = module_path / "requirements.txt"
         if requirements_file.exists():
+            logging.info(f"DEBUG: Fichier trouvé, installation des dépendances...")
             subprocess.run(
                 [str(pip_path), "install", "-r", str(requirements_file)],
                 check=True,
@@ -80,10 +84,13 @@ def install_requirements(venv_path: Path, module_path: Path):
             logging.info("Dépendances installées.")
         else:
             logging.warning(
-                "Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
+                f"DEBUG: Fichier introuvable à : {requirements_file}"
+            )
+            logging.warning("Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
     except subprocess.CalledProcessError as e:
         logging.error(f"Erreur lors de l'installation : {e.stderr}")
         sys.exit(1)
+
 
 
 def create_wrapper(module_path: Path, command_name: str, venv_path: Path, local: bool = False, force: bool = False) -> bool:
