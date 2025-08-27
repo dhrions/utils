@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import stat
 import subprocess
@@ -60,36 +61,41 @@ def install_requirements(venv_path: Path, module_path: Path):
     if not pip_path.exists():
         logging.error(ERROR_PIP_MISSING)
         sys.exit(1)
-    try:
-        # Debug : afficher le chemin recherché
-        requirements_file = module_path.parent / "requirements.txt"
-        logging.info(f"DEBUG: Cherche requirements.txt à : {requirements_file}")
 
-        # Installer le module en mode editable
+    # Cherche d'abord dans module_path, puis dans module_path.parent
+    requirements_file = module_path / "requirements.txt"
+    if not requirements_file.exists():
+        requirements_file = module_path.parent / "requirements.txt"
+
+    try:
+        # Installe toujours le module en mode éditable
+        subprocess.run(
+            [str(pip_path), "install", "--upgrade", "pip"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
         subprocess.run(
             [str(pip_path), "install", "-e", str(module_path.parent)],
             check=True,
             capture_output=True,
             text=True,
         )
-        # Installer les dépendances si requirements.txt existe
+
         if requirements_file.exists():
-            logging.info(f"DEBUG: Fichier trouvé, installation des dépendances...")
+            logging.info(f"Installation des dépendances depuis {requirements_file}...")
             subprocess.run(
                 [str(pip_path), "install", "-r", str(requirements_file)],
                 check=True,
                 capture_output=True,
                 text=True,
             )
-            logging.info("Dépendances installées.")
         else:
-            logging.warning(
-                f"DEBUG: Fichier introuvable à : {requirements_file}"
-            )
-            logging.warning("Aucun fichier requirements.txt trouvé. Aucune dépendance supplémentaire installée.")
+            logging.warning(f"Aucun fichier requirements.txt trouvé dans {module_path} ou {module_path.parent}.")
     except subprocess.CalledProcessError as e:
-        logging.error(f"Erreur lors de l'installation : {e.stderr}")
+        logging.error(f"Erreur lors de l'installation des dépendances : {e.stderr}")
         sys.exit(1)
+
 
 
 
@@ -125,7 +131,17 @@ exec "$VENV_PATH/bin/python" "$SCRIPT_PATH" "$@"
         logging.error(f"Erreur lors de la création du wrapper : {e}")
         return False
 
-
+def is_valid_command_name(name: str) -> bool:
+    """Vérifie que le nom de la commande est valide et sûr."""
+    if not re.match(r'^[a-zA-Z0-9_-]+$', name):
+        return False
+    if name.startswith('-'):
+        return False
+    # Vérifie que ce n'est pas une commande système existante
+    system_commands = {"ls", "rm", "cat", "echo", "python", "pip", "bash"}
+    if name in system_commands:
+        return False
+    return True
 
 def setup_command(
     module_path: Path,
@@ -137,6 +153,10 @@ def setup_command(
 ):
     if not check_structure(module_path):
         sys.exit(1)
+    if not is_valid_command_name(command_name):
+        logging.error(f"Nom de commande invalide : '{command_name}'. Utilisez uniquement des caractères alphanumériques, '_' ou '-'.")
+        sys.exit(1)
+
     if local:
         venv_base_dir = Path.home() / ".local" / "venv"
         logging.info(
