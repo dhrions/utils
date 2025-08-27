@@ -3,3 +3,4 @@ env
 __pycache__
 digest.txt
 broken_links.json
+.coverage
