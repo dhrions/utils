@@ -37,16 +37,20 @@ Il crée un environnement virtuel dédié, installe les dépendances nécessaire
 Se placer à la racine du dépôt et taper la commande suivante pour transformer le package make_linux_command en commande `mkcmd` :
 
 [source, bash]
-make-linux-command make_linux_command/main.py mkcmd --local
+make-linux-command install /path/make_linux_command mkcmd --local
+
+[source, bash]
+make-linux-command install /path/mkrpo mkrpo --local
 
 == Installation
 
 == Utilisation
 
 === Commande de base
+
 [source,bash]
 ----
-make-linux-command <chemin_vers_module> <nom_commande>
+make-linux-command install <chemin_vers_module> <nom_commande> --local
 ----
 
 === Options disponibles
@@ -67,6 +71,7 @@ make-linux-command <chemin_vers_module> <nom_commande>
 |===
 
 === Exemple
+
 [source,bash]
 ----
 make-linux-command ~/mon_projet mycommand --local
