@@ -6,6 +6,7 @@ import shlex
 import subprocess
 import logging
 from pathlib import Path
+import datetime
 from make_linux_command.config import (
     REQUIRED_FILES,
     DEFAULT_INSTALL_DIR,
@@ -236,6 +237,29 @@ def is_valid_command_name(name: str) -> bool:
         return False
     return True
 
+def log_installed_command(repo_root: Path, command_name: str, module_path: Path) -> None:
+    """
+    Enregistre les informations de la commande installée dans un fichier de log.
+
+    Args:
+        repo_root: Chemin vers la racine du dépôt (où se trouve le fichier de log).
+        command_name: Nom de la commande installée.
+        module_path: Chemin absolu vers le module Python.
+    """
+    log_file = repo_root / "installed_commands.log"
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"{timestamp} | Command: {command_name} | Module: {module_path}\n"
+
+    try:
+        with open(log_file, "a") as f:
+            f.write(log_entry)
+        logging.info(f"Commande enregistrée dans {log_file}.")
+    except IOError as e:
+        logging.warning(f"Impossible d'écrire dans le fichier de log : {e}")
+
+def is_command_already_exists(command_name: str) -> bool:
+    return subprocess.run(["which", command_name], capture_output=True).returncode == 0
+
 def setup_command(
     module_path: Path,
     command_name: str,
@@ -244,14 +268,19 @@ def setup_command(
     force: bool = False,
     venv_base_dir: Path = Path("/opt"),
     python_executable: str = sys.executable,
+    no_log: bool = False,
 ):
     """Installe une commande Linux à partir d'un module Python."""
     if not check_structure(module_path):
+        sys.exit(1)
+    if is_command_already_exists(command_name):
+        logging.error(f"La commande '{command_name}' existe déjà dans $PATH.")
         sys.exit(1)
     if not is_valid_command_name(command_name):
         logging.error(f"Nom de commande invalide : '{command_name}'.")
         sys.exit(1)
 
+    # Détermine les chemins d'installation en fonction du mode (local/global)
     if local:
         venv_base_dir = Path.home() / ".local" / "venv"
         install_dir = Path.home() / ".local" / "bin"
@@ -265,12 +294,23 @@ def setup_command(
         logging.error(f"La commande '{command_name}' existe déjà. Utilisez --force pour la remplacer.")
         sys.exit(1)
 
+    # Création de l'environnement virtuel
     venv_path = create_venv(command_name, venv_base_dir, python_executable)
-    if not skip_deps:
-        install_requirements(venv_path, module_path)
+
+    # Installation des dépendances et du module
+    install_requirements(venv_path, module_path, skip_deps=skip_deps)
+
+    # Création du wrapper
     if not create_wrapper(module_path, command_name, venv_path, local, force):
         sys.exit(1)
+
+    # Enregistrement de la commande installée (sauf si --no-log)
+    if not no_log:
+        repo_root = Path(__file__).resolve().parent.parent
+        log_installed_command(repo_root, command_name, module_path)
+
     logging.info(SUCCESS_MESSAGE.format(command_name, command_name))
+
 
 def uninstall_command(command_name: str, local: bool = False, venv_base_dir: Path = Path("/opt")):
     """Désinstalle une commande Linux et son environnement virtuel."""
@@ -302,3 +342,6 @@ def uninstall_command(command_name: str, local: bool = False, venv_base_dir: Pat
             logging.error(f"Erreur lors de la suppression de l'environnement virtuel : {e}")
             sys.exit(1)
     logging.info(f"La commande '{command_name}' a été désinstallée avec succès.")
+
+
+
