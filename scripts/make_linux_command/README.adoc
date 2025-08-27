@@ -32,23 +32,14 @@ Il crée un environnement virtuel dédié, installe les dépendances nécessaire
 - Accès à `pip` et `venv`.
 - Droits d'administration (`sudo`) pour une installation globale.
 
+== TL;DR
+
+Se placer à la racine du dépôt et taper la commande suivante pour transformer le package make_linux_command en commande `mkcmd` :
+
+[source, bash]
+make-linux-command make_linux_command/main.py mkcmd --local
+
 == Installation
-
-=== Installation globale (nécessite sudo)
-[source,bash]
-----
-git clone https://github.com/votre-utilisateur/make_linux_command.git
-cd make_linux_command
-pip install .
-----
-
-=== Installation locale (sans sudo)
-[source,bash]
-----
-git clone https://github.com/votre-utilisateur/make_linux_command.git
-cd make_linux_command
-pip install --user .
-----
 
 == Utilisation
 
@@ -82,6 +73,7 @@ make-linux-command ~/mon_projet mycommand --local
 ----
 
 == Structure du projet
+
 Le module à transformer en commande doit contenir au minimum un fichier `cli.py` à sa racine.
 
 Exemple de structure :
@@ -94,6 +86,7 @@ mon_projet/
 <. Le fichier `cli.py` doit contenir un point d'entrée pour votre commande (par exemple, une fonction décorée avec `@click.command()`).
 
 === Exemple de fichier `cli.py`
+
 [source,python]
 ----
 #!/usr/bin/env python3
@@ -109,6 +102,7 @@ if __name__ == "__main__":
 ----
 
 == Fonctionnement interne
+
 . **Vérification de la structure** : Le script vérifie que le module contient bien un fichier `cli.py`.
 . **Création de l'environnement virtuel** : Un environnement virtuel est créé dans `/opt/<nom_commande>/env` (ou `~/.local/venv/<nom_commande>/env` en mode local).
 . **Installation des dépendances** : Les dépendances listées dan
