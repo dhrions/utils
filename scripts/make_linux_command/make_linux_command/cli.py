@@ -35,15 +35,18 @@ def install_command(ctx, module_path, command_name, local, skip_deps, force, ven
 
 @cli.command()
 @click.argument("command_name", type=str)
-@click.option("--local", is_flag=True, default=True, help="Désinstalle une commande installée localement.")
+@click.option("--global", "global_", is_flag=True, default=False, help="Désinstalle une commande installée globalement.")
 @click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier de l'environnement virtuel (défaut : /opt).")
-def uninstall(command_name, local, venv_dir):
+@click.pass_context
+def uninstall(ctx, command_name, global_, venv_dir):
     """Désinstalle une commande Linux précédemment installée."""
+    local = not global_
     uninstall_command(
         command_name=command_name,
         local=local,
         venv_base_dir=Path(venv_dir),
     )
+
 
 # Renommez la fonction `install` en `install_command` pour éviter les conflits
 cli.add_command(install_command, name="install")

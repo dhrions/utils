@@ -111,24 +111,35 @@ def test_install_command_missing_args(runner):
 
 @patch("make_linux_command.cli.uninstall_command")
 def test_uninstall_command(mock_uninstall, runner):
-    """Teste la commande uninstall."""
+    """Teste la commande uninstall (local=True par défaut)."""
     result = runner.invoke(cli, ["uninstall", "testcmd"])
     assert result.exit_code == 0
     mock_uninstall.assert_called_once_with(
         command_name="testcmd",
-        local=False,
-        venv_base_dir=Path("/opt"),  # Corrigé : venv_base_dir au lieu de venv_dir
+        local=True,
+        venv_base_dir=Path("/opt"),
     )
 
 @patch("make_linux_command.cli.uninstall_command")
-def test_uninstall_command_local(mock_uninstall, runner):
-    """Teste la désinstallation locale."""
-    result = runner.invoke(cli, ["uninstall", "testcmd", "--local"])
+def test_uninstall_command(mock_uninstall, runner):
+    """Teste la commande uninstall (local=True par défaut)."""
+    result = runner.invoke(cli, ["uninstall", "testcmd"])
     assert result.exit_code == 0
     mock_uninstall.assert_called_once_with(
         command_name="testcmd",
         local=True,
-        venv_base_dir=Path("/opt"),  # Corrigé : venv_base_dir au lieu de venv_dir
+        venv_base_dir=Path("/opt"),
+    )
+
+@patch("make_linux_command.cli.uninstall_command")
+def test_uninstall_command_global(mock_uninstall, runner):
+    """Teste la désinstallation globale avec --global."""
+    result = runner.invoke(cli, ["uninstall", "testcmd", "--global"])
+    assert result.exit_code == 0
+    mock_uninstall.assert_called_once_with(
+        command_name="testcmd",
+        local=False,
+        venv_base_dir=Path("/opt"),
     )
 
 @patch("make_linux_command.cli.uninstall_command")
@@ -139,9 +150,11 @@ def test_uninstall_command_custom_venv_dir(mock_uninstall, runner, tmp_path):
     assert result.exit_code == 0
     mock_uninstall.assert_called_once_with(
         command_name="testcmd",
-        local=False,
-        venv_base_dir=custom_venv_dir,  # Corrigé : venv_base_dir au lieu de venv_dir
+        local=True,
+        venv_base_dir=custom_venv_dir,
     )
+
+
 
 @patch("make_linux_command.cli.setup_command", side_effect=SystemExit(1))
 def test_install_command_error(mock_setup, runner, test_module_path):
