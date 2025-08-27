@@ -40,6 +40,20 @@ def venv_base_dir(tmp_path):
     """Dossier de base pour les environnements virtuels."""
     return tmp_path / "venv"
 
+@pytest.fixture
+def venv_path(tmp_path):
+    venv = tmp_path / "env"
+    venv.mkdir()
+    (venv / "bin").mkdir()
+    (venv / "bin" / "pip").touch()
+    return venv
+
+@pytest.fixture
+def module_path(tmp_path):
+    module = tmp_path / "module"
+    module.mkdir()
+    return module
+
 def test_check_structure(test_module_path):
     assert check_structure(test_module_path) is True
     (test_module_path / "cli.py").unlink()
@@ -143,3 +157,65 @@ def test_install_requirements_large_file(mock_run, test_module_path, venv_base_d
     with pytest.raises(SystemExit):
         install_requirements(venv_path, test_module_path)
 
+def test_install_requirements_no_requirements_file(module_path, venv_path):
+    """Teste l'installation sans fichier requirements.txt."""
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path)
+        assert mock_run.call_count == 2  # pip upgrade + install -e
+
+def test_install_requirements_valid(module_path, venv_path):
+    """Teste l'installation avec un fichier requirements.txt valide."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("click==8.2.1\nrequests==2.31.0\n")
+
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path)
+        assert mock_run.call_count == 3  # pip upgrade + install -e + install -r
+
+def test_install_requirements_invalid_line(module_path, venv_path):
+    """Teste la détection de lignes non autorisées dans requirements.txt."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("https://example.com/malicious-package\n")
+
+    with patch("subprocess.run") as mock_run, pytest.raises(SystemExit):
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path)
+
+def test_install_requirements_large_file(module_path, venv_path):
+    """Teste la détection d'un fichier requirements.txt trop volumineux."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("x" * 11 * 1024)  # 11 Ko
+
+    with patch("subprocess.run") as mock_run, pytest.raises(SystemExit):
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path)
+
+def test_install_requirements_skip_deps(module_path, venv_path):
+    """Teste l'option --skip-deps."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("click==8.2.1\n")
+
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path, skip_deps=True)
+        assert mock_run.call_count == 2  # pip upgrade + install -e (pas d'install -r)
+
+def test_install_requirements_pip_error(module_path, venv_path):
+    """Teste l'échec de l'installation avec pip."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("click==8.2.1\n")
+
+    with patch("subprocess.run") as mock_run, pytest.raises(SystemExit):
+        mock_run.side_effect = subprocess.CalledProcessError(1, ["pip"], "Error output")
+        install_requirements(venv_path, module_path)
+
+def test_install_requirements_malformed_line(module_path, venv_path):
+    """Teste une ligne mal formatée dans requirements.txt."""
+    requirements_file = module_path / "requirements.txt"
+    requirements_file.write_text("click; os.system('rm -rf /')\n")
+
+    with patch("subprocess.run") as mock_run, pytest.raises(SystemExit):
+        mock_run.return_value = MagicMock()
+        install_requirements(venv_path, module_path)
