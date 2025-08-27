@@ -1,0 +1,11 @@
+pyproject.toml
+make_linux_command/__init__.py
+make_linux_command/cli.py
+make_linux_command/config.py
+make_linux_command/main.py
+make_linux_command.egg-info/PKG-INFO
+make_linux_command.egg-info/SOURCES.txt
+make_linux_command.egg-info/dependency_links.txt
+make_linux_command.egg-info/entry_points.txt
+make_linux_command.egg-info/top_level.txt
+tests/test_make_linux_command.py

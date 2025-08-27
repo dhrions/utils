@@ -1,0 +1,2 @@
+[console_scripts]
+make-linux-command = make_linux_command.cli:cli
