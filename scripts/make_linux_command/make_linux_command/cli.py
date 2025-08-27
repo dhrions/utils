@@ -8,8 +8,13 @@ from make_linux_command.main import setup_command, uninstall_command
 def cli(ctx):
     """Transforme un module Python en commande Linux exécutable."""
     if ctx.invoked_subcommand is None:
-        # Si aucune sous-commande n'est spécifiée, on appelle `install`
+        # Vérifie que les arguments requis sont présents
+        if not ctx.params.get("module_path") or not ctx.params.get("command_name"):
+            click.echo(ctx.get_help(), err=True)
+            ctx.exit(1)
         ctx.invoke(install_command, **ctx.params)
+
+
 
 @cli.command()
 @click.argument("module_path", type=click.Path(exists=True, file_okay=False, resolve_path=True))
