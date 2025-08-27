@@ -15,3 +15,21 @@ def log_installed_command(repo_root: Path, command_name: str, module_path: Path)
         logging.info(f"Commande enregistrée dans {log_file}.")
     except IOError as e:
         logging.warning(f"Impossible d'écrire dans le fichier de log : {e}")
+
+def remove_installed_command(repo_root: Path, command_name: str) -> None:
+    """
+    Supprime l'entrée d'une commande désinstallée du fichier de log.
+    """
+    log_file = repo_root / "installed_commands.log"
+    if not log_file.exists():
+        return
+    try:
+        with open(log_file, "r") as f:
+            lines = f.readlines()
+        with open(log_file, "w") as f:
+            for line in lines:
+                if command_name not in line:
+                    f.write(line)
+        logging.info(f"Entrée pour la commande '{command_name}' supprimée du log.")
+    except IOError as e:
+        logging.warning(f"Impossible de mettre à jour le fichier de log : {e}")

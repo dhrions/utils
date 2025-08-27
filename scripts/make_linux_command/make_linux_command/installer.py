@@ -6,7 +6,7 @@ from .venv_manager import create_venv
 from .requirements_installer import install_requirements
 from .wrapper_generator import create_wrapper
 from .command_validator import check_structure, is_valid_command_name, is_command_already_exists
-from .logger import log_installed_command
+from .logger import log_installed_command, remove_installed_command
 from .config import DEFAULT_INSTALL_DIR, ERROR_PERMISSION, SUCCESS_MESSAGE
 
 def setup_command(
@@ -85,4 +85,7 @@ def uninstall_command(command_name: str, local: bool = False, venv_base_dir: Pat
             logging.error(f"Erreur lors de la suppression de l'environnement virtuel : {e}")
             sys.exit(1)
 
+    # Mise à jour du log
+    repo_root = Path(__file__).resolve().parent.parent
+    remove_installed_command(repo_root, command_name)
     logging.info(f"La commande '{command_name}' a été désinstallée avec succès.")
