@@ -9,3 +9,9 @@ Il se compose d'un dossier :
 * link:asciidoc[asciidoc] pour réécrire facilement des fichiers asciidoc.
 
 Pour choisir les composants d'un ordinateur que l'on souhaite construire, on peut utiliser le site https://fr.pc-builder.io/[PC Builder].
+
+== Liens utiles
+
+* link:https://githubnext.com/projects/repo-visualization#explore-for-yourself[Outil pour visualiser graphiquement un dépôt GitHub]
+* link:https://semver.org/lang/fr/[Le site sur le versionnage sémantique]
+* link:https://keepachangelog.com/fr/1.1.0/[Le site sur le changelog]
