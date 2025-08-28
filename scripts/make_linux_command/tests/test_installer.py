@@ -13,6 +13,20 @@ def mock_module_path(tmp_path):
     (module_path / "requirements.txt").write_text("click==8.2.1\n")
     return module_path
 
+@pytest.fixture
+def mock_module_path(tmp_path):
+    """Crée un module Python valide pour les tests."""
+    module_path = tmp_path / "test_module"
+    module_path.mkdir()
+    (module_path / "cli.py").write_text("#!/usr/bin/env python3\nprint('Hello')")
+    (module_path / "requirements.txt").write_text("click==8.2.1\n")
+    (module_path / "pyproject.toml").write_text("""[project]
+name = "test_module"
+version = "0.1"
+""")
+    return module_path
+
+
 def test_setup_command_valid(tmp_path, mock_module_path, mocker):
     """Teste l'installation avec un module valide (mock des dépendances)."""
     # Mock des fonctions externes
