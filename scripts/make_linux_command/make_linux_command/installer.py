@@ -20,6 +20,10 @@ def setup_command(
     no_log: bool = False,
 ):
     """Installe une commande Linux à partir d'un module Python."""
+    # Vérifie que module_path est bien le répertoire contenant pyproject.toml
+    if not (module_path / "pyproject.toml").exists():
+        logging.error(f"Le répertoire {module_path} ne contient pas de pyproject.toml.")
+        sys.exit(1)
     if not check_structure(module_path):
         sys.exit(1)
     if is_command_already_exists(command_name):
