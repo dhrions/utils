@@ -14,7 +14,7 @@ def cli(ctx):
             ctx.exit(1)
         ctx.invoke(install_command, **ctx.params)
 
-@cli.command()
+@cli.command(help="Installe une commande Linux à partir d'un module Python.")
 @click.argument("module_path", type=click.Path(exists=True, file_okay=False, resolve_path=True))
 @click.argument("command_name", type=str)
 @click.option("--global", "global_", is_flag=True, default=False, help="Installe la commande globalement (nécessite sudo). Par défaut, l'installation est locale.")
@@ -23,15 +23,16 @@ def cli(ctx):
 @click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier pour l'environnement virtuel.")
 @click.pass_context
 def install_command(ctx, module_path, command_name, global_, skip_deps, force, venv_dir):
-    local = not global_  # Inversion de la logique
+    local = not global_
     setup_command(
         module_path=Path(module_path),
         command_name=command_name,
-        local=local,  # On passe local, pas global_
+        local=local,
         skip_deps=skip_deps,
         force=force,
         venv_base_dir=Path(venv_dir),
     )
+
 
 
 @cli.command()
