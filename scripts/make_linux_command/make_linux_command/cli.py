@@ -17,21 +17,22 @@ def cli(ctx):
 @cli.command()
 @click.argument("module_path", type=click.Path(exists=True, file_okay=False, resolve_path=True))
 @click.argument("command_name", type=str)
-@click.option("--local", is_flag=True, default=True, help="Installe la commande et l'environnement virtuel localement (~/.local/venv).")
+@click.option("--global", "global_", is_flag=True, default=False, help="Installe la commande globalement (nécessite sudo). Par défaut, l'installation est locale.")
 @click.option("--skip-deps", is_flag=True, help="Ne pas installer les dépendances depuis requirements.txt.")
 @click.option("--force", is_flag=True, help="Remplace les fichiers existants (lien symbolique et wrapper).")
-@click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier pour l'environnement virtuel (défaut : /opt).")
+@click.option("--venv-dir", type=click.Path(), default="/opt", help="Dossier pour l'environnement virtuel.")
 @click.pass_context
-def install_command(ctx, module_path, command_name, local, skip_deps, force, venv_dir):
-    """Installe une commande Linux à partir d'un module Python."""
+def install_command(ctx, module_path, command_name, global_, skip_deps, force, venv_dir):
+    local = not global_  # Inversion de la logique
     setup_command(
         module_path=Path(module_path),
         command_name=command_name,
-        local=local,
+        local=local,  # On passe local, pas global_
         skip_deps=skip_deps,
         force=force,
         venv_base_dir=Path(venv_dir),
     )
+
 
 @cli.command()
 @click.argument("command_name", type=str)
