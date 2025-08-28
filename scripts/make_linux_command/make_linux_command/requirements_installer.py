@@ -29,6 +29,7 @@ def install_requirements(venv_path: Path, module_path: Path, skip_deps: bool = F
         )
         subprocess.run(
             [str(pip_path), "install", "-e", str(module_path.parent)],
+            # [str(pip_path), "install", "-e", str(module_path)],
             check=True,
             capture_output=True,
             text=True,
