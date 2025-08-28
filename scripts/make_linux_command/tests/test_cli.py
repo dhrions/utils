@@ -161,3 +161,58 @@ def test_install_command_error(mock_setup, runner, test_module_path):
     """Teste la gestion des erreurs dans install_command."""
     result = runner.invoke(cli, ["install", str(test_module_path), "testcmd"])
     assert result.exit_code == 1
+
+def test_uninstall_command_missing_args(runner):
+    """Teste l'absence d'arguments requis pour uninstall."""
+    result = runner.invoke(cli, ["uninstall"])
+    assert result.exit_code == 2
+    assert "Usage:" in result.output
+
+
+@patch("make_linux_command.cli.setup_command", side_effect=SystemExit(1))
+def test_install_command_invalid_command_name(mock_setup, runner, test_module_path):
+    """Teste l'échec si le nom de commande est invalide."""
+    with patch("make_linux_command.installer.is_valid_command_name", return_value=False):
+        result = runner.invoke(cli, ["install", str(test_module_path), "invalid name"])
+        assert result.exit_code == 1
+
+@patch("make_linux_command.cli.setup_command", side_effect=SystemExit(1))
+def test_install_command_command_exists(mock_setup, runner, test_module_path):
+    """Teste l'échec si la commande existe déjà."""
+    with patch("make_linux_command.installer.is_command_already_exists", return_value=True):
+        result = runner.invoke(cli, ["install", str(test_module_path), "ls"])
+        assert result.exit_code == 1
+
+@patch("make_linux_command.cli.setup_command", side_effect=SystemExit(1))
+def test_install_command_missing_pyproject(mock_setup, runner, tmp_path):
+    """Teste l'échec si pyproject.toml est manquant."""
+    module_path = tmp_path / "no_pyproject"
+    module_path.mkdir()
+    (module_path / "cli.py").write_text("#!/usr/bin/env python3\nprint('Hello')")
+    result = runner.invoke(cli, ["install", str(module_path), "testcmd"])
+    assert result.exit_code == 1
+
+@patch("make_linux_command.cli.setup_command", side_effect=SystemExit(1))
+def test_install_command_invalid_structure(mock_setup, runner, tmp_path):
+    """Teste l'échec si la structure du module est invalide (cli.py manquant)."""
+    module_path = tmp_path / "no_cli"
+    module_path.mkdir()
+    (module_path / "pyproject.toml").write_text("[project]\nname = 'test'\nversion = '0.1'\n")
+    result = runner.invoke(cli, ["install", str(module_path), "testcmd"])
+    assert result.exit_code == 1
+
+
+@patch("make_linux_command.cli.setup_command")
+def test_install_command_skip_deps_custom_venv(mock_setup, runner, test_module_path, tmp_path):
+    """Teste l'installation avec --skip-deps et un dossier personnalisé pour l'environnement virtuel."""
+    custom_venv_dir = tmp_path / "custom_venv"
+    result = runner.invoke(cli, ["install", str(test_module_path), "testcmd", "--skip-deps", "--venv-dir", str(custom_venv_dir)])
+    assert result.exit_code == 0
+    mock_setup.assert_called_once_with(
+        module_path=test_module_path,
+        command_name="testcmd",
+        local=True,
+        skip_deps=True,
+        force=False,
+        venv_base_dir=custom_venv_dir,
+    )
