@@ -28,7 +28,7 @@ NOTE:: Le mieux est d'écrire une phrase par ligne.
 
 === Listes ordonnées
 
-.Liste des pays :
+.Liste des pays :
 . Premier
 . Deuxième
 
@@ -47,7 +47,7 @@ NOTE:: Le mieux est d'écrire une phrase par ligne.
 
 == Les citations
 
-// À propos des citations : https://docs.asciidoctor.org/asciidoc/latest/blocks/blockquotes/
+// À propos des citations : https://docs.asciidoctor.org/asciidoc/latest/blocks/blockquotes/
 
 === Basic quote syntax
 
@@ -79,7 +79,7 @@ and as necessary in the political world as storms in the physical."
 
 Pour aller à la section intitulée « <<Les listes>> », c'est par <<Les listes, ici>>.
 
-Il y a un dossier intéressant : link:./example1[ici].
+Il y a un dossier intéressant : link:./example1[ici].
 
 == Les variables ({url-wiki-Europe-Ouest}[cf. Wikipédia])
 
