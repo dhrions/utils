@@ -10,14 +10,10 @@ Version 1.0.2, 17/08/2025, remarque
 
 :description: Example AsciiDoc document
 :keywords: AsciiDoc
-:imagesdir:.
-/images
-:iconsdir:.
-/icons
-:stylesdir:.
-/styles
-:scriptsdir:.
-/js
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
 
 // Mes variables
 :url-wiki: https://fr.wikipedia.org/wiki
@@ -40,16 +36,16 @@ NOTE:: Le mieux est d'écrire une phrase par ligne.
 
 Voici une liste non ordonnée :
 
-* item
-** nested item
-* item
-* item
-* item
-** nested item
-** nested item
-*** subnested item
-** nested item
-* item
+* item ;
+** nested item ;
+* item ;
+* item ;
+* item.
+** nested item ;
+** nested item ;
+*** subnested item ;
+** nested item ;
+* item.
 
 == Les citations
 
@@ -68,11 +64,19 @@ Everybody remember where we parked.
 
 [quote,Monty Python and the Holy Grail]
 ____
-Dennis: Come and see the violence inherent in the system. Help! Help! I'm being repressed!
+Dennis: Come and see the violence inherent in the system.
+Help!
+Help!
+I'm being repressed!
 
 King Arthur: Bloody peasant!
 
-Dennis: Oh, what a giveaway! Did you hear that? Did you hear that, eh? That's what I'm on about! Did you see him repressing me? You saw him, Didn't you?
+Dennis: Oh, what a giveaway!
+Did you hear that?
+Did you hear that, eh?
+That's what I'm on about!
+Did you see him repressing me?
+You saw him, Didn't you?
 ____
 
 === Quoted paragraphs
