@@ -1,0 +1,247 @@
+= Git Hooks - Sécurité des dépôts
+Dhrions
+Version 1.0.0, 14/01/2026
+:sectnums:
+:toc:
+:toclevels: 3
+:toc-title: Table des matières
+
+== Vue d'ensemble
+
+Ce document explique le système de hooks Git mis en place pour prévenir les commits accidentels de fichiers sensibles dans tous les dépôts.
+
+== Hook Git global pre-commit
+
+=== Installation
+
+Un hook `pre-commit` global est installé et configuré :
+
+[source,bash]
+----
+# Localisation
+~/.git-hooks/pre-commit
+
+# Configuration globale
+git config --global core.hooksPath ~/.git-hooks
+----
+
+=== Fonctionnement
+
+Le hook s'exécute **avant chaque commit** sur tous les dépôts (locaux ou via Claude Code).
+
+Il bloque les commits contenant les fichiers/patterns sensibles suivants :
+
+[cols="1,3"]
+|===
+| Pattern | Description
+
+| `.vscode/` | Configuration VS Code locale
+| `.env` | Fichiers d'environnement
+| `.env.*` | Variantes (.env.local, .env.prod, etc.)
+| `credentials` | Fichiers de credentials
+| `secrets` | Fichiers secrets
+| `.pem` | Certificats/clés privées
+| `.key` | Clés privées
+| `id_rsa` | Clé SSH RSA
+| `id_ed25519` | Clé SSH Ed25519
+| `.vault_pass` | Mots de passe Ansible Vault
+| `.swp` | Fichiers swap Vim
+| `.swo` | Fichiers swap Vim (ancienne version)
+| `~$` | Fichiers backup
+|===
+
+=== Exemple de blocage
+
+[source,bash]
+----
+$ git add .env && git commit -m "fix: update config"
+
+🚫 COMMIT BLOCKED - Sensitive files detected:
+❌ Environment files: .env
+
+Fix: git restore --staged <file>  # to unstage
+     echo '<pattern>' >> .gitignore  # to ignore
+----
+
+=== Déblocage
+
+Si un fichier est bloqué à tort, deux solutions :
+
+1. **Unstager le fichier** (recommandé si c'est sensible) :
++
+[source,bash]
+----
+git restore --staged <fichier>
+----
+
+2. **L'ajouter à .gitignore** (si ce sont des fichiers temporaires/locaux) :
++
+[source,bash]
+----
+echo '.vscode/' >> .gitignore
+git commit -m "chore: add .vscode to gitignore"
+----
+
+== Hook Claude Code pre-commit
+
+=== Configuration
+
+Quand Claude Code crée des commits, un hook de validation supplémentaire s'exécute :
+
+[source,text]
+----
+~/.claude/settings.json
+  ↓
+  hooks.PreToolUse
+    ↓
+    ~/.claude/hooks/pre-commit-validator.sh
+----
+
+=== Objectif
+
+Fournir une couche de sécurité supplémentaire lors des commits effectués par l'assistant IA Claude.
+
+Effectue les mêmes vérifications que le hook Git natif, en plus de :
+- Validation des patterns sensibles détectés
+- Messages d'erreur détaillés
+- Blocage du commit si violation
+
+== Bonnes pratiques
+
+=== 1. Toujours utiliser .gitignore
+
+Pour chaque fichier local/sensible, ajouter au `.gitignore` du dépôt :
+
+[source,gitignore]
+----
+# VS Code
+.vscode/
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Secrets
+secrets/
+credentials/
+
+# SSH / Certificats
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Temporaires
+*.swp
+*.swo
+*~
+----
+
+=== 2. Utiliser des fichiers d'exemple
+
+Pour les fichiers de configuration sensibles, créer des templates sans données réelles :
+
+[source,bash]
+----
+# .env.example ou .env.template
+DATABASE_URL=postgresql://localhost/mydb
+API_KEY=your-key-here
+SECRET_KEY=your-secret-here
+----
+
+=== 3. Vérifier avant de commiter
+
+[source,bash]
+----
+# Voir tous les fichiers stagés
+git diff --cached --name-only
+
+# Voir le contenu des fichiers stagés
+git diff --cached
+
+# Unstager un fichier spécifique
+git restore --staged <fichier>
+----
+
+== Dépannage
+
+=== "COMMIT BLOCKED - Sensitive files detected"
+
+*Cause* : Un fichier sensible a été ajouté au staging.
+
+*Solution* :
+
+[source,bash]
+----
+# 1. Voir les fichiers bloqués
+git diff --cached --name-only
+
+# 2. Unstager les fichiers sensibles
+git restore --staged <fichier>
+
+# 3. Ajouter le pattern à .gitignore
+echo '<pattern>' >> .gitignore
+
+# 4. Recommiter
+git commit -m "message"
+----
+
+=== Le hook ne bloque rien mais devrait
+
+Si le hook semble inactif :
+
+[source,bash]
+----
+# Vérifier la configuration
+git config --get core.hooksPath
+
+# Doit afficher : /home/<user>/.git-hooks
+
+# Si absent, reconfigurer
+git config --global core.hooksPath ~/.git-hooks
+
+# Vérifier les permissions du hook
+ls -la ~/.git-hooks/pre-commit
+# Doit avoir l'exécution : -rwxr-xr-x
+----
+
+== Maintenance
+
+=== Mettre à jour les patterns bloqués
+
+Éditer `~/.git-hooks/pre-commit` pour ajouter/modifier les patterns détectés.
+
+Exemple d'ajout d'un nouveau pattern (fichiers .tfstate Terraform) :
+
+[source,bash]
+----
+# Dans la déclaration PATTERNS
+declare -A PATTERNS=(
+  # ... patterns existants ...
+  ["\.tfstate$"]="Terraform state files"
+)
+----
+
+=== Tester le hook
+
+[source,bash]
+----
+# Créer un dépôt de test
+cd /tmp && mkdir test-hook && cd test-hook && git init
+
+# Créer un fichier sensible
+echo "SECRET=123" > .env
+
+# Essayer de le commiter
+git add .env
+git commit -m "test"
+
+# Devrait être bloqué
+----
+
+== Ressources
+
+- link:README.adoc[Documentation Git générale]
+- link:forges-git.adoc[Forges Git (GitHub, Gitea, etc.)]
+- https://pre-commit.com/[Documentation pre-commit framework]

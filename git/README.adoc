@@ -24,6 +24,18 @@ Version 1.1.0, 16/12/2023
 
 // NOTE:: Le mieux est d'écrire une phrase par ligne.
 
+== 🔐 Sécurité - Git Hooks
+
+Pour information importante sur la sécurité des dépôts, consulter :
+
+xref:HOOKS.adoc[Documentation complète des Git Hooks]
+
+Cette documentation explique :
+* Le système de hooks global (`~/.git-hooks/pre-commit`) qui bloque les commits de fichiers sensibles
+* Les patterns protégés (.vscode/, .env, credentials, clés SSH, etc.)
+* Comment débloquer des fichiers légitimes
+* Les bonnes pratiques pour utiliser .gitignore
+
 == Introduction
 
 On peut utilement consulter https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[le cours sur Git et GitHub d'OpenClassrooms].
