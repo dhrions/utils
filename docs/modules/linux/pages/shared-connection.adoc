@@ -1,0 +1,49 @@
+= Partage de connexion
+Dhrions
+Version 1.0.0, 16/03/2023
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+:icons: font
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+// This is the optional preamble (an untitled section body).
+// Useful for writing simple sectionless documents consisting only of a preamble.
+
+// NOTE:: Le mieux est d'écrire une phrase par ligne.
+
+== Partage de connexion Wifi via Ethernet
+
+Pour qu'un PC Ubuntu puisse partager sa connexion Wifi via Ethernet, on peut procéder de la manière suivante :
+
+* activer la connexion filaire avec « Partage avec d'autres ordinateurs » pour IPv4 et « Automatique » pour IPv6.
+. taper les commandes suivantes (cf. https://forum.ubuntu-fr.org/viewtopic.php?id=1042361[cette page]) :
+
+[source,sh]
+----
+modprobe ip_tables
+modprobe ip_conntrack
+/sbin/iptables -A FORWARD -i wlp170s0 -o enx00e04c680030 -j ACCEPT
+/sbin/iptables -A FORWARD -o wlp170s0 -i enx00e04c680030 -j ACCEPT
+/sbin/iptables -t nat -A POSTROUTING -s 10.42.0.1/24 -j MASQUERADE
+----
+
+NOTE:: Je ne suis pas sûr que les deux lignes soit nécessaires.
+
+`/sbin/iptables -A FORWARD -i wlp170s0 -o enx00e04c680030 -j ACCEPT` autorise le transfert (forward) des paquets provenant de l'interface wlp170s0 et destinés à l'interface enx00e04c680030 en utilisant la politique "ACCEPT" dans la chaîne FORWARD du pare-feu.
+
+`/sbin/iptables -A FORWARD -o wlp170s0 -i enx00e04c680030 -j ACCEPT`` autorise le transfert des paquets provenant de l'interface enx00e04c680030 et destinés à l'interface wlp170s0 en utilisant la politique "ACCEPT" dans la chaîne FORWARD du pare-feu.
+
+`/sbin/iptables -t nat -A POSTROUTING -s 10.42.0.1/24 -j MASQUERADE` configure la translation d'adresse réseau (NAT) pour les paquets provenant du sous-réseau 10.42.0.1/24 en utilisant la politique "MASQUERADE". Cela permet aux paquets provenant de ce sous-réseau d'accéder à Internet en utilisant l'adresse IP publique de la machine exécutant ces commandes.

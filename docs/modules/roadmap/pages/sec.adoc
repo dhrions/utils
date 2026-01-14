@@ -1,0 +1,123 @@
+= Sécurité
+:Dhrions:
+:toc:
+:toclevels: 5
+:toc-title: Table des matières
+:sectnums:
+:imagesdir: images
+:sectnumlevels: 5
+
+== Le premier cercle
+
+=== Premières sensibilisation
+
+En guise d'introduction, on peut d'abord regarder https://www.youtube.com/watch?v=F7pYHN9iC9I[cette vidéo].
+
+Ensuite, on peut se sensibiliser à la sécurité de ses données personnelles en suivant la websérie interactive https://donottrack-doc.com/fr/[Do not track].
+
+Après, on peut suivre https://www.ssi.gouv.fr/entreprise/formations/secnumacademie/[SecNumAcadémie], le MOOC de l'ANSSI.
+
+Enfin, on peut noter que, dès lors que l'on utilise des terminaux informatiques, on fait confiance à une multiplicité d'acteurs (exemples : fabriquants du téléphone ou de l'ordinateur, fabricants des composants électroniques du téléphone ou de l'ordinateur, concepteurs du système d'exploitation, fournisseurs d'accès à Internet, services de DNS, services web, etc.).
+Il est absolument impossible de maîtriser toute la chaîne de bout en bout.
+La seule chose que l'on puisse faire est de savoir à qui l'on fait confiance, à quelles données à accès tel ou tel acteur et à quelles données on ne souhaite pas qu'il ait accès.
+En fonction de cela et d'autres facteurs (exemples : coût, facilité d'utilisation, etc.), on peut choisir tel ou tel acteur.
+
+Ainsi, si l'on fait primer la sécurité de ses données personnelles avant toute autre considération, on aura notamment intérêt à :
+
+* utiliser un système d'exploitation libre et open source (exemples : Debian pour un ordinateur, /e/OS pour un smartphone) ;
+* utiliser un DNS privé en qui l'on a confiance ;
+* acheter des composants électroniques fabriqués par des entreprises en qui l'on a confiance et monter soi-même son ordinateur ;
+* utiliser un VPN en qui l'on a confiance.
+
+=== Premières actions à effectuer
+
+==== Renforcer la sécurité de ses mots de passe
+
+En accord avec l'ANSSI, on utilise un gestionnaire de mots de passe comme Kee Pass.
+Pour cela, il convient d'installer Kee Pass sur une première machine.
+Ensuite, il faut créer un fichier dans lequel on stockera tous nos mots de passe.
+Il convient alors de choisir un mot de passe maître particulièrement fort qui protègera tous les autres mots de passe.
+Ensuite, il est particulièrement opportun de placer ce fichier dans un service cloud, accessible depuis tout terminal connecté à Internet.
+Puis, on installe Kee Pass sur tous les terminaux et on les relie à notre base de mots de passe.
+Enfin, on utilise Kee Pass.
+
+Lorsque l'on crée de nouveaux mots de passe, on peut utiliser le générateur de Kee Pass.
+On privilégiera les mots de passe avec la longueur maximale autorisée par le service considéré et avec le maximum de caractères différents tolérés (majuscules, minuscules, chiffres, caractères spéciaux).
+
+Le mieux est d'indiquer également une durée de validité pour ces mots de passe.
+
+Enfin, la complétion automatiqu peut être activée sur ordinateur avec une extension de navigateur et sur smartphone avec l'application Kee Pass elle-même.
+
+==== Utiliser un DNS privé
+
+Le recours au DNS est obligatoire sur Internet au risque d'avoir une utilisation d'Internet particulièrement peu ergonomique.
+
+Le service DNS que l'on utilise à accès aux données suivantes :
+
+* sur quel(s) site(s) on se rend ;
+* à quelle heure on s'y rend ;
+* depuis quelle adresse IP on s'y rend (et donc potentiellement, où l'on se situe approximativement) ;
+* potentiellement, quand on allume son ordinateur ou son smartphone.
+
+Utiliser un DNS privé revient à transférer l'accès de ses données à un autre acteur.
+Cette action n'est utile que si l'on a confiance en cet acteur.
+Ainsi, il peut être utile de choisir un DNS privé qui ne conserve pas les données d'utilisation de ses utilisateurs.
+
+=== FAQ
+
+Qui sait à quel site je me connecte ?::
+* Mon fournisseur d'accès à Internet (FAI).
+* Mon DNS.
+* Ma box (ou le point d'accès Wi-Fi auquel je suis connecté).
+* Un éventuel attaquant (attaque _Man in the middle_ (MITM), présence sur ma machine, sur une machine du FAI, sur une machine du DNS, sur un routeur entre ma machine et le DNS ou entre ma machine et le site considéré).
+
+Qui connaît mon adresse IP publique ?::
+* Mon FAI.
+* Mon DNS.
+* Ma box (ou le point d'accès Wi-Fi auquel je suis connecté).
+* Le service auquel je me connecte.
+* Un éventuel attaquant.
+
+Qui connaît mon adresse IP privée ?::
+* Ma box (ou le point d'accès Wi-Fi auquel je suis connecté).
+* Un éventuel attaquant.
+
+Qui connaît mon adresse MAC ?::
+* Ma box (ou le point d'accès Wi-Fi auquel je suis connecté).
+* Un éventuel switch auquel ma machine serait connectée (ou situé entre ma machine et ma box).
+* Un éventuel attaquant.
+
+Qu'est-ce qui permet à un service de savoir que je suis la même personne que la dernière fois que je me suis connecté ?::
+* Un cookie.
+* Mon adresse IP publique (combinée à d'autres données).
+* Un token.
+* Mon empreinte de navigateur (_User Agent_, _timezone_, etc., combinée à d'autres données).
+
+== Le second cercle
+
+=== Sécurité avancée de ses données personnelles
+
+https://www.laquadrature.net/[Site de la quadrature du Net]
+
+link:https://www.youtube.com/watch?v=EOWeewlc2CE[Interview par Thinkerview intitulée : « Pass sanitaire, géopolitique de la Data, copie privée ? »]
+video::EOWeewlc2CE[youtube]
+
+link:https://www.youtube.com/watch?v=VBsLSfPs2PE[Interview par Thinkerview intitulée : « Benjamin Bayart, Grand Sorcier de l'Internet option vie privée »]
+video::VBsLSfPs2PE[youtube]
+
+=== Pentesting
+
+Suivre les chemins d'apprentissage (listés sur https://tryhackme.com/paths[la page dédiée de TryHackMe])suivants, dans l'ordre :
+
+* Introduction to Cyber Security/
+* Pre Security.
+* Complete Beginner.
+
+=== Anonymisation
+
+* Tor
+* Tails
+
+=== Challenges
+
+link:https://www.root-me.org/[Site de root-me.org]

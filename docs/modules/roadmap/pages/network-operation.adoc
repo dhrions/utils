@@ -1,0 +1,53 @@
+= Fonctionnement d'Internet au clic
+:author: Dhrions
+
+:toc:
+:sectnums:
+
+
+Que se passe-t-il lorsque je clique là ?
+
+
+image::clic.png[]
+
+== Découverte du réseau local
+
+Table ARP. DHCP. Gateway, DNS.
+
+== Résolution DNS
+
+=== Résolution locale DNS
+
+Cache DNS local.
+
+=== Consultation du DNS de mon FAI
+
+Cache DNS FAI.
+
+=== Consultation d'un serveur DNS
+
+7 serveurs centraux et copies. Système récursif.
+
+Digression : comment un nom d'hôte est inscrit. DuckDNS.
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Dns-raum.svg/400px-Dns-raum.svg.png[]
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/DNS_iterations.svg/400px-DNS_iterations.svg.png[]
+
+== Requêtes HTTP
+
+=== Sécurisation de la connexion HTTPS
+
+_3 ways handshake_.
+
+==== Le système des certificats
+
+Système en cascade : A qui garantit B qui garantit C qui garantit D....
+
+=== Envoi des données par le serveur web
+
+GET, fichiers HTML et CSS...
+
+
+
+

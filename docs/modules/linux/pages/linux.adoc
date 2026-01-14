@@ -1,0 +1,57 @@
+= Linux
+Dhrions
+Version 1.0.0, 12/01/2024
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+:icons: font
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+// This is the optional preamble (an untitled section body).
+// Useful for writing simple sectionless documents consisting only of a preamble.
+
+// NOTE:: Le mieux est d'écrire une phrase par ligne.
+
+== Y a-t-il beaucoup de fichiers binaires sur Linux ?
+
+Oui, il y a de nombreux fichiers binaires sur un système Linux.
+Les fichiers binaires sont des fichiers exécutables contenant du code machine compréhensible par l'ordinateur.
+Sur Linux, ces fichiers binaires peuvent être des exécutables du système d'exploitation, des utilitaires de ligne de commande, des applications graphiques, des bibliothèques partagées (shared libraries), des pilotes de périphériques, et bien plus encore.
+
+Voici quelques catégories de fichiers binaires que l'on trouve couramment sur les systèmes Linux :
+
+* Exécutables système : ces fichiers incluent des commandes essentielles pour le fonctionnement du système.
+Ils se trouvent généralement dans les répertoires /bin et /sbin.
+
+* Utilitaires de ligne de commande : Linux propose une multitude d'utilitaires de ligne de commande pour effectuer des tâches variées, tels que ls, cp, mv, grep, awk, etc.
+Ces utilitaires sont généralement situés dans les répertoires /bin, /usr/bin, /sbin, et /usr/sbin.
+
+* Applications : les applications logicielles, qu'elles soient en mode texte ou en mode graphique, sont également distribuées sous forme de fichiers binaires.
+Les applications graphiques ont souvent des extensions comme .bin, .run, ou sont disponibles via les gestionnaires de paquets.
+
+* Bibliothèques partagées : les fichiers binaires comprennent souvent des bibliothèques partagées (fichiers .so) utilisées par plusieurs programmes pour partager du code commun.
+
+* Pilotes de périphériques : les pilotes de périphériques, qui permettent aux systèmes d'exploitation de communiquer avec le matériel, sont également des fichiers binaires.
+
+* Scripts interprétables : bien que ne soient pas des fichiers binaires purs, les scripts écrits dans des langages interprétables tels que Bash, Python, Perl, etc., peuvent également être considérés comme des fichiers binaires lorsqu'ils sont exécutés.
+
+La diversité des fichiers binaires sur Linux est une caractéristique de la flexibilité et de la puissance du système d'exploitation, permettant aux utilisateurs d'exécuter un large éventail de tâches et d'applications.
+
+== Coupure rapide de vidéos
+
+Si l'on veut couper la vidéo intitulée « my_video.mp4 » de 00:10:21 à 01:25:32, sans réencoder le flux (`-c copy`) et que soit exporté dans le fichier « output.mp4 », on peut taper :
+
+[source, bash]
+ffmpeg -ss 00:00:01 -to 01:25:32 -i "my_video.mp4" -c copy output.mp4

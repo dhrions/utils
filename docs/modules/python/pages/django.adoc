@@ -1,0 +1,225 @@
+= Django
+Dhrions
+Version 1.0.0, 15/01/2024
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+:icons: font
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+// This is the optional preamble (an untitled section body).
+// Useful for writing simple sectionless documents consisting only of a preamble.
+
+// NOTE:: Le mieux est d'écrire une phrase par ligne.
+== Créer un projet Django
+
+Il faut se rendre dans le dossier où l'on veut créer notre projet Django et exécuter dans un terminal la commande suivante :
+
+`django-admin startproject my_project`
+
+`my-project` est le nom du projet.
+On peut mettre ce que l'on veut.
+
+L'arborscence du projet est la suivante :
+
+image::project-tree.png[]
+
+NOTE:: Un fichier `manage.py` est créé. Dans toute la suite de ce document, dès qu'une commande implique `manage.py`, il faut se rendre dans le dossier où se situe ce fichier (en l'occurence `my_project/my_project`).
+
+== Créer une application Django
+
+On crée une application Django au sein d'un projet
+
+Pour cela, il faut exécuter la commande suivante :
+
+`python manage.py startapp my_app`
+
+L'arborscence du projet et de l'application est la suivante :
+
+image::app-tree.png[]
+
+== Créer un superutilisateur
+
+Pour créer un superutilisateur, il faut exécuter la commande suivante :
+
+[source, bash]
+----
+python manage.py createsuperuser
+----
+
+== Extraire les données d'une base de données
+
+Pour extraire les données d'une base de données, il faut exécuter la commande suivante :
+
+[source, bash]
+----
+python manage.py dumpdata --format=json --indent=4 > db.json
+----
+
+Si l'on veut que le fichier de sortie soit bien au format JSON, il faut ajouter l'option `--format=json`.
+Si l'on veut que le fichier de sortie soit bien indenté, il faut ajouter l'option `--indent=4`.
+Cela donne :
+
+[source, bash]
+----
+python manage.py dumpdata --format=json --indent=4 > db.json
+----
+
+Si l'on veut extraire les données associée à une application en particulier, il faut préciser le nom de cette application :
+
+[source, bash]
+----
+python manage.py dumpdata my_app --format=json --indent=4 > db.json
+----
+
+== Vider la base de données
+
+Pour vider la base de données, il faut exécuter la commande suivante :
+
+[source, bash]
+----
+python manage.py flush
+----
+
+== Charger la base de données
+
+Pour charger la base de données, il faut exécuter la commande suivante :
+
+[source, bash]
+----
+python manage.py loaddata db.json
+----
+
+== Extensions utiles
+
+Les extensions suivantes sont utiles :
+
+* pillow
+* django_extensions
+* import_export
+* polymorphic
+* guardian
+* rest_framework : pour créer une API
+* rest_framework_gis : pour créer une API avec des données géographiques
+* drf_spectacular : pour créer une documentation de l'API
+* simple_history
+* rangefilter
+* taggit
+
+== Ajouter une extension
+
+Pour ajouter une extension, le mieux est de consulter la documentation officielle.
+
+Généralement, il faut l'installer :
+
+[source, bash]
+----
+pip install my_extension
+----
+
+NOTE:: Si l'on utilise un environnement virtuel, il faut veiller à ce que cet environnement virtuel soit bien activé avant d'installer l'extension.
+
+Généralement, il faut ensuite l'ajouter au fichier `settings.py` (`my_project/my_project/settings.py`) :
+
+[source, python]
+----
+INSTALLED_APPS = [
+    ...
+    'my_extension',
+    ...
+]
+----
+
+// == Les listes
+
+// === Listes ordonnées
+
+// .Liste des pays :
+// . Premier
+// . Deuxième
+
+// === Liste non ordonnées
+
+// * item
+// ** nested item
+// * item
+// * item
+// * item
+// ** nested item
+// ** nested item
+// *** subnested item
+// ** nested item
+// * item
+
+// == Les citations
+
+// // À propos des citations : https://docs.asciidoctor.org/asciidoc/latest/blocks/blockquotes/
+
+// === Basic quote syntax
+
+// [quote,attribution,citation title and information]
+// Quote or excerpt text
+
+// .After landing the cloaked Klingon bird of prey in Golden Gate park:
+// [quote,Captain James T. Kirk,Star Trek IV: The Voyage Home]
+// Everybody remember where we parked.
+
+// === Quoted blocks
+
+// [quote,Monty Python and the Holy Grail]
+// ____
+// Dennis: Come and see the violence inherent in the system. Help! Help! I'm being repressed!
+
+// King Arthur: Bloody peasant!
+
+// Dennis: Oh, what a giveaway! Did you hear that? Did you hear that, eh? That's what I'm on about! Did you see him repressing me? You saw him, Didn't you?
+// ____
+
+// === Quoted paragraphs
+
+// "I hold it that a little rebellion now and then is a good thing,
+// and as necessary in the political world as storms in the physical."
+// -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+// == Les liens
+
+// Pour aller à la section intitulée « <<Les listes>> », c'est par <<Les listes, ici>>.
+
+// Il y a un dossier intéressant : link:./example1[ici].
+
+// == Les variables ({url-wiki-Europe-Ouest}[cf. Wikipédia])
+
+// == Les blocs
+
+// .Voici le titre d'un bloc
+// Et là, cela est un bloc, constitué d'une phrase.
+// Et d'une deuxième phrase.
+// Et d'une troisième.
+
+// == Le code
+
+// [source, python]
+// ----
+// print("Hello world"!)
+// ----
+
+// Je peux facilement inclure une partie d'un fichier de code en-dessous.
+
+// [source, python]
+// ----
+// include::./example1/python.py[tag=le-nom-de-mon-tag]
+// ----
+
+// CAUTION: `include` ne fonctionne pas sur Git Hub.
