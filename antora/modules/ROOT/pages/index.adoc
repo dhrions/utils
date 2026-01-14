@@ -1,3 +1,0 @@
-= Ma page d'accueil
-
-{wikipedia}
