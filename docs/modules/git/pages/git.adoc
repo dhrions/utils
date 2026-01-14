@@ -1,0 +1,291 @@
+= README de Git
+Dhrions
+Version 1.1.0, 16/12/2023
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+// :toc-title: Ma super table des matières
+:icons: font
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// // Mes variables
+// :url-wiki: https://fr.wikipedia.org/wiki
+// :url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+// This is the optional preamble (an untitled section body).
+// Useful for writing simple sectionless documents consisting only of a preamble.
+
+// NOTE:: Le mieux est d'écrire une phrase par ligne.
+
+== Introduction
+
+On peut utilement consulter https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github[le cours sur Git et GitHub d'OpenClassrooms].
+
+.Page d'accueil du cours d'OpenClassrooms dédié à Git et GitHub
+image::git-oc.png[Page d'accueil du cours d'OpenClassrooms dédié à Git et GitHub, 500, link=https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github]
+
+.Quelques concepts-clés de Git
+image::16334576106761_image27.png[Quelques concepts-clés de Git, 500, link=https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github/7165726-travaillez-depuis-votre-depot-local-git]
+
+== Commandes
+
+=== Créer un nouveau dépôt
+
+[source,shell]
+----
+git init
+----
+
+=== Cloner un dépôt existant
+
+[source,shell]
+----
+git clone <url>
+----
+
+=== Vérifier l'état des fichiers
+
+[source,shell]
+----
+git status
+----
+
+=== Ajouter des fichiers à l'index
+
+[source,shell]
+----
+git add <file>
+----
+
+=== Valider les modifications
+
+[source,shell]
+----
+git commit -m "Message de validation"
+----
+
+=== Envoyer les modifications vers un dépôt distant
+
+[source,shell]
+----
+git push <repository> <branch>
+----
+
+<repository> représente le nom que l'on a donné localement à un dépôt distant et <branch> représente le nom de la branche dans laquelle on veut envoyer les modifications.
+
+On n'est pas obligé de préciser le nom local du dépôt (`repository`) ou la branche (`branch`) si un dépôt et une branche par défaut ont déjà été configurés (ce qui est le cas si on a cloné un dépôt).
+On peut donc taper tout simplement :
+
+[source,shell]
+----
+git push
+----
+
+Si l'on veut forcer le _push_, on peut taper :
+
+[source,shell]
+----
+git push --force
+----
+
+=== Mettre à jour le dépôt local avec les modifications du dépôt distant
+
+[source,shell]
+----
+git pull origin <branch>
+----
+
+=== Créer une nouvelle branche
+
+[source,shell]
+----
+git checkout -b <branch>
+----
+
+=== Changer de branche
+
+[source,shell]
+----
+git checkout <branch>
+----
+
+=== Fusionner une branche dans la branche courante
+
+[source,shell]
+----
+git merge <branch>
+----
+
+=== Supprimer une branche
+
+[source,shell]
+----
+git branch -d <branch>
+----
+
+=== Afficher l'historique des commits
+
+[source,shell]
+----
+git log
+----
+
+=== Afficher l'historique des commits avec les différences
+
+[source,shell]
+----
+git log -p
+----
+
+=== Vider l'index (ou _stage_)
+
+[source,shell]
+----
+git reset
+----
+
+=== Annuler le dernier commit (en conservant les modifications)
+
+[source,shell]
+----
+git reset --soft HEAD~1
+----
+
+NOTE:: Dans ce cas, le dernier commit est annulé, mais les modifications sont conservées dans l'index.
+En outre, si avant l'exécution de cette commande, il y avait des modifications dans l'index, elles sont conservées.
+On retrouve donc dans l'index :
+
+* les modifications qui étaient dans l'index avant l'exécution de la commande ;
+* les modifications qui étaient dans le dernier commit.
+
+=== Annuler le dernier commit (en supprimant les modifications)
+
+[source,shell]
+----
+git reset --hard HEAD~1
+----
+
+=== Annuler le dernier commit (en conservant les modifications dans l'index)
+
+[source,shell]
+----
+git reset --mixed HEAD~1
+----
+
+=== Afficher le nom et l'adresse électronique de l'utilisateur
+
+[source,shell]
+----
+git config --global user.name
+git config --global user.email
+----
+
+=== Configurer le nom et l'adresse électronique de l'utilisateur
+
+[source,shell]
+----
+git config --global user.name "John Doe"
+git config --global user.email "johndore@example.com"
+----
+
+=== Modifier le texte du dernier commit
+
+[source,shell]
+----
+git commit --amend -m "nouveau-nom"
+----
+
+=== Supprimer un fichier du dépôt 
+
+[source,shell]
+----
+git rm <file>
+----
+
+Et pour le supprimer de tous les commits passés, par exemples s'il s'agit d'un fichier contenant des informations sensibles :
+
+==== Avec git-filter-repo
+
+[source,shell]
+sudo apt install git-filter-repo
+
+[source,shell]
+----
+git filter-repo --path .secrets --invert-paths
+Aborting: Refusing to destructively overwrite repo history since
+this does not look like a fresh clone.
+  (expected freshly packed repo)
+Please operate on a fresh clone instead.  If you want to proceed
+anyway, use --force.
+----
+
+J'ai eu ce message d'erreur car je n'ai pas cloné le dépôt dans un répertoire vide.
+Il faut donc cloner le dépôt dans un répertoire vide.
+
+[source,shell]
+rm -rf siri-lite/
+git clone ssh://git@gitea.dhrions.duckdns.org:222/dhrions/siri-lite.git
+
+
+== Bonnes pratiques
+
+=== Rédaction des commits
+
+[qanda]
+______________________________
+To write commit with Git, what are the different recommend verbs to start your sentence with ?::
+
+When writing a commit message in Git, it is recommended to start the sentence with an imperative verb in the present tense.
+Some common verbs used in commit messages include:
+
+* Add: for adding new features or files
+* Update: for updating existing features or files
+* Fix: for fixing bugs or errors
+* Refactor: for making code improvements without changing functionality
+* Remove: for removing features or files
+* Improve: for improving existing features or functionality
+* Doc: for updating documentation
+* Test: for adding or updating tests
+______________________________
+
+[qanda]
+______________________________
+Do you have other good advices to better write commits ?::
+
+. Starting the sentence with a verb in the imperative mood makes the commit message more clear and actionable. It also helps to keep the commit messages concise and consistent.
+
+. Keep your commits small and focused: Each commit should represent a single logical change, so it's easier to review and understand the code changes.
+
+. Use imperative mood: Start each commit message with a verb in the imperative mood, such as "Add", "Fix", "Update", "Refactor", "Remove", etc.
+This helps to clearly state what the commit does.
+
+. Write a clear and concise summary: The first line of the commit message should be a short (50 characters or less) summary of the change.
+It should be descriptive enough to convey the purpose of the commit at a glance.
+
+. Provide more details in the body: Use the body of the commit message to provide more details about the change, such as why it was necessary and how it was implemented.
+This helps to provide context and make the change more understandable.
+
+. Use bullet points for complex changes: If the change is complex, consider breaking it down into bullet points to make it easier to read and understand.
+
+. Use the present tense: Write commit messages in the present tense, as if you were describing the code as it is now, rather than how it was in the past.
+
+. Be consistent: Use the same style and formatting for all your commit messages to ensure consistency across the project.
+
+. Avoid unnecessary details: Don't include unnecessary details in your commit messages, such as personal notes or temporary changes that will be reverted later.
+
+. Keep your commit messages meaningful: Avoid writing vague or unhelpful commit messages such as "Update" or "Fix bugs".
+Instead, be specific and descriptive about what the change does.
+
+By following these tips, you can create commit messages that are clear, concise, and informative, making it easier for others to understand and review your changes.
+______________________________
+
+Il est aussi possible de faire usage des gitmojis :
+
+image::gitmoji.png[Gitmoji, 500, align="center", link=https://gitmoji.dev/]

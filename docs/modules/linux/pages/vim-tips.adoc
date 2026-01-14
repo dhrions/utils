@@ -1,0 +1,57 @@
+= Actions le plus utilisées
+Dhrions
+Version 1.1.0, 01/01/2024
+// Document attributes
+:sectnums:                                                          
+:toc:                                                   
+:toclevels: 5  
+:toc-title: Ma super table des matières
+:icons: font
+
+:description: Example AsciiDoc document                             
+:keywords: AsciiDoc                                                 
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+
+// Mes variables
+:url-wiki: https://fr.wikipedia.org/wiki
+:url-wiki-Europe-Ouest: {url-wiki}/Europe_de_l%27Ouest
+
+Du plus fréquemment utilisé au moins fréquemment utilisé :
+
+== Ouvrir un fichier
+
+[source, bash]
+----
+vim fichier
+----
+
+== Sortir du fichier sans enregistrer
+
+[source]
+----
+`Escape` + `:` + `q!`
+----
+
+== Sortir du fichier en enregistrant
+
+[source]
+----
+`Escape` + `:` + `wq`
+----
+
+== Entrer en mode insertion avant le curseur
+
+[source]
+----
+`i`
+----
+
+== Aller à la dernière ligne
+
+[source]
+----
+`G`
+----

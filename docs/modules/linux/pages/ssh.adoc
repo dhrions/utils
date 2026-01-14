@@ -1,0 +1,165 @@
+= SSH
+Dhrions
+Version 1.1.0, 10/06/2024
+
+:imagesdir: ./medias
+
+== Ajouter une clé publique d'une machine A à une machine B
+
+Le but est de se connecter de la machine A à la machine B sans avoir à saisir de mot de passe, grâce à la clé SSH.
+
+[source, bash]
+----
+ssh-copy-id -i ~/.ssh/id_ed25519.pub <username>@<ipaddress>
+----
+
+Plus d'information sur https://doc.ubuntu-fr.org/ssh#mise_en_place_des_cles[doc.ubuntu-fr.org].
+
+== Connaître l'empreinte de sa propre machine
+
+[source, bash]
+----
+ssh-keyscan -t ed25519 -p numero-port-ssh hostname
+----
+
+Exemple :
+
+[source, bash]
+----
+ssh-keyscan -t ed25519 -p 22 mymachine
+----
+
+== Copier en local un dossier distant
+
+[source, bash]
+----
+scp -r <username>@<ipaddress>:<path-of-distant-folder> <path-of-local-folder> -P ssh-port-number
+----
+
+== Faire aboucher un des ports de sa machine locale avec un port de sa machine distante
+
+On considère 2 machines :
+
+* une machine locale (_local-machine_) ;
+// * la machine distante intermédiaire (_device2_) ;
+* une machine distante (_remote-machine_).
+
+// Ces deux dernières peuvent être la même machine.
+//
+=== ssh -L
+
+Cette commande est utilisée pour qu'un service tournant sur une machine distante soit accessible par tunnel SSH sur une machine locale.
+Elle est donc l'opposée de la commande `ssh -R` qui est utilisée pour qu'un service tournant sur une machine locale soit accessible par tunnel SSH sur une machine distante.
+
+[source, bash]
+----
+ssh <remote-device-username>@<remote-devices> -p <remote-device-ssh-port-number> -NL <local-port>:localhost:<remote-device-remote-port>
+----
+
+Cette commande se connecte en ssh (`ssh`), en tant qu'utilisateur <username> (`<username>`), à la machine n^o^ 2  <remote-device> (`<remote-devices>`) via le port <ssh-port-number> (`-p <ssh-port-number>`).
+
+NOTE:: <remote-device> peut-être tout aussi bien une adresse IP (exemple : 192.168.1.5) ou un nom d'hôte (exemple : mymachine).
+
+Cette commande fait aussi aboucher le port `<local-port>` de la machine locale avec le port `<remote-port>` de la machine n^o^ 2 (`-NL <local-port>:localhost:<remote-device-remote-port>`).
+
+NOTE:: Il faut que le <local-port> soit un port libre de la machine locale.
+
+NOTE:: L'usage de l'option `-N` est souvent utile.
+En effet, si l'on ne l'utilise pas, on a accès au terminal de la machine distante intermédiaire (remote-device).
+Or, cela est rarement utile dans ce cas-là.
+On cherche juste à ce que cette commande crée un « tuyau » entre la machine locale (_local-device_) et la machine distante (_remote-device_).
+
+// image::ssh-tunnel.drawio.svg[2000]
+
+// NOTE:: Il faut que le <local-port> soit un port libre de la machine locale.
+
+// Exemple :
+
+// [source, bash]
+// ----
+// ssh jean@1.2.3.4 -p 33 -NL 5000:5.6.7.8:6000 
+// ----
+
+// Cette commande fait aboucher le port 5000 de la machine locale avec le port 6000 de la machine ayant pour adresse IP 5.6.7.8  *du point de vue de la machine locale* (`-L <local-port>:<device3-ip-address>:<device3-remote-port>`) en passant par la machine ayant pour adresse IP `1.2.3.4` via l'utilisateur jean (`jean`) et le port 33 (`-p 33`).
+
+==== Exemple n^o^ 1
+
+Sur ma machine distante, j'ai un service qui tourne sur le port 9000.
+
+On peut notamment le voir en tapant `ss -tuln | grep 9000` :
+
+[source, bash]
+userD@remote-machine:~$ ss -tulnp | grep 9000
+tcp   LISTEN 0      4096                                     0.0.0.0:9000       0.0.0.0:*          
+tcp   LISTEN 0      4096                                        [::]:9000          [::]:*          
+
+La commande suivante permet en somme « d'apporter » le service tournant sur le port 9000 de ma machine distante sur le port 5000 de ma machine locale.
+
+[source, bash]
+userL@local-machine:~$ ssh -NL 5000:localhost:9000 remote-machine
+
+Sur la machine locale, on peut vérifier l'existence de cette connexion en tapant `ss -tuln | grep 5000`
+
+[source, bash]
+userL@local-machine:~$ ss -tulnp | grep 5000
+tcp   LISTEN 0      128                                    127.0.0.1:5000       0.0.0.0:*       
+tcp   LISTEN 0      128                                        [::1]:5000          [::]:*
+
+On peut voir le bon fonctionnement du service en lançant un naviagteur web sur la machine locale et en se rendant à l'adresse localhost:5000.
+
+=== ssh -R
+
+Cette commande est utilisée pour qu'un service tournant sur une machine locale soit accessible par tunnel SSH sur une machine distante.
+Elle est donc l'opposée de la commande `ssh -L` qui est utilisée pour qu'un service tournant sur une machine distante soit accessible par tunnel SSH sur une machine locale.
+
+==== Théorie
+
+[source, bash]
+----
+ssh -NR <remote-port>:localhost:<local-port> <username>@<remote-device> -p ssh-port-number
+----
+
+Cette commande se connecte en ssh (`ssh`), en tant qu'utilisateur <username> (`<username>`), à la machine distante (`<remote-device>`) via le port <ssh-port-number> (`-p <ssh-port-number>`).
+
+NOTE:: <remote-device> peut-être tout aussi bien une adresse IP (exemple : 192.168.1.5) ou un nom d'hôte (exemple : mymachine).
+
+Elle fait aussi aboucher le port `<remote-port>` de la machine distante avec le port `<local-port>` de la machine distante (`-NR <remote-port>:localhost:<local-port>`).
+
+NOTE:: Il faut que le <remote-port> soit un port libre de la machine distante.
+
+NOTE:: L'usage de l'option `-N` est souvent utile.
+En effet, si l'on ne l'utilise pas, on a accès au terminal de la machine distante intermédiaire (remote-device).
+Or, cela est rarement utile dans ce cas-là.
+On cherche juste à ce que cette commande crée un « tuyau » entre la machine locale (_local-device_) et la machine distante (_remote-device_).
+
+==== Exemple n^o^ 1
+
+Sur ma machine locale, j'ai un service qui tourne sur le port 9000.
+
+On peut notamment le voir en tapant `ss -tuln | grep 9000` :
+
+[source, bash]
+userL@local-machine:~$ ss -tuln | grep 9000
+tcp   LISTEN 0      4096         0.0.0.0:9000       0.0.0.0:*          
+tcp   LISTEN 0      4096            [::]:9000          [::]:*
+
+La commande suivante permet en somme « d'envoyer » le service tournant sur le port de ma machine locale sur le port 5000 de la machine distante.
+
+[source, bash]
+userL@local-machine:~$ ssh -NR 5000:localhost:9000 remote-machine
+
+Sur la machine distante, on peut vérifier l'existence de cette connexion en tapant `ss -tuln | grep 5000`
+
+[source, bash]
+userD@remote-machine:~$ ss -tulnp | grep 5000
+tcp   LISTEN 0      128                                    127.0.0.1:5000       0.0.0.0:*       
+tcp   LISTEN 0      128                                        [::1]:5000          [::]:*
+
+Cela dit, je ne devrais pas avoir ça :
+
+[source, bash]
+userD@remote-machine:~$ curl localhost:5000
+<a href="/timeout.html">Temporary Redirect</a>.
+
+Quid si l'on remplace localhost par adresse IP ?
+L'adresse IP sera-t-elle l'adresse IP vue par la machine hôte ou par la machine distante ?
