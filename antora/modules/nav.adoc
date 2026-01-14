@@ -1,4 +1,0 @@
-* xref:ROOT:index.adoc[Accueil]
-
-.Comprehensive module
-* xref:comprehensive-module:README.adoc[Accueil du comprehensive module]
