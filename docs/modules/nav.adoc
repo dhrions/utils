@@ -4,6 +4,7 @@
 .Développement
 * xref:git:git.adoc[Git]
 ** xref:git:forges.adoc[Comparatif des forges]
+** xref:git:tags-releases.adoc[Tags et Releases]
 * xref:github:github.adoc[GitHub]
 * xref:python:python.adoc[Python]
 ** xref:python:click.adoc[Click]
