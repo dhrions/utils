@@ -1,0 +1,469 @@
+= 🏷️ Tags et Releases Git
+:navtitle: Tags et Releases
+
+== 🎯 Vue d'ensemble
+
+Les **tags** et **releases** sont deux concepts Git essentiels pour versionner et tracker les versions stables d'un projet. Bien que liés, ils ont des usages distincts.
+
+== 🏷️ Tags Git
+
+=== Qu'est-ce qu'un tag ?
+
+Un **tag** est une **référence Git** qui pointe sur un commit spécifique. C'est une étiquette immuable utilisée pour marquer des points importants dans l'historique.
+
+=== Types de tags
+
+==== 1. Tag léger (Lightweight)
+
+Juste une référence au commit.
+
+[source,bash]
+----
+git tag v1.0.0
+git push origin v1.0.0
+----
+
+==== 2. Tag annoté (Annotated)
+
+Inclut métadonnées : auteur, date, message.
+
+[source,bash]
+----
+git tag -a v1.0.0 -m "Version 1.0.0 - Production ready"
+git push origin v1.0.0
+----
+
+*Recommandé* pour les versions officielles.
+
+=== Créer un tag
+
+==== Créer localement
+
+[source,bash]
+----
+# Tag annoté (recommandé)
+git tag -a v1.0.0 -m "My version 1.0.0"
+
+# Tag léger
+git tag v1.0.0
+
+# Voir le tag
+git show v1.0.0
+----
+
+==== Pusher un tag
+
+[source,bash]
+----
+# Pousser un tag spécifique
+git push origin v1.0.0
+
+# Pousser tous les tags
+git push origin --tags
+
+# Pousser tous les commits ET tags
+git push origin main --tags
+----
+
+=== Supprimer un tag
+
+[source,bash]
+----
+# Supprimer localement
+git tag -d v1.0.0
+
+# Supprimer sur remote
+git push --delete origin v1.0.0
+
+# Ou (syntaxe alternative)
+git push origin :v1.0.0
+----
+
+=== Lister les tags
+
+[source,bash]
+----
+# Lister tous les tags
+git tag
+
+# Lister avec détails
+git tag -l -n5
+
+# Chercher des tags
+git tag -l "v1.*"
+
+# Voir un tag spécifique
+git show v1.0.0
+----
+
+=== Vérifier qu'un tag existe
+
+[source,bash]
+----
+git tag -l v1.0.0
+----
+
+=== Annoter un tag existant
+
+[source,bash]
+----
+# Impossible - créer un nouveau tag
+git tag -a v1.0.0-final -m "Final version"
+----
+
+== 🚀 Releases (Gitea/GitHub/GitLab)
+
+=== Qu'est-ce qu'une release ?
+
+Une **release** est une **fonctionnalité de la plateforme** (pas Git natif) basée sur un tag. Elle permet de :
+
+* 📝 Ajouter des notes de version détaillées
+* 📦 Attacher des fichiers téléchargeables (binaires, archives)
+* 🎯 Créer une page spéciale pour les utilisateurs finaux
+* 🔖 Marquer comme pré-release ou brouillon
+* 📢 Générer des URLs partageables
+
+=== Créer une release (Gitea)
+
+. Aller sur : `https://gitea.example.com/owner/repo/releases`
+. Cliquer sur "New Release"
+. Sélectionner le tag ou créer un nouveau
+. Remplir les détails :
+** Title : Nom de la version
+** Description : Notes de version (Markdown)
+** Attach files : Fichiers téléchargeables (optional)
+** Pre-release : Cocher si version beta
+. Cliquer "Publish Release"
+
+=== Exemple de notes de version
+
+[source,markdown]
+----
+## 🚀 Features
+
+- ✨ New dashboard with real-time updates
+- 🎨 Improved UI design
+- 📱 Mobile responsiveness
+
+## 🐛 Bug Fixes
+
+- Fixed login redirect issue
+- Corrected date formatting
+
+## 📚 Documentation
+
+- Added API reference
+- Updated user guide
+
+## ⚠️ Known Issues
+
+- Performance optimization in progress
+- Dark mode coming soon
+
+## 🔗 Links
+
+- [Documentation](https://docs.example.com)
+- [API Docs](https://api.example.com)
+- [Issues](https://github.com/owner/repo/issues)
+
+## 🙏 Contributors
+
+Thanks to @user1 @user2 for contributions!
+----
+
+== 📊 Différences principales
+
+[cols="2,3,3"]
+|===
+|Aspect |Tag Git |Release
+
+|**Type**
+|Git natif
+|Plateforme (Gitea/GitHub/GitLab)
+
+|**Pointeur**
+|Commit spécifique
+|Tag Git
+
+|**Description**
+|Optionnelle (dans message)
+|Détaillée et mise en forme
+
+|**Fichiers**
+|❌ Non
+|✅ Oui (assets téléchargeables)
+
+|**Interface**
+|CLI Git
+|Web UI
+
+|**Public cible**
+|Développeurs
+|Utilisateurs finaux
+
+|**Téléchargeables**
+|❌ Non (via clone)
+|✅ Oui (.zip, .tar.gz)
+
+|**Visibilité**
+|Tous les développeurs
+|Annoncée publiquement
+|===
+
+== 🔄 Workflow Git recommandé
+
+=== Phase de développement
+
+[source,bash]
+----
+# Développer la feature
+git add .
+git commit -m "Add feature X"
+git push origin main
+----
+
+=== Phase de pré-release
+
+[source,bash]
+----
+# Créer un tag alpha/beta
+git tag -a v1.0.0-alpha -m "Version 1.0.0 alpha"
+git push origin v1.0.0-alpha
+
+# Après tests et feedback...
+git tag -a v1.0.0-rc1 -m "Version 1.0.0 release candidate 1"
+git push origin v1.0.0-rc1
+----
+
+=== Phase de release stable
+
+[source,bash]
+----
+# Créer tag final
+git tag -a v1.0.0 -m "Version 1.0.0 - Production ready"
+git push origin v1.0.0
+
+# Créer la release sur la plateforme
+# (Via web UI ou API)
+----
+
+== 📋 Semantic Versioning (SemVer)
+
+Format standard : `MAJEURE.MINEURE.PATCH[-PRERELEASE][+BUILD]`
+
+=== Structure
+
+[source,text]
+----
+v1.2.3-alpha.1+build.123
+│ │ │ │      │    │
+│ │ │ │      │    └─ Métadonnées build (optionnel)
+│ │ │ │      └────── Pré-release (optionnel)
+│ │ │ └───────────── PATCH (bugfixes)
+│ │ └─────────────── MINEURE (features)
+│ └───────────────── MAJEURE (breaking changes)
+└─────────────────── Préfixe v
+----
+
+=== Exemples
+
+[horizontal]
+`v1.0.0`:: Première version stable
+`v1.0.1`:: Bugfix
+`v1.1.0`:: Nouvelle feature (rétro-compatible)
+`v2.0.0`:: Breaking changes
+`v1.0.0-alpha`:: Alpha (très instable)
+`v1.0.0-beta.1`:: Beta 1
+`v1.0.0-rc1`:: Release candidate 1
+
+=== Règles
+
+[cols="1,3"]
+|===
+|Incrément |Quand
+
+|**MAJEURE**
+|Breaking changes, API incompatible
+
+|**MINEURE**
+|Nouvelles features, rétro-compatibles
+
+|**PATCH**
+|Bugfixes, corrections, rétro-compatibles
+|===
+
+== 🎯 Stratégies de tagging
+
+=== Stratégie 1 : Tags de versions uniquement (Recommandé)
+
+Créer des tags **uniquement** pour les versions stables.
+
+[source,bash]
+----
+git tag v0.1.0      # POC
+git tag v1.0.0      # Production
+git tag v1.0.1      # Hotfix
+git tag v1.1.0      # Nouvelle version
+git tag v2.0.0      # Version majeure
+----
+
+**Avantages :**
+- ✅ Simple et clair
+- ✅ Tags importants en vue
+- ✅ Facile à documenter
+
+**Inconvénients :**
+- ❌ Moins de granularité
+
+=== Stratégie 2 : Tags pour chaque étape
+
+Créer des tags pour alpha, beta, rc, et final.
+
+[source,bash]
+----
+git tag v1.0.0-alpha.1
+git tag v1.0.0-alpha.2
+git tag v1.0.0-beta.1
+git tag v1.0.0-rc1
+git tag v1.0.0-rc2
+git tag v1.0.0           # Stable
+----
+
+**Avantages :**
+- ✅ Très traçable
+- ✅ Permet versioning détaillé
+
+**Inconvénients :**
+- ❌ Beaucoup de tags
+- ❌ Peut être verbeux
+
+=== Stratégie 3 : Tags avec types
+
+Utiliser des préfixes pour clarifier le type.
+
+[source,bash]
+----
+git tag release/v1.0.0      # Release
+git tag hotfix/v1.0.1       # Hotfix
+git tag beta/v1.1.0-beta    # Beta
+git tag experimental/v2.0   # Expérimental
+----
+
+**Avantages :**
+- ✅ Très organisé
+- ✅ Type clair au coup d'œil
+
+**Inconvénients :**
+- ❌ Noms plus longs
+
+== 📈 Nombre de tags vs releases
+
+=== Ratio typique
+
+[cols="1,3"]
+|===
+|Concept |Fréquence
+
+|**Tags**
+|Fréquent (3-10+ par release)
+
+|**Releases**
+|Moins fréquent (1-2 par mois)
+
+|**Ratio**
+|3-5 tags pour 1 release
+|===
+
+=== Exemple sur un vrai projet
+
+[source,text]
+----
+Tags créés (20+):
+├── v0.1.0-alpha
+├── v0.1.0-beta
+├── v0.1.0-beta.2
+├── v0.1.0-rc1
+├── v0.1.0         ────────→ Release v0.1.0 (POC)
+├── v0.2.0-alpha
+├── v0.2.0-rc1
+├── v0.2.0-rc2
+├── v0.2.0         ────────→ Release v0.2.0 (Beta)
+├── v0.2.1         (hotfix)
+├── v1.0.0-rc1
+├── v1.0.0-rc2
+├── v1.0.0         ────────→ Release v1.0.0 (Production)
+├── v1.0.1         (hotfix)
+├── v1.1.0         ────────→ Release v1.1.0 (Feature)
+├── v1.1.1         (hotfix)
+├── v2.0.0-alpha
+├── v2.0.0-rc1
+├── v2.0.0         ────────→ Release v2.0.0 (Majeure)
+└── v2.0.1         (hotfix)
+
+Releases créées (4):
+├── v0.1.0 (POC)
+├── v1.0.0 (Production)
+├── v1.1.0 (Feature update)
+└── v2.0.0 (Major release)
+----
+
+== ✅ Bonnes pratiques
+
+=== À faire ✅
+
+[cols="1,3"]
+|===
+|Pratique |Description
+
+|Utiliser SemVer
+|`v1.2.3` plutôt que `v1.2` ou `release-jan`
+
+|Tags annotés
+|Incluent métadonnées importantes
+
+|Convention de noms
+|`v` prefix, consister dans le format
+
+|Releases pour versions stables
+|Pas de release pour chaque alpha/beta
+
+|Message descriptif
+|Expliquer le tag et les changements
+
+|Pousser les tags
+|`git push origin --tags`
+
+|Documentation
+|Lier tags à issues/PRs
+|===
+
+=== À éviter ❌
+
+[horizontal]
+Tags non versionnés:: `latest`, `stable`, `prod`
+Tags sur develop:: Tagger main branch seulement
+Noms inconsistants:: `v1.0`, `version1.0`, `1.0.0`
+Tags sans message:: Toujours utiliser `-a` (annoté)
+Supprimer tags:: Tags immutables, ne jamais supprimer
+Release majeure sans tag:: Toujours créer le tag d'abord
+
+== 🔗 Références utiles
+
+* xref:git.adoc[Guide Git complet]
+* xref:forges.adoc[Guide des forges (Gitea/GitHub)]
+* https://semver.org[Semantic Versioning officiel]
+* https://docs.gitea.io/en-us/releases/[Documentation Gitea - Releases]
+* https://docs.github.com/en/repositories/releasing-projects-on-github[Documentation GitHub - Releases]
+
+== 📝 Checklist pour créer une release
+
+. ✅ Code testé et stable
+. ✅ Commit final sur main/develop
+. ✅ Créer tag annoté : `git tag -a v1.0.0 -m "..."`
+. ✅ Pousser tag : `git push origin v1.0.0`
+. ✅ Créer release sur plateforme
+. ✅ Rédiger notes de version
+. ✅ Attacher fichiers (si applicable)
+. ✅ Publier release
+. ✅ Annoncer (mailing list, réseaux, etc.)
+. ✅ Créer issue pour prochaine version
