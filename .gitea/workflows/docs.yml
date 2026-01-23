@@ -12,6 +12,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    container:
+      volumes:
+        - /home/dockeradmin/docker/nginx-docs/html:/deploy
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,28 +33,15 @@ jobs:
         working-directory: docs
         run: antora --fetch antora-playbook.yml
 
-      - name: Deploy documentation via SSH
+      - name: Deploy documentation
         run: |
-          echo "📦 Deploying documentation to nginx-docs via SSH..."
-
+          echo "Deploying documentation..."
+          rm -rf /deploy/dhrions/utils
+          mkdir -p /deploy/dhrions/utils
           # Copy component content directly to avoid URL redundancy
-          TEMP_DIR="/tmp/utils-docs-$$"
-          mkdir -p "$TEMP_DIR"
-          cp -r docs/build/utils/* "$TEMP_DIR/"
-
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            debian@localhost -p 2156 << 'ENDSSH'
-            set -e
-            echo "🧹 Cleaning destination..."
-            TARGET="/home/dockeradmin/docker/nginx-docs/html/dhrions/utils"
-            sudo rm -rf "$TARGET"
-            sudo mkdir -p "$TARGET"
-
-            echo "📦 Copying documentation..."
-            sudo cp -r /tmp/utils-docs-*/. "$TARGET/"
-
-            # Create redirect index.html
-            sudo tee "$TARGET/index.html" > /dev/null << 'INDEXEOF'
+          cp -r docs/build/utils/* /deploy/dhrions/utils/
+          # Create redirect index.html
+          cat > /deploy/dhrions/utils/index.html << 'EOF'
           <!DOCTYPE html>
           <html>
           <head>
@@ -63,14 +53,8 @@ jobs:
             <p>Redirecting to <a href="main/index.html">documentation</a>...</p>
           </body>
           </html>
-INDEXEOF
-
-            echo "✅ Documentation deployed!"
-            ls -lah "$TARGET" | head -10
-
-            echo "🧹 Cleanup temp files..."
-            sudo rm -rf /tmp/utils-docs-*
-ENDSSH
-
-          rm -rf "$TEMP_DIR"
-          echo "🎉 Deployment complete!"
+          EOF
+          # nginx:alpine runs as uid 101, use chmod for readability
+          chmod -R 755 /deploy/dhrions/utils
+          echo "Deployment complete!"
+          ls -la /deploy/dhrions/utils/
