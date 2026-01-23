@@ -1,4 +1,4 @@
-= Repository _utils_
+= 📚 Repository _utils_
 :author: Romain Le Drogo
 
 Ce document rassemble des bouts de code qui peuvent être utiles à réutiliser pour gagner du temps #flemme #DRY.
