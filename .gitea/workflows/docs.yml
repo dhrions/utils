@@ -34,9 +34,10 @@ jobs:
         run: |
           echo "📦 Deploying documentation to nginx-docs via SSH..."
 
+          # Copy component content directly to avoid URL redundancy
           TEMP_DIR="/tmp/utils-docs-$$"
           mkdir -p "$TEMP_DIR"
-          cp -r docs/build/* "$TEMP_DIR/"
+          cp -r docs/build/utils/* "$TEMP_DIR/"
 
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
             debian@localhost -p 2156 << 'ENDSSH'
@@ -48,6 +49,21 @@ jobs:
 
             echo "📦 Copying documentation..."
             sudo cp -r /tmp/utils-docs-*/. "$TARGET/"
+
+            # Create redirect index.html
+            sudo tee "$TARGET/index.html" > /dev/null << 'INDEXEOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=main/index.html">
+            <title>Redirecting...</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="main/index.html">documentation</a>...</p>
+          </body>
+          </html>
+INDEXEOF
 
             echo "✅ Documentation deployed!"
             ls -lah "$TARGET" | head -10
