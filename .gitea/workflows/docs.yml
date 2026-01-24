@@ -11,7 +11,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: docs-deploy
     container:
       volumes:
         - /home/dockeradmin/docker/nginx-docs/html:/deploy
@@ -36,10 +36,16 @@ jobs:
       - name: Deploy documentation
         run: |
           echo "Deploying documentation..."
+
+          # Copy shared assets (CSS, JS, fonts) to root
+          cp -r docs/build/_/ /deploy/dhrions/_/
+          chmod -R 755 /deploy/dhrions/_/
+
+          # Deploy component docs
           rm -rf /deploy/dhrions/utils
           mkdir -p /deploy/dhrions/utils
-          # Copy component content directly to avoid URL redundancy
           cp -r docs/build/utils/* /deploy/dhrions/utils/
+
           # Create redirect index.html
           cat > /deploy/dhrions/utils/index.html << 'EOF'
           <!DOCTYPE html>
@@ -54,7 +60,6 @@ jobs:
           </body>
           </html>
           EOF
-          # nginx:alpine runs as uid 101, use chmod for readability
           chmod -R 755 /deploy/dhrions/utils
           echo "Deployment complete!"
           ls -la /deploy/dhrions/utils/
