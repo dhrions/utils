@@ -8,12 +8,15 @@
 [extend]
 useDefault = true
 
-# Pas de [allowlist] par défaut : une table vide fait échouer gitleaks au chargement
-# ("[[allowlists]] must contain at least one check for: commits, paths, regexes, or
-# stopwords"), donc pire qu'utile. Décommenter uniquement en cas de faux positif réel,
-# avec un commentaire justificatif par entrée :
-#
-# [allowlist]
-# regexes = [
-#   '''AKIAIOSFODNN7EXAMPLE''', # Exemple AWS documenté dans README.adoc, jamais une vraie clé
-# ]
+[allowlist]
+regexes = [
+  '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ\.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c''',
+  # Token JWT d'exemple canonique de jwt.io ("John Doe"), utilisé pour illustrer la
+  # structure d'un JWT dans docs/modules/jwt/pages/jwt.adoc (et l'ancien jwt/README.adoc,
+  # présent dans l'historique avant migration vers docs/) — jamais un vrai secret.
+
+  '''ASIAAAAIEAEAAAAASIAA''',
+  # Faux positif règle aws-access-token : fragment de données binaires compressées
+  # (format mxfile de draw.io, base64) dans computing-learner-roadmap/roadmap.drawio et
+  # computing-learner-roadmap/dev/circles.drawio — coïncidence de motif, pas une clé AWS.
+]
