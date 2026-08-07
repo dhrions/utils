@@ -42,8 +42,7 @@ Exemple
 
 from __future__ import annotations
 
-import argparse
-
+import click
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from scipy.ndimage import find_objects, label
@@ -70,7 +69,8 @@ def detect_panel(array, seed, tol=3, extra_colors=(), max_area_ratio=0.9):
         mask |= (np.abs(array - np.array(color)) <= tol).all(axis=2)
 
     labels, _ = label(mask)
-    ys, xs = find_objects(labels == labels[sy, sx])[0]
+    target = labels[sy, sx]
+    ys, xs = find_objects(labels)[target - 1]
     x0, y0, x1, y1 = xs.start, ys.start, xs.stop - 1, ys.stop - 1
 
     height, width = array.shape[:2]
@@ -83,7 +83,7 @@ def detect_panel(array, seed, tol=3, extra_colors=(), max_area_ratio=0.9):
 
 
 def annotate(src, dst, boxes, *, color=(220, 38, 38), line_width=5, pad=5,
-             font_size=34, tol=3, extra_colors=()):
+             font_size=34, tol=3, extra_colors=(), font_path=FONT_PATH):
     """Dessine un cadre étiqueté autour de chaque widget désigné par `boxes`.
 
     `boxes` est une liste de (seed, label, position). L'étiquette est posée hors
@@ -92,7 +92,13 @@ def annotate(src, dst, boxes, *, color=(220, 38, 38), line_width=5, pad=5,
     image = Image.open(src).convert("RGB")
     array = np.asarray(image).astype(int)
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype(FONT_PATH, font_size)
+    try:
+        font = ImageFont.truetype(font_path, font_size)
+    except OSError as e:
+        raise OSError(
+            f"Police introuvable : {font_path!r}. Installer le paquet "
+            f"fonts-dejavu-core, ou fournir un autre chemin TTF via --font."
+        ) from e
     width, height = image.size
 
     for seed, text, position in boxes:
@@ -119,50 +125,57 @@ def annotate(src, dst, boxes, *, color=(220, 38, 38), line_width=5, pad=5,
     return dst
 
 
-def _parse_box(value):
-    """`x,y:Étiquette:position` -> ((x, y), 'Étiquette', 'position')."""
-    try:
-        point, text, position = value.split(":")
-        x, y = (int(n) for n in point.split(","))
-    except ValueError:
-        raise argparse.ArgumentTypeError(
-            f"format attendu 'x,y:Étiquette:position', reçu {value!r}")
-    if position not in POSITIONS:
-        raise argparse.ArgumentTypeError(
-            f"position {position!r} inconnue (au choix : {', '.join(POSITIONS)})")
-    return (x, y), text, position
-
-
-def _parse_color(value):
+def _color_from_str(value):
     try:
         r, g, b = (int(n) for n in value.split(","))
     except ValueError:
-        raise argparse.ArgumentTypeError(f"format attendu 'R,V,B', reçu {value!r}")
+        raise click.BadParameter(f"format attendu 'R,V,B', reçu {value!r}")
     return r, g, b
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description=__doc__.split("\n")[0],
-        formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("source", help="capture d'écran à annoter")
-    parser.add_argument("destination", help="fichier annoté à produire")
-    parser.add_argument(
-        "--box", type=_parse_box, action="append", required=True, metavar="X,Y:TEXTE:POS",
-        help="point intérieur au widget, étiquette, et placement de l'étiquette "
-             f"({'|'.join(POSITIONS)}) ; répétable")
-    parser.add_argument(
-        "--extra-color", type=_parse_color, action="append", default=[], metavar="R,V,B",
-        help="couleur supplémentaire à inclure au masque (ligne surlignée) ; répétable")
-    parser.add_argument("--tol", type=int, default=3,
-                        help="tolérance de couleur, par défaut 3")
-    parser.add_argument("--color", type=_parse_color, default=(220, 38, 38),
-                        metavar="R,V,B", help="couleur du cadre, par défaut 220,38,38")
-    args = parser.parse_args()
+def _parse_boxes(ctx, param, values):
+    """`x,y:Étiquette:position` -> ((x, y), 'Étiquette', 'position')."""
+    boxes = []
+    for value in values:
+        try:
+            point, text, position = value.split(":")
+            x, y = (int(n) for n in point.split(","))
+        except ValueError:
+            raise click.BadParameter(
+                f"format attendu 'x,y:Étiquette:position', reçu {value!r}")
+        if position not in POSITIONS:
+            raise click.BadParameter(
+                f"position {position!r} inconnue (au choix : {', '.join(POSITIONS)})")
+        boxes.append(((x, y), text, position))
+    return boxes
 
-    annotate(args.source, args.destination, args.box,
-             color=args.color, tol=args.tol, extra_colors=args.extra_color)
-    print(args.destination)
+
+def _parse_extra_colors(ctx, param, values):
+    return [_color_from_str(v) for v in values]
+
+
+@click.command()
+@click.argument("source", type=click.Path(exists=True, dir_okay=False))
+@click.argument("destination", type=click.Path())
+@click.option(
+    "--box", "boxes", multiple=True, required=True, callback=_parse_boxes,
+    metavar="X,Y:TEXTE:POS",
+    help="point intérieur au widget, étiquette, et placement de l'étiquette "
+         f"({'|'.join(POSITIONS)}) ; répétable")
+@click.option(
+    "--extra-color", "extra_colors", multiple=True, callback=_parse_extra_colors,
+    metavar="R,V,B", help="couleur supplémentaire à inclure au masque (ligne surlignée) ; répétable")
+@click.option("--tol", type=int, default=3, help="tolérance de couleur, par défaut 3")
+@click.option(
+    "--color", type=str, default="220,38,38", callback=lambda ctx, param, value: _color_from_str(value),
+    metavar="R,V,B", help="couleur du cadre, par défaut 220,38,38")
+@click.option("--font", default=FONT_PATH,
+              help=f"chemin de la police TTF, par défaut {FONT_PATH}")
+def main(source, destination, boxes, extra_colors, tol, color, font):
+    """Encadre un widget dans une capture d'écran, sans saisir ses coordonnées à la main."""
+    annotate(source, destination, boxes,
+             color=color, tol=tol, extra_colors=extra_colors, font_path=font)
+    click.echo(destination)
 
 
 if __name__ == "__main__":
