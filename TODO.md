@@ -2,14 +2,6 @@
 
 Backlog technique du dépôt `utils`, issu de la revue `/review-full` du 2026-08-07.
 
-## README
-
-- [ ] Ajouter une ligne « Version X.Y.Z, DD/MM/YYYY » en en-tête — bloqué : ce dépôt n'a aucun schéma de versionnage (pas de tag git, pas de `pyproject.toml` racine), fabriquer un numéro serait trompeur. Décision à prendre : adopter un versionnage du dépôt, ou documenter explicitement l'absence de version (README.adoc:1-2)
-
-## Documentation Antora
-
-- [ ] Revoir la `category` de `.repo-meta.json` (`Outils de Développement` → archétype 🛠️ Projet applicatif) au regard du layout réel, clairement 🗂️ Collection/infrastructure (nav groupée par domaine, pas de point d'entrée CLI unique) — à trancher explicitement plutôt que corriger à l'aveugle (.repo-meta.json:4)
-
 ## Standards CLI/CI
 
 - [ ] Corriger l'entry point invalide `adoc-link-checker.cli:cli` (module avec tiret, casse `pip install .`) (scripts/adoc_link_check/setup.py:25)
@@ -33,3 +25,10 @@ Backlog technique du dépôt `utils`, issu de la revue `/review-full` du 2026-08
 ## Tests
 
 - [ ] Ajouter une suite de tests pour le CLI `adoc_link_check` (aucun test dans tout le dépôt)
+
+## 🚫 Écarté en revue (ne pas re-signaler)
+
+- Ligne « Version X.Y.Z, DD/MM/YYYY » absente du README — la norme (review-readme.md, point 5)
+  dérive cette version de `pyproject.toml`/`package.json`/tag git le plus récent ; ce dépôt n'a
+  aucun des trois, donc rien à afficher. Pas un écart, application correcte de la norme à un
+  dépôt sans schéma de versionnage (2026-08-07)
