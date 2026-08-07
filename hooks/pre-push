@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# Hook pre-push — scan des secrets sur les commits sur le point de partir.
+#
+# Raison d'être : un secret commité localement ne doit jamais atteindre le remote.
+# Ce hook n'est qu'un confort — le vrai filet de sécurité est le job Gitea Actions
+# `secrets-scan.yml` (bloquant, gitleaks toujours présent en CI). Ici, `gitleaks`
+# n'est installé sur aucune machine du parc à ce jour : plutôt que de bloquer tous
+# les push tant que chacun n'a pas installé le binaire, ce hook avertit et laisse
+# passer si l'outil est absent. Dès qu'il est installé, l'avertissement devient une
+# vraie première ligne de défense, sans action supplémentaire.
+#
+# Contournement ponctuel : `git push --no-verify`.
+# Référence : repos-meta/SECRET_SCANNING.md.
+
+set -uo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "⚠️  gitleaks non installé — scan de secrets ignoré pour ce push." >&2
+  echo "   Installation : https://github.com/gitleaks/gitleaks#installing" >&2
+  echo "   Le filet de sécurité réel reste le workflow Gitea Actions secrets-scan.yml." >&2
+  exit 0
+fi
+
+status=0
+log_file=$(mktemp)
+trap 'rm -f "$log_file"' EXIT
+
+# Protocole standard du hook pre-push : une ligne par ref poussée, sur stdin.
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # Rien à pousser sur cette ref (suppression de branche distante) : rien à scanner.
+  [ "$local_sha" = "0000000000000000000000000000000000000000" ] && continue
+
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    # Nouvelle ref côté remote : pas de borne pour un diff propre. On limite le scan
+    # aux commits qui ne sont déjà connus d'aucune branche de suivi distant, pour ne
+    # pas re-signaler l'historique déjà accepté ailleurs sur le remote.
+    range_args=("$local_sha" --not --remotes)
+  else
+    range_args=("$remote_sha..$local_sha")
+  fi
+
+  # `--no-walk` prend une liste de commits séparés par des ESPACES, pas des virgules —
+  # `git rev-list` avec des virgules est traité comme une seule révision ambiguë et
+  # gitleaks scanne alors silencieusement zéro commit ("no leaks found" garanti, à tort).
+  log_opts=$(git rev-list "${range_args[@]}" | paste -sd' ' -)
+  [ -z "$log_opts" ] && continue
+
+  if ! gitleaks detect --source . --log-opts="--no-walk ${log_opts}" --exit-code 1 >"$log_file" 2>&1; then
+    echo "🚫 Push refusé — secret détecté dans ${local_ref} :" >&2
+    cat "$log_file" >&2
+    echo "" >&2
+    echo "   Faux positif ? Ajoute une règle d'allowlist (repos-meta/SECRET_SCANNING.md)." >&2
+    echo "   Contournement ponctuel : git push --no-verify" >&2
+    status=1
+  fi
+done
+
+exit "$status"
