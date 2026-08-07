@@ -1,0 +1,222 @@
+= Interfaces graphiques — vocabulaire des éléments
+:sectnums:
+:toc:
+:toclevels: 3
+
+Désigner un élément d'interface sans ambiguïté évite les allers-retours (« la barre en haut,
+là ») et donne directement le nom de la classe à chercher dans la documentation d'un toolkit.
+Les tables ci-dessous donnent, pour chaque élément : le nom français, le nom anglais (celui
+qu'utilisent les docs et les moteurs de recherche) et la classe Qt correspondante quand elle
+existe.
+
+Les classes citées sont celles de Qt (donc de PyQt/PySide), parce que c'est le toolkit des
+applications de bureau du parc. Le vocabulaire français/anglais, lui, vaut pour n'importe quel
+toolkit — GTK, web, Android.
+
+== Menus
+
+|===
+|Français |Anglais |Classe Qt |Description
+
+|Barre de menu
+|menu bar
+|`QMenuBar`
+|Bande horizontale en haut d'une fenêtre, contenant les menus déroulants (`Fichier`, `Édition`…). Accessible via `window.menuBar()`.
+
+|Menu déroulant
+|dropdown menu
+|`QMenu`
+|Le panneau qui se déploie quand on clique sur une entrée de la barre de menu.
+
+|Menu contextuel
+|context menu
+|`QMenu`
+|Le menu qui apparaît au clic droit sur un élément. Affiché via `exec()`/`popup()` à la position du curseur, et non rattaché à la barre de menu.
+
+|Sous-menu
+|submenu
+|`QMenu` imbriqué
+|Menu qui se déploie depuis une entrée ayant elle-même des enfants, signalée par un chevron `▸`. Ajouté via `menu.addMenu(...)` sur l'action parente.
+
+|Entrée de menu
+|menu item
+|`QAction`
+|Une ligne d'un menu. Porte son libellé, son raccourci (`setShortcut`), son icône et son état (cochée, désactivée).
+
+|Séparateur
+|separator
+|`menu.addSeparator()`
+|Filet horizontal groupant visuellement les entrées d'un menu.
+
+|Menu hamburger
+|hamburger menu
+|`QToolButton` + `QMenu`
+|Bouton à trois barres horizontales `☰` ouvrant le menu principal, quand il n'y a pas de barre de menu. Parfois appelé « menu sandwich », mais *hamburger* est le terme courant.
+
+|Menu kebab
+|kebab menu
+|`QToolButton` + `QMenu`
+|Bouton à trois points **verticaux** `⋮`, typiquement pour les actions d'un élément de liste.
+
+|Menu meatball
+|meatball menu
+|`QToolButton` + `QMenu`
+|Bouton à trois points **horizontaux** `⋯`, même usage que le kebab. Sert souvent de menu de débordement (_overflow_) quand la place manque.
+|===
+
+== Barres et conteneurs
+
+|===
+|Français |Anglais |Classe Qt |Description
+
+|Barre de titre
+|title bar
+|(gérée par le système)
+|Bande portant le titre de la fenêtre et les boutons réduire/agrandir/fermer.
+
+|Barre d'outils
+|toolbar
+|`QToolBar`
+|Bande de boutons d'action, souvent sous la barre de menu. À ne pas confondre avec elle.
+
+|Barre d'état
+|status bar
+|`QStatusBar`
+|Bande en bas de fenêtre affichant messages d'état et indicateurs.
+
+|Barre latérale / panneau latéral
+|sidebar
+|`QDockWidget`
+|Panneau vertical sur un côté. Un `QDockWidget` est détachable et repositionnable.
+
+|Barre de défilement
+|scrollbar
+|`QScrollBar`
+|
+
+|Onglets
+|tabs
+|`QTabWidget`
+|
+
+|Séparateur redimensionnable
+|splitter
+|`QSplitter`
+|Poignée entre deux panneaux permettant d'ajuster leur partage de l'espace.
+
+|Boîte de dialogue
+|dialog
+|`QDialog`
+|Fenêtre secondaire. *Modale* si elle bloque l'interaction avec le reste de l'application tant qu'elle est ouverte, *non modale* sinon.
+
+|Fil d'Ariane
+|breadcrumb
+|(pas de classe dédiée)
+|Chemin de navigation hiérarchique (`Accueil > Réglages > Réseau`).
+
+|Zone de notification
+|system tray
+|`QSystemTrayIcon`
+|Icône de l'application dans la zone de notification du système.
+|===
+
+== Contrôles de saisie
+
+|===
+|Français |Anglais |Classe Qt
+
+|Bouton
+|button
+|`QPushButton`
+
+|Case à cocher
+|checkbox
+|`QCheckBox`
+
+|Bouton radio
+|radio button
+|`QRadioButton`
+
+|Interrupteur
+|toggle switch
+|(pas de classe native ; `QCheckBox` restylé)
+
+|Liste déroulante
+|combo box / dropdown
+|`QComboBox`
+
+|Champ de saisie
+|text field / line edit
+|`QLineEdit`
+
+|Zone de texte
+|text area
+|`QTextEdit`
+
+|Curseur / glissière
+|slider
+|`QSlider`
+
+|Compteur
+|spin box
+|`QSpinBox`
+
+|Sélecteur de date
+|date picker
+|`QDateEdit`
+|===
+
+== Affichage et retour d'information
+
+|===
+|Français |Anglais |Classe Qt |Description
+
+|Infobulle
+|tooltip
+|`QToolTip`
+|Petite bulle d'aide au survol.
+
+|Barre de progression
+|progress bar
+|`QProgressBar`
+|
+
+|Notification passagère
+|toast / snackbar
+|(pas de classe native)
+|Message temporaire qui s'efface seul, sans bloquer l'interaction.
+
+|Pastille
+|badge
+|(pas de classe native)
+|Petit compteur ou point superposé à une icône.
+
+|Vue en arbre
+|tree view
+|`QTreeView`
+|Liste hiérarchique dépliable.
+
+|Vue en table
+|table view
+|`QTableView`
+|
+
+|Espace extensible
+|spacer / stretch
+|`addStretch()`
+|Espace élastique poussant les widgets voisins vers les bords.
+|===
+
+== Annoter une capture d'écran
+
+Pour illustrer un de ces éléments, le script `python/image/annotate_ui_screenshot.py` de ce
+dépôt encadre un widget dans une capture sans avoir à relever ses coordonnées à la main : on
+lui donne un point intérieur au widget, il en déduit le rectangle exact par composante connexe
+sur la couleur de fond.
+
+[source,bash]
+----
+python annotate_ui_screenshot.py capture.png annotee.png \
+    --box 1400,700:QMenu:above-left \
+    --extra-color 144,175,243
+----

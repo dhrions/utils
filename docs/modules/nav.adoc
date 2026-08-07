@@ -13,6 +13,7 @@
 ** xref:python:linux-command.adoc[Commandes Linux]
 ** xref:python:nlp.adoc[NLP]
 * xref:docker:docker.adoc[Docker]
+* xref:gui:gui.adoc[Interfaces graphiques]
 
 .Système
 * xref:linux:linux.adoc[Linux]
