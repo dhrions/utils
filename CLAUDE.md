@@ -11,15 +11,6 @@ This is a documentation and utilities repository written primarily in French. It
 
 ## Key Commands
 
-### AsciiDoc Link Checker
-
-Check broken links in AsciiDoc files:
-```bash
-cd scripts/adoc_link_check
-pip install -r requirements.txt
-python cli.py [directory] [--timeout 15] [--max-workers 5] [--verbose]
-```
-
 ### Antora Documentation Build
 
 Build the Antora documentation site:
@@ -38,9 +29,10 @@ Output is generated to `docs/build/`.
 
 ### Python Utilities
 
-- **`scripts/adoc_link_check/`**: CLI tool to verify links in AsciiDoc files (uses Click framework)
 - **`python/`**: Various Python examples and notebooks organized by topic (dataframe, pdf, json, folium, etc.)
 - Each Python subdirectory typically has its own `env/` virtual environment
+- The AsciiDoc link checker that used to live in `scripts/adoc_link_check/` moved to its own
+  dedicated repo, `~/repos/adoc-link-checker` — use that repo, not a copy in `utils`
 
 ### Conventions
 
