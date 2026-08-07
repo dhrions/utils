@@ -1,5 +1,7 @@
 {
   "title": "Repository _utils_",
   "description": "Collection de scripts Python et AsciiDoc réutilisables (utilitaires divers)",
+  "category": "Outils de Développement",
+  "status": "active",
   "image": "utils.png"
 }
