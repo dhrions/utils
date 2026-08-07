@@ -123,9 +123,16 @@ jobs:
 
             # Extract image field and copy the icon if specified
             ICON=$(node -e "try{const m=JSON.parse(require('fs').readFileSync('.repo-meta.json','utf8'));if(m.image)console.log(m.image)}catch(e){}")
-            if [ -n "$ICON" ] && [ -f "$ICON" ]; then
-              cp "$ICON" /deploy/dhrions/$REPO/"$ICON"
-              echo "Deployed icon: $ICON"
+            if [ -n "$ICON" ]; then
+              # Reject absolute paths and traversal before resolving, so a malicious
+              # .repo-meta.json can't make the icon escape the repo root.
+              ICON_REAL=$(realpath -m -- "$ICON" 2>/dev/null || true)
+              if [ -n "$ICON_REAL" ] && [ -f "$ICON_REAL" ] && [ "${ICON_REAL#"$PWD"/}" != "$ICON_REAL" ]; then
+                cp "$ICON_REAL" /deploy/dhrions/$REPO/"$ICON"
+                echo "Deployed icon: $ICON"
+              else
+                echo "::warning::Icon path '$ICON' rejected (outside repo root or missing)"
+              fi
             fi
           fi
 
