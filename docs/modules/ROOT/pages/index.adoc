@@ -1,6 +1,14 @@
 = Documentation Utils
 :description: Documentation et utilitaires pour le développement
 
+image::utils.png[Documentation Utils,width=300,align=center]
+
+== ⚡ TL;DR
+
+* 🗂️ Regroupe des pages de doc par domaine (git, python, linux, docker, asciidoc, ...) et des scripts Python réutilisables
+* 🎯 Quand : pour retrouver un bout de code ou une doc pratique déjà écrite, plutôt que de la réécrire
+* 🚀 `npx antora antora-playbook.yml` (depuis `docs/`) — génère la doc localement
+
 Bienvenue sur la documentation du projet Utils.
 
 Ce site regroupe des guides et tutoriels sur différents outils et technologies.

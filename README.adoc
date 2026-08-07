@@ -1,17 +1,46 @@
-= 📚 Repository _utils_
+= Repository _utils_
 :author: Romain Le Drogo
+
+image::utils.png[Repository utils,width=300,align=center]
+
+[quote]
+____
+Collection de scripts Python et AsciiDoc réutilisables (utilitaires divers).
+____
+
+== ⚡ TL;DR
+
+* 🗂️ Chaque sous-dossier (`python/`, `asciidoc/`, `scripts/adoc_link_check/`) est autonome, avec son propre `requirements.txt`/environnement virtuel
+* 🎯 Quand : pour récupérer un bout de code ou une doc déjà écrite plutôt que de la réécrire #flemme #DRY
+* 🚀 `cd scripts/adoc_link_check && python cli.py .` — vérifie les liens cassés dans les fichiers AsciiDoc du dépôt courant
 
 Ce document rassemble des bouts de code qui peuvent être utiles à réutiliser pour gagner du temps #flemme #DRY.
 
 Il se compose d'un dossier :
 
-* link:python[python] ;
-* link:asciidoc[asciidoc] pour réécrire facilement des fichiers asciidoc.
+* 🐍 link:python[python] ;
+* 📝 link:asciidoc[asciidoc] pour réécrire facilement des fichiers asciidoc ;
+* 🔗 link:scripts/adoc_link_check[scripts/adoc_link_check] pour vérifier les liens cassés dans les fichiers AsciiDoc.
 
 Pour choisir les composants d'un ordinateur que l'on souhaite construire, on peut utiliser le site https://fr.pc-builder.io/[PC Builder].
 
-== Liens utiles
+== 🚀 Installation
 
-* link:https://githubnext.com/projects/repo-visualization#explore-for-yourself[Outil pour visualiser graphiquement un dépôt GitHub]
-* link:https://semver.org/lang/fr/[Le site sur le versionnage sémantique]
-* link:https://keepachangelog.com/fr/1.1.0/[Le site sur le changelog]
+[source,bash]
+----
+cd scripts/adoc_link_check
+pip install -r requirements.txt
+----
+
+== 💻 Utilisation
+
+[source,bash]
+----
+python cli.py [directory] [--timeout 15] [--max-workers 5] [--verbose]
+----
+
+== 🔗 Liens utiles
+
+* 🖼️ link:https://githubnext.com/projects/repo-visualization#explore-for-yourself[Outil pour visualiser graphiquement un dépôt GitHub]
+* 🔢 link:https://semver.org/lang/fr/[Le site sur le versionnage sémantique]
+* 📝 link:https://keepachangelog.com/fr/1.1.0/[Le site sur le changelog]

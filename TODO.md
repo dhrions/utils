@@ -4,22 +4,11 @@ Backlog technique du dépôt `utils`, issu de la revue `/review-full` du 2026-08
 
 ## README
 
-- [ ] Ajouter une ligne « Version X.Y.Z, DD/MM/YYYY » en en-tête (README.adoc:1-4)
-- [ ] Ajouter un bloc ⚡ TL;DR (README.adoc:1)
-- [ ] Vérifier si le titre H1 avec émoji nécessite une dérogation explicite (README.adoc:1, non vérifié)
-- [ ] Afficher l'image du dépôt (`utils.png`) dans le README (README.adoc:1)
-- [ ] Ajouter une section Installation/Utilisation pour le CLI `adoc_link_check` (README.adoc:1-17)
-- [ ] Ajouter des émojis aux éléments de liste (README.adoc:8-9,15-17)
-- [ ] Ajouter un émoji au titre « Liens utiles » (README.adoc:13)
+- [ ] Ajouter une ligne « Version X.Y.Z, DD/MM/YYYY » en en-tête — bloqué : ce dépôt n'a aucun schéma de versionnage (pas de tag git, pas de `pyproject.toml` racine), fabriquer un numéro serait trompeur. Décision à prendre : adopter un versionnage du dépôt, ou documenter explicitement l'absence de version (README.adoc:1-2)
 
 ## Documentation Antora
 
-- [ ] Déplacer `nav.adoc` vers l'emplacement canonique `docs/modules/ROOT/nav.adoc` (actuel : `docs/modules/nav.adoc`)
-- [ ] Ajouter des émojis aux entrées de `nav.adoc` (docs/modules/nav.adoc:1-45)
-- [ ] Ajouter une section TL;DR à `index.adoc` (docs/modules/ROOT/pages/index.adoc:1-4)
-- [ ] Afficher l'image d'illustration du dépôt dans `index.adoc` (symlink `docs/modules/ROOT/images/utils.png` manquant)
-- [ ] Renseigner le champ `category` dans `.repo-meta.json` (archétype documentaire ambigu)
-- [ ] Clarifier/supprimer le dossier `antora/` résiduel (juste un `build/`), qui contredit la commande documentée dans CLAUDE.md:20-24
+- [ ] Revoir la `category` de `.repo-meta.json` (`Outils de Développement` → archétype 🛠️ Projet applicatif) au regard du layout réel, clairement 🗂️ Collection/infrastructure (nav groupée par domaine, pas de point d'entrée CLI unique) — à trancher explicitement plutôt que corriger à l'aveugle (.repo-meta.json:4)
 
 ## Standards CLI/CI
 

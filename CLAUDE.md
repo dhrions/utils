@@ -24,18 +24,17 @@ python cli.py [directory] [--timeout 15] [--max-workers 5] [--verbose]
 
 Build the Antora documentation site:
 ```bash
-cd antora
+cd docs
 npx antora antora-playbook.yml
 ```
-Output is generated to `antora/build/`.
+Output is generated to `docs/build/`.
 
 ## Architecture
 
 ### Documentation Structure
 
-- **Topic directories** (`python/`, `linux/`, `git/`, `docker/`, etc.): Each contains a `README.adoc` with documentation on that topic
-- **`computing-learner-roadmap/`**: Educational roadmap with subdirectories for dev, ops, sec, signals, and self-hosted content
-- **`antora/`**: Antora documentation site configuration with `modules/` containing structured content
+- **`docs/`**: Antora documentation site (source of truth), with a `modules/<topic>/pages/` per topic (git, python, linux, docker, asciidoc, ai, jwt, information-theory, roadmap, ...) and `docs/modules/ROOT/nav.adoc` for navigation
+- **Topic directories** (`python/`, `asciidoc/`, etc.) at the repo root: reusable code/snippets referenced from the README, separate from the `docs/` narrative content
 
 ### Python Utilities
 
